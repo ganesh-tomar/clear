@@ -1,0 +1,11 @@
+/* absolute bg-100 */
+.underlineSpan{
+    position: absolute;
+    left: -0.7rem;
+    bottom: -1rem;
+    height: 17%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    background-position: left;
+}

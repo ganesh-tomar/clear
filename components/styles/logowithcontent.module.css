@@ -1,0 +1,45 @@
+.category {
+	position: relative;
+}
+.category .listWrap {
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+}
+.category.show .listWrap {
+	visibility: visible;
+	opacity: 1;
+}
+.category .arrow svg {
+	transition: transform 0.3s ease-in-out;
+}
+.category.show .arrow svg {
+	transform: rotate(-180deg);
+}
+.btnFont{
+	font-size: clamp(16px, 1.3vw, 20px);
+	font-weight: 700;
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.btnFont{
+		font-size: 2rem !important;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.btnFont{
+		font-size: 1.6rem;
+	}
+}
+.content{
+	transition: all 0.1s ease-in-out;
+}
+/* .wrapper {
+	background-image: unset;
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-image 0.3s ease-in-out;
+}
+.wrapper:hover {
+	background-image: url(/cardsbg.png);
+} */

@@ -1,0 +1,12 @@
+.accordionItem {
+	border-color: rgba(153, 153, 153, 0.5);
+}
+.accordionItem:last-child {
+	border: none;
+}
+.accordionContent {
+	transition: max-height 0.3s ease-in-out;
+}
+.accordionContent.active {
+	max-height: 50rem;
+}

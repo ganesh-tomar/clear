@@ -1,0 +1,148 @@
+/* .card:hover .cardContent {
+	top: 0;
+}
+.card:hover .blackOverlay::after {
+	height: 142%;
+}
+.card:hover .desc {
+	-webkit-line-clamp: 4;
+}
+.cardContent {
+	top: 22%;
+	transition: all 0.3s ease-in-out;
+}
+.hiddencontent {
+	transition: all 0.3s ease-in-out;
+}
+
+.card:hover .hiddencontent {
+	opacity: 1;
+	margin-top: 2rem;
+}
+.blackOverlay {
+	position: relative;
+}
+.blackOverlay::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: -1;
+	transition: height 0.3s ease-in-out;
+}
+
+.desc {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow-y: hidden;
+}
+
+@media screen and (max-width: 596px) {
+	.hiddencontent {
+		height: 8rem;
+		opacity: 1;
+		margin-top: 2rem;
+	}
+	.blackOverlay::after {
+		height: 100% !important;
+	}
+	.desc {
+		-webkit-line-clamp: 5 !important;
+	}
+}
+
+@media screen and (max-width: 950px) and (max-height: 450px) {
+	.card {
+		min-height: 30rem;
+	}
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 991px) {
+	.card:hover .desc {
+		-webkit-line-clamp: 5;
+	}
+} */
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 45rem;
+}
+.card:hover .blackOverlay::after {
+	height: 100%;
+}
+
+.hiddencontent {
+	transition: all 0.3s ease-in-out;
+}
+
+.card:hover .hiddencontent {
+	height: 8rem;
+	opacity: 1;
+	margin-top: 2rem;
+}
+
+@media screen and (max-width: 950px) and (max-height: 450px) {
+	.card {
+		min-height: 43rem !important;
+	}
+}
+
+@media screen and (max-width: 767px) and (max-height: 450px) {
+	.card {
+		min-height: 30rem !important;
+	}
+}
+@media only screen and (max-width: 1280px) and (min-width: 991px) {
+	.card:hover .desc {
+		-webkit-line-clamp: 5;
+	}
+}
+@media screen and (max-width: 596px) {
+	.hiddencontent {
+		height: 8rem;
+		opacity: 1;
+		margin-top: 2rem;
+	}
+	.blackOverlay::after {
+		height: 100% !important;
+	}
+	.desc {
+		-webkit-line-clamp: 5 !important;
+	}
+}
+
+@media screen and (max-width: 950px) and (max-height: 450px) {
+	.card {
+		min-height: 30rem;
+	}
+}
+
+.blackOverlay::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 48%;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: -1;
+	transition: height 0.3s ease-in-out;
+}
+
+.desc {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow-y: hidden;
+}

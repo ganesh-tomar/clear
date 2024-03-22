@@ -1,0 +1,9 @@
+.techOverview:hover .link {
+	border-color: #fff;
+}
+.link {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.link:last-child {
+	border-bottom: none;
+}

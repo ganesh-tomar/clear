@@ -1,0 +1,34 @@
+.circle {
+	transition: all 0.2s ease-in-out;
+	z-index: 1;
+}
+.circle.active {
+	background-color: #fa198c;
+}
+.line {
+	z-index: 0;
+}
+.line.active .pinkLine {
+	height: 100%;
+}
+/* .line.active .circle {
+	background-color: #fa198c;
+} */
+.pinkLine {
+	transition: all 0.5s ease-in-out;
+	background-color: #fa198c;
+	width: 100%;
+	height: 0;
+}
+.lineOne {
+	height: 13%;
+}
+.lineTwo {
+	height: 37%;
+}
+.lineThree {
+	height: 36%;
+}
+.lineFour {
+	height: 22%;
+}

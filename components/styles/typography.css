@@ -1,0 +1,100 @@
+.circle {
+  font-family: auto;
+  margin-left: -30px;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent);
+  bottom: 100px;
+}
+
+.parallax {
+  overflow: hidden;
+  letter-spacing: -2px;
+  line-height: 0.8;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.parallax .scroller {
+  display: flex;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.parallax span {
+  display: block;
+  margin-right: 30px;
+}
+.bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.banner-second .bg-img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.inner-wrap {
+  display: flex;
+  background-color: #ccc; /* Set background color as needed */
+}
+
+.text-holder {
+  /* width: 50%; */
+  /* padding-left: 95px;
+  padding-right: 135px; */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.image-holder {
+  width: 50%;
+}
+
+.img-wrap {
+  height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.content-with-img .text-holder {
+  /* width: 50%; */
+  /* padding-left: 95px;
+  padding-right: 135px; */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+@media (min-width: 992px) and (max-width: 1280px) {
+  .content-with-img .text-holder {
+    padding-left: 60px;
+    padding-right: 100px;
+  }
+}
+
+.redirect{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}

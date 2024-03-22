@@ -1,0 +1,197 @@
+.borderPink {
+	position: relative;
+}
+.borderPink:hover:after {
+	width: 100%;
+}
+.borderPink:after {
+	content: '';
+	position: absolute;
+	bottom: -0.5rem;
+	left: 0;
+	height: 1rem;
+	width: 0;
+	z-index: 1;
+	background-color: #fa198c;
+	transition: width 0.3s linear;
+}
+.clearLogoSvg {
+	position: relative;
+	overflow: visible;
+	width: 11.5rem;
+	height: 4rem;
+}
+
+.header.showCover .leftCover {
+	opacity: 1;
+}
+.header.showCover .rightCover {
+	opacity: 1;
+}
+.header.showCover .bottomCover {
+	opacity: 1;
+}
+.header.showCover .topCover {
+	opacity: 1;
+}
+.header.showCover {
+	border-bottom: 1px solid #E5E4E7;
+}
+.header.showCover .logoBox::after {
+	visibility: visible;
+}
+.header:hover {
+	border-bottom: 1px solid #E5E4E7;
+}
+.header:hover .logoBox::after {
+	visibility: hidden;
+}
+.whiteCover {
+	position: relative;
+}
+.showCover .whiteCover.show::after {
+	opacity: 1;
+}
+.leftCover {
+	position: absolute;
+	width: 100vh;
+	height: 100vh;
+	right: 100%;
+	left: auto;
+	bottom: 0;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+}
+.rightCover {
+	position: absolute;
+	width: 1000vh;
+	height: 100vh;
+	left: calc(100% - 2px);
+	bottom: 0;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+}
+.bottomCover {
+	position: absolute;
+	width: 200%;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+}
+.topCover {
+	position: absolute;
+	width: 200%;
+	height: 50vh;
+	left: 0;
+	bottom: 95%;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+}
+.logoWrap {
+	position: relative;
+}
+.header.blackHeader .litext {
+	color: #000 !important;
+}
+.header .litext {
+	font-size: clamp(16px, 1.3vw, 20px);
+}
+.logoWrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.logoBox::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: black;
+	opacity: 0.2;
+	z-index: -2;
+	visibility: hidden;
+}
+.subCategoryContainer:last-child {
+	margin-bottom: 0;
+}
+
+@media only screen and (max-width: 991px) {
+	.borderPink:after {
+		display: none;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.header .litext {
+		font-size: 24px;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.alignNav {
+		padding-inline: var(--container-spacing);
+	}
+	.logoWrap::after {
+		height: 32%;
+	}
+	.logoWrap {
+		height: auto !important;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.menu:hover > ul {
+		max-height: 100vh;
+		height: auto;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.header .litext {
+		font-size: 20px !important;
+	}
+	.clearLogoSvg {
+		width: 13.5rem;
+		height: 5rem;
+	}
+	.topCover {
+		bottom: 104%;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.header .litext {
+		font-size: 20px !important;
+	}
+	.clearLogoSvg {
+		width: 13.5rem;
+		height: 5rem;
+	}
+	.topCover {
+		bottom: 104%;
+	}
+}
+
+.industryDivider {
+	position: relative;
+}
+.industryDivider::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -5.3rem;
+	width: 1px;
+	height: 100%;
+	background-color: #e5e4e7;
+	transform: translateY(-50%);
+}
+@media only screen and (max-width: 1300px) and (min-width: 992px) {
+	.industryDivider {
+		margin-left: 3rem;
+	}
+	.industryDivider::before {
+		left: -2.3rem;
+	}
+}

@@ -1,0 +1,18 @@
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.logo {
+		max-width: 13.5rem;
+		height: 5rem;
+	}
+	.myrious_logo {
+		max-width: 13.5rem;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.myrious_logo {
+		max-width: 13.5rem;
+	}
+	.logo {
+		max-width: 13.5rem;
+		height: 5rem;
+	}
+}

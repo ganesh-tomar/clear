@@ -1,0 +1,5 @@
+@media only screen and (max-height: 580px) {
+  .heroBanner {
+    padding-top: 12rem;
+  }
+}

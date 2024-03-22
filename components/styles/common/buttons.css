@@ -1,0 +1,131 @@
+/* Buttons  */
+
+.btn {
+	position: relative;
+	display: inline-block;
+	padding: 1.5rem 2rem;
+	font-size: clamp(16px, 1.3vw, 20px);
+	font-weight: 700;
+	letter-spacing: 0.008em;
+	transition: all 0.3s ease-in-out;
+}
+.btn.pink {
+	background: var(--pink);
+	color: var(--white);
+	border: 2px solid var(--pink);
+}
+.btn.pink:hover {
+	background: transparent;
+	color: var(--pink);
+	border: 2px solid var(--pink);
+}
+.btn.pink.white-bordered:hover {
+	color: var(--white);
+	border: 2px solid var(--white);
+}
+
+.btn.whiteBtn {
+	background: transparent;
+	color: var(--white);
+	border: 2px solid var(--white);
+}
+.btn.whiteBtn:hover {
+	background: var(--white);
+	color: var(--black);
+}
+
+.btn.blackBtn {
+	background: transparent;
+	color: var(--black);
+	border: 2px solid var(--black);
+}
+.btn.blackBtn:hover {
+	background: var(--black);
+	color: var(--white);
+}
+
+.tertiary-btn {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--white);
+	font-size: clamp(16px, 1.3vw, 20px);
+	font-weight: 700;
+	line-height: 1;
+	padding-right: 3.5rem;
+}
+.tertiary-btn.left::after {
+	content: '';
+	height: 2rem;
+	width: 2.2rem;
+	position: absolute;
+	left: 0.3rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background-image: url(/Arrow_Right.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: left 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+.tertiary-btn.left:hover:after {
+	left: -0.5rem;
+}
+.tertiary-btn.black {
+	color: var(--black);
+}
+.tertiary-btn.pink {
+	color: var(--pink);
+}
+.tertiary-btn::after {
+	content: '';
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	right: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background-image: url('/r_arrow_white.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: right 0.3s ease-in-out;
+}
+.tertiary-btn.black::after {
+	background-image: url('/r_arrow_black.svg');
+}
+.tertiary-btn.pink::after {
+	background-image: url('/r_arrow_pink.svg');
+}
+.tertiary-btn:hover:after {
+	right: 0rem;
+}
+.small-btn {
+	font-size: 1.6rem;
+}
+@media only screen and (max-width: 991px) {
+	.btn {
+		font-size: 16px;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.btn,
+	.tertiary-btn {
+		font-size: 20px;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.btn,
+	.tertiary-btn {
+		font-size: 20px;
+	}
+}
+.redirectLinks .btn-default:after {
+	right: -0.6rem;
+}
+.redirectLinks .btn-default:hover::after {
+	right: -0.9rem;
+}
+
+.colthreewithintro .card .redirect:hover .tertiary-btn::after {
+	right: -0.5rem;
+}

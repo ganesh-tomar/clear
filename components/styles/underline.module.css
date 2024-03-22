@@ -1,0 +1,20 @@
+.underline-container {
+	position: relative;
+}
+
+.underline-container::before {
+	content: '';
+	position: absolute;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	bottom: -0.3em;
+	left: 0;
+	right: 0;
+	height: 0.475em;
+	width: 102%;
+	background-image: url('/markers/marker-underline-white-large.png');
+	clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+	transition: 0.4s clip-path ease;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}

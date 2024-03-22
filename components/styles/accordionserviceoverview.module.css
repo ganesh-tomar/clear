@@ -1,0 +1,14 @@
+/* .accordioncontent{
+    max-height: 0;
+    overflow: hidden;
+    max-width: 1170px;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordioncontent.open  {
+    max-height: 570px;
+  } 
+
+  .accordioncontent.closed {
+    max-height: 0;
+  } */

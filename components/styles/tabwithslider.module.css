@@ -1,0 +1,74 @@
+.imgwrapper{
+    width: calc(50% - 75px);
+    margin-right: 150px;
+    position: relative;
+    max-width: 570px;
+    max-height: 490px;
+
+}
+
+@media (desktop) {
+  .imgwrapper{
+    width: calc(50% - 50px);
+    margin-right: 100px;
+  }   
+}
+
+.contentwrapper{
+  width: calc(50% - 75px);
+  margin-left: 0;
+}
+
+@media (desktop) {
+    .contentwrapper{
+      width: calc(50% - 50px);
+      margin-right: 100px;
+    }   
+  }
+
+.contentwrapper::after{
+    content: '';
+    position: absolute;
+    left: -49px;
+    top:-23px;
+    z-index: 2;
+    width: 72px;
+    height: 60px;
+    background-image: url('/Quotations.png');
+    background-size: cover;
+}
+
+.wrapper{
+    display: flex !important;
+}
+
+
+.content{
+    color:#fff;
+    margin-bottom: 40px;
+}
+
+.imgwrap{
+    max-width: 156px;
+    max-height: 21px;
+    margin-top: 20px;
+}
+
+.txt{
+    color: #FA198C;
+}
+
+.slick-list {
+    width: 100% !important;
+    overflow: hidden;
+}
+.slick-track {
+    display: flex;
+}
+.slick-prev {
+    display: none !important;
+    z-index: 2;
+}
+.slick-next {
+    display: none !important;
+}

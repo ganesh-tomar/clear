@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import serviceDetail from "../pages/service-detail";
+import serviceDetail from "../pages/html/service-detail";
 
-const Introduction = ({ introname,gridframe }) => {
+const Introduction = ({ introname, gridframe, borderTop }) => {
   const introdata = {
     intro: [
       {
@@ -41,12 +41,22 @@ const Introduction = ({ introname,gridframe }) => {
         underlineVisibiltiy: false,
       },
     ],
+    partnerDetailA: [
+      {
+        subheading: 'Related case studies',
+        heading: 'Nisl',
+        highlightedtext: 'pulvinar',
+        normaltext: 'consectet nec lipsum dolor',
+        underlineVisibiltiy: false,
+        btntext: 'View all case studies',
+      },
+    ],
   };
 
   const content = introdata[introname] || [];
 
   return (
-    <section className={`intro default-padding ${gridframe===true?'grid__parallax dark':''}`}>
+    <section className={`intro default-padding ${gridframe === true ? 'grid__parallax dark' : ''} ${borderTop === true ? `border-t border-darkGray` : ''}`}>
       <div className="container">
         {content.map((item, index) => (
           <div key={index} className="wrapper w-full relative flex flex-wrap justify-between laptop:items-center">

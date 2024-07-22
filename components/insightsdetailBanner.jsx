@@ -137,9 +137,10 @@ export default function Insightsbanner({
 						<div className="tabs-wrap mb-[1.2rem] flex flex-wrap">
 							{tabcontent.map((item, index) => (
 								<span
-									className="tab px-[1rem] py-[0.5rem] bg-black medium text-white mr-[1rem] mb-[1rem]"
+									className="tab px-[1rem] py-[0.5rem] bg-black font-bold medium text-white mr-[1rem] mb-[1rem] relative"
 									key={index}
 								>
+									<Link className='redirect' href="/" >.</Link>
 									{item.tabcontent}
 								</span>
 							))}
@@ -186,7 +187,7 @@ export default function Insightsbanner({
 								<Link
 									href={ctaLink}
 									onClick={overlay ? handleOverlayClick : null}
-									data-cursor-expand
+									data-cursor-expand="true"		
 									data-cursor-icon={overlay ? 'iconPlay' : ''}
 									className={`${overlay ? '	' : ''}white-border-btn font-bold`}
 								>

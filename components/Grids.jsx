@@ -1,9 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Marquee from '../components/MarqeeText';
+import Lottie from 'react-lottie';
+import firstlootie from '../public/Lootie/lottie_1.json'
+import brandstrategy from '../public/Lootie/lottie_2.json'
+import brandmessaging from '../public/Lootie/lottie_3.json'
+import campianmarketing from '../public/Lootie/lottie_4.json'
+import creativeandcontent from '../public/Lootie/lottie_5.json'
+import collaborative from '../public/Lootie/lottie_6.json'
+import webexperience from '../public/Lootie/lottie_7.json'
+import uxui from '../public/Lootie/lottie_8.json'
+import motiongraphics from '../public/Lootie/lottie_9.json'
+import campaignMarketing from '../public/Lootie/lottie_10.json'
+import dxpcms from '../public/Lootie/lottie_11.json'
+import technology from '../public/Lootie/lottie_12.json'
+import customweb from '../public/Lootie/lottie_13.json'
+import authoring from '../public/Lootie/lottie_14.json'
+import systemssupport from '../public/Lootie/lottie_15.json'
 
-export default function introWithCards({ content, marquee, pt, pb }) {
+
+
+
+export default function IntroWithCards({ content, marquee, pt, pb }) {
 	const contentdata = {
 		foundation: [
 			{
@@ -11,34 +30,30 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 				cards: [
 					{
 						title: 'Brand strategy',
-						blurb:
-							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape4.svg',
+						blurb: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						lottieFile: brandstrategy,
 					},
 					{
 						title: 'Brand Messaging',
-						blurb:
-							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape5.svg',
+						blurb: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						lottieFile: brandmessaging,
 					},
 					{
 						title: 'Visual Identity',
-						blurb:
-							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape6.svg',
+						blurb: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						lottieFile: firstlootie,
 					},
 					{
 						title: 'Data & Metrics Analysis',
-						blurb:
-							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape1.svg',
+						blurb: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						lottieFile: campianmarketing,
 					},
 					{
 						title: 'User Research',
-						blurb:
-							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape2.svg',
-					},]
+						blurb: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+						lottieFile: collaborative,
+					},
+				]
 			}
 		],
 		expression: [
@@ -49,31 +64,31 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 						title: 'Web Experience',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape7.svg',
+						lottieFile: webexperience,
 					},
 					{
 						title: 'UX/UI Design',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape4.svg',
+						lottieFile: uxui,
 					},
 					{
 						title: 'Creative & Content Services',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape5.svg',
+						lottieFile: creativeandcontent,
 					},
 					{
 						title: 'Motion Graphics	& Videos',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape4.svg',
+						lottieFile: motiongraphics,
 					},
 					{
 						title: 'Campaigns & Marketing',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape5.svg',
+						lottieFile: campaignMarketing,
 					},
 				],
 			}
@@ -86,31 +101,31 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 						title: 'DXP & CMS Platforms',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape4.svg',
+						lottieFile: dxpcms,
 					},
 					{
 						title: 'Technology Integration',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape5.svg',
+						lottieFile: technology,
 					},
 					{
 						title: 'Custom Web Development',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape6.svg',
+						lottieFile: customweb,
 					},
 					{
 						title: 'Authoring & Publishing',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape1.svg',
+						lottieFile: authoring,
 					},
 					{
 						title: 'Systems Support',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-						img: '/service-detail/shape2.svg',
+						lottieFile: systemssupport,
 					},
 				],
 			}
@@ -124,18 +139,22 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
 						img: '/collaboration._serviesvg.svg',
+						isimg: true
+
 					},
 					{
 						title: 'B2B performance	driven.',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
 						img: '/Focused.svg',
+						isimg: true
 					},
 					{
 						title: 'Design + development excellence.',
 						blurb:
 							'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
 						img: '/excellence_service.svg',
+						isimg: true
 					},
 				],
 			}
@@ -143,6 +162,25 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 	};
 
 	const contentData = contentdata[content] || [];
+
+	const [animationState, setAnimationState] = useState(
+		contentData[0].cards.map(() => ({
+			isStopped: true,
+		}))
+	);
+
+	const handleMouseEnter = (index) => {
+		const newAnimationState = [...animationState];
+		newAnimationState[index].isStopped = false;
+		setAnimationState(newAnimationState);
+	};
+
+	const handleMouseLeave = (index) => {
+		const newAnimationState = [...animationState];
+		newAnimationState[index].isStopped = true;
+		setAnimationState(newAnimationState);
+	};
+
 
 	return (
 		<section
@@ -160,19 +198,30 @@ export default function introWithCards({ content, marquee, pt, pb }) {
 						<div
 							key={index}
 							className={`w-colThree bg-white border border-darkGray mx-[1.5rem] lg:mx-[1rem] mb-[3rem] tablet:w-halfWidth phablet:w-halfWidth sm:w-[100%]`}
+							onMouseEnter={() => handleMouseEnter(index)}
+							onMouseLeave={() => handleMouseLeave(index)}
 						>
 							<div className="card h-full relative pt-[8rem] group px-[5rem] pb-[17.2rem]  laptop:px-[4rem]   tablet:pt-[4rem] tablet:px-[4rem] tablet:pb-[8rem] phablet:p-[3rem] phablet:pb-[8rem] sm:p-[3rem] sm:pb-[8rem]">
 								<Link href="/" className="redirect">
 									.
 								</Link>
 								<div className="logo-wrap mb-[3rem] w-full max-w-[10rem] h-[10rem] max-h-[10rem] tablet:max-w-[75px] tablet:max-h-[75px] tablet:h-[75px] phablet:max-w-[75px] phablet:max-h-[75px] phablet:h-[75px]  sm:max-h-[70px] sm:h-[70px]">
-									<Image
-										className="h-full w-full object-contain"
-										width={100}
-										height={100}
-										src={data.img}
-										alt="image"
-									/>
+									{data.isimg == true ? (
+										<Image src={data.img} alt={data.title} className='object-contain w-full h-full' width={1000} height={1000} />
+
+									) : (
+										<Lottie
+											options={{
+												loop: true,
+												autoplay: false,
+												animationData: data.lottieFile,
+												rendererSettings: {
+													preserveAspectRatio: 'xMidYMid slice'
+												}
+											}}
+											isStopped={animationState[index].isStopped}
+										/>
+									)}
 								</div>
 								<h4 className="mb-[2rem]">{data.title}</h4>
 								<p className="">{data.blurb}</p>

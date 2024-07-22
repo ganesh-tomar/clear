@@ -16,3 +16,59 @@
 		height: 5rem;
 	}
 }
+.footerLink {
+	position: relative;
+	color: #fff;
+}
+.footerLink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: -1px;
+	left: 0;
+	border-radius: 10px;
+	background-color: #fff;
+	transform-origin: top right;
+	transition: transform 0.3s ease-in-out;
+}
+.footerLink:hover::after {
+	transform: scaleX(1);
+	transform-origin: top left;
+}
+
+.showicon{
+	position: relative;
+	width: 100%;
+	left: 0;
+	z-index: 8;
+	overflow: hidden;
+	transition: width 0.3s ease-in-out;
+}
+
+.icon:hover .showicon{
+	width: 0;
+}
+
+.hiddenicon{
+	width: 100%;
+	transition: width 0.3s ease-in-out;
+}
+
+/* .icon:hover .hiddenicon{
+	width: 100%;
+	transition: width 0.3s ease-in-out;
+	overflow: visible;
+	right: 0;
+} */
+
+/* .icon:hover .showicon svg{
+	width: 0;
+	transition: width 0.6s ease-in-out;
+} */
+
+/* .icon:hover .hiddenicon svg{
+	width: 100%;
+	transition: width 0.6s ease-in-out;
+} */

@@ -1,58 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+// import './MCursor.css'; // Assuming you have a corresponding CSS file
 
 const MCursor = () => {
   const [cursorState, setCursorState] = useState({
-    dataset: {
-      circleExpand: 'false',
-      icon: 'none',
-    },
-    style: {
-      transform: 'translate(-100px, -100px)',
-      backgroundImage: 'none',
-    },
+    circleExpand: false,
+    icon: '',
   });
-  const [hoveredElementsExpand, setHoveredElementsExpand] = useState([]);
-  const [iconElementsExpand, setIconElementsExpand] = useState([]);
 
   const cursorRef = useRef(null);
+  const hoveredElementsExpandRef = useRef([]);
+  const iconElementsExpandRef = useRef([]);
 
   useEffect(() => {
     const cursor = cursorRef.current;
 
     if (cursor) {
-      const cursorSizeOffset = 0.3 * cursor.clientWidth;
-
       const updateCursor = (event) => {
-        setCursorState((prevCursorState) => ({
-          dataset: {
-            circleExpand: hoveredElementsExpand.length > 0 ? 'true' : 'false',
-            icon:
-              iconElementsExpand.length > 0
-                ? iconElementsExpand[0].dataset.cursorIcon
-                : '',
-          },
-          style: {
-            transform: `translate(${event.clientX - cursorSizeOffset - 15}px, ${event.clientY - cursorSizeOffset - 20
-              }px)`,
-            backgroundImage: `var(--${prevCursorState.dataset.icon})`,
-          },
-        }));
+        cursor.style.left = `${event.clientX-10}px`;
+        cursor.style.top = `${event.clientY - 10}px`;
       };
 
       const moveCursor = () => {
-        setHoveredElementsExpand(
-          document.querySelectorAll(
-            '[data-cursor-expand]:hover, a:hover, button:hover'
-          )
+        hoveredElementsExpandRef.current = document.querySelectorAll(
+          '[data-cursor-expand]:hover, a:hover, button:hover'
         );
-        setIconElementsExpand(
-          document.querySelectorAll('[data-cursor-icon]:hover')
+        iconElementsExpandRef.current = document.querySelectorAll(
+          '[data-cursor-icon]:hover'
         );
 
-        requestAnimationFrame(moveCursor);
+        const circleExpand = hoveredElementsExpandRef.current.length > 0;
+        const icon = circleExpand ? iconElementsExpandRef.current[0]?.dataset.cursorIcon : '';
+
+        setCursorState({
+          circleExpand,
+          icon,
+        });
       };
 
       document.addEventListener('mousemove', updateCursor);
+      document.addEventListener('mousemove', moveCursor);
       document.documentElement.addEventListener('mouseleave', () => {
         cursor.classList.add('hidden');
       });
@@ -61,45 +47,31 @@ const MCursor = () => {
         cursor.classList.remove('hidden');
       });
 
-      requestAnimationFrame(moveCursor);
-
       return () => {
         document.removeEventListener('mousemove', updateCursor);
+        document.removeEventListener('mousemove', moveCursor);
       };
     }
-  }, [hoveredElementsExpand, iconElementsExpand]);
+  }, []);
 
-  const cursorCircleStyles = {
-    transform: cursorState.style.transform,
-  };
-
-  const cursorIconStyles = {
-    backgroundImage: cursorState.style.backgroundImage || '',
-  };
-
+  // console.log(cursorState.icon);
   return (
     <div
       ref={cursorRef}
       id="cursor"
-      className={`cursor`}
-      data-circle-expand={
-        cursorState.dataset.circleExpand === 'true' && 'true'
-      }
-      data-icon={cursorState.dataset.icon}
-      style={cursorCircleStyles}
+      className={`cursor ${cursorState.circleExpand ? 'expanded' : ''}`}
+      style={{
+        backgroundImage: cursorState.icon ? `var(--${cursorState.icon})` : '',
+      }}
     >
       <div
         id="cursorCircle"
-        className={`cursorCircle ${cursorState.dataset.circleExpand === 'true' && 'expanded'
-          }`}
-
+        className={`cursorCircle ${cursorState.circleExpand ? 'expanded' : ''}`}
       ></div>
-      <div
+      {/* <div
         id="cursorIcon"
-        className={`cursorIcon ${cursorState.dataset.icon ? 'true' : 'false'
-          }`}
-        style={cursorIconStyles}
-      ></div>
+        className={`cursorIcon ${cursorState.icon ? 'true' : 'false'}`}
+      ></div> */}
     </div>
   );
 };

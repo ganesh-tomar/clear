@@ -1,0 +1,20 @@
+{
+    "breadcrumbs": [
+        { "text": "Work" , "link": "/work" },
+        { "text": "Industry Focus", "link": "/case-studies-overview"},
+        { "sp": " Healthcare" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Healthcare ", 
+      "HighLightedText": "",
+      "postText": "",
+      "normalText": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "ctaLink":"#",
+      "ctaText":"Optional resource",
+      "backgroundImage": "/dental.png",
+      "black_overlay": true,
+      "logoslider":true,
+      "underLineClass": "whiteThin bps"
+    }
+    

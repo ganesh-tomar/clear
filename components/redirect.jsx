@@ -32,16 +32,16 @@ const RedirectLinks = ({ props, contentname }) => {
 				<div className="wrapper w-full relative flex flex-wrap justify-between">
 					{content.map((item, index) => (
 						<div
-							className={`  ${index === 1 ? 'text-right  lg:block' : ''} ${props === true ? 'lg:w-full' : ''} ${index === 0 && props === true ? 'lg:hidden' : 'sm:hidden'} btnWrap mt-5 sm:w-full sm:mb-[2rem] sm:hidden`}
+							className={`  ${index === 1 ? 'lg-up:text-right  lg:block' : ''} ${props === true ? 'lg:w-full' : ''} ${index === 0 && props === true ? 'lg:hidden' : 'sm:hidden'} btnWrap mt-5 sm:w-full sm:mb-[2rem] sm:hidden`}
 						Key={index} >
 							<Link
-								className={`${index === 1 ? '!pr-[2.5rem]' : 'pl-[3rem]'} ${index === 0 ? 'left' : ''}  tertiary-btn  !pr-[0]  text-[white]`} 
+								className={`${index === 1 ? '!pr-[3rem]' : 'pl-[3rem]'} ${index === 0 ? 'left' : ''}  tertiary-btn  !pr-[0]  text-[white]`} 
 								href="/case-studies-detail#"
 							>
 								{item.txt}
 							</Link>
 							{props === true ? (
-								<p className={`${index === 1 ? 'pr-[3rem]' : 'pl-[3rem]'} mt-[1rem] text-[1.4rem]  text-white`}>
+								<p className={`${index === 1 ? 'pr-[3rem]' : 'pl-[3rem]'} mt-[1rem] text-[1.4rem] laptop:text-[12px] lg:text-[12px]  text-white`}>
 									{item.subtxt}
 								</p>
 							) : (

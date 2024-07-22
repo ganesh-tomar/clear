@@ -1,11 +1,9 @@
-// Import 'useEffect' if you need it
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Image from 'next/image';
 
 const Imagegrid = ({ contentName, halfscreen, smallscreen, col }) => {
 	const [isSmScreen, setIsSmScreen] = useState(false);
-	// console.log(col);
 	useEffect(() => {
 		const handleResize = () => {
 			setIsSmScreen(window.innerWidth < 640); // You can adjust the breakpoint as needed
@@ -114,15 +112,14 @@ const Imagegrid = ({ contentName, halfscreen, smallscreen, col }) => {
 
 		careerscard: [
 			{
-				bgimg: '/Clear_Summit-70 .png',
+				bgimg: '/section/ImageGrid/design-team.png',
 				width: '50%',
 				height: '100%',
 				left: '0',
 				top: '0',
-
 			},
 			{
-				bgimg: '/snowman.png',
+				bgimg: '/section/ImageGrid/design-team-2.png',
 				width: '50%',
 				height: '50%',
 				right: '0',
@@ -132,7 +129,7 @@ const Imagegrid = ({ contentName, halfscreen, smallscreen, col }) => {
 				classR: 'up',
 			},
 			{
-				bgimg: '/Z91_274.png',
+				bgimg: '/section/ImageGrid/design-team-3.png',
 				width: '50%',
 				height: '50%',
 				right: '0',

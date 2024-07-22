@@ -1,109 +1,46 @@
-:root{
---iconX : url('../../public/mousecursor/x.svg');
---iconPlay: url('../../public/mousecursor/play.svg');
---arrow-right : url('../../public/mousecursor/arrow-right.svg');
---arrow-left : url('../../public/mousecursor/arrow-left.svg');
---iconPlus : url('../../public/mousecursor/plus.svg');
---iconMinus : url('../../public/mousecursor/minus.svg');
+:root {
+	--iconX: url('../../public/mousecursor/x.svg');
+	--iconPlay: url('../../public/mousecursor/play.svg');
+	--arrow-right: url('../../public/mousecursor/arrow-right.svg');
+	--arrow-left: url('../../public/mousecursor/arrow-left.svg');
+	--iconPlus: url('../../public/mousecursor/plus.svg');
+	--iconMinus: url('../../public/mousecursor/minus.svg');
+	--large-cursor: url('../../public/mousecursor/large-cursor.svg');
+	--small-cursor: url('../../public/mousecursor/small-cursor.svg');
 }
 
-#cursor, .cursor * {
-    pointer-events: none;
+* {
+	cursor: none !important;
 }
 
-.cursor {
-    display: block;
-    position: fixed;
-    width: 75px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+#cursor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 10000;
+	transition: transform 0.2s ease-in-out;
+	background-position: center;
+	background-size: cover;
 }
 
 .cursor.hidden {
-    display: none;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 }
 
-#cursorCircle {
-    display: block;
-    width: 25px;
-    height: 25px;
-    border: 8px solid #fa198c;
-    border-radius: 100%;
-    transition: width 160ms ease-in-out, height 160ms ease-in-out, transform 90ms ease-out;
-    @media screen and (max-width: 991px) {
-        display: none;
-    }
+.cursorCircle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px;
+	background-image: url(/mousecursor/small-cursor.svg);
+	background-repeat: no-repeat !important;
+	background-size: cover;
+	transition: all 0.2s ease-in-out;
 }
 
-.cursor #cursorCircle {
-    transform: scale(0.63);
-}
-
-.cursor[data-circle-expand="true"] #cursorCircle {
-    width: 100%;
-    height: 100%;
-}
-
-.cursor[data-circle-expand="true"] #cursorCircle {
-    transform: scale(0.75);
-}
-
-.cursorIcon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%) scale(0);
-    width: 35px;
-    height: 35px;
-    transition: transform 160ms ease-out;
-    background-size: contain;
-    background-position: center;
-    @media screen and (max-width: 991px) {
-        display: none;
-    }
-}
-
-.cursor:not([data-icon=""]) .cursorIcon {
-    transform:  translateX(-50%) translateY(-50%) scale(1);
-    background-position: center;
-    background-size: contain;
-}
-
-.cursor:not([data-icon=""]) .cursorIcon {
-    transform:  translateX(-50%) translateY(-50%) scale(0.75);
-}
-
-.cursor.click .cursorIcon {
-    transform: scale(0.55) !important;
-}
-
-.cursor[data-icon="iconPlus"] .cursorIcon {
-    background-image: var(--iconPlus);
-}
-
-.cursor[data-icon="iconMinus"] .cursorIcon {
-    background-image: var(--iconMinus);
-}
-
-.cursor[data-icon="arrow-left"] .cursorIcon {
-    background-image: var(--arrow-left);
-}
-
-.cursor[data-icon="arrow-right"] .cursorIcon {
-    background-image: var(--arrow-right);
-}
-
-.cursor[data-icon="iconPlay"] .cursorIcon {
-    background-image: var(--iconPlay);
-}
-
-.cursor[data-icon="iconX"] .cursorIcon {
-    background-image: var(--iconX);
-}
-
-.cursor .cursorIcon.false{
-   background-image: none !important;
+.cursorCircle.expanded {
+	transform: scale(3);
+	background-image: url(/mousecursor/large-cursor.svg);
 }

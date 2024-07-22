@@ -26,7 +26,7 @@ const Logocontentgrid = () => {
 						</p>
 						<p className="mb-[3rem]">Viverra adipiscing dolor amet vitae. Malesuada vitae consectetur erat risus ac nibh. Lectus egestas adipiscing interdum hendrerit vitae consequat odio.</p>
 						<div className="btn-wrap">
-							<Link className="btn pink" href="">
+							<Link className="btn pink white-bordered" href="">
 								View our partners
 							</Link>
 						</div>

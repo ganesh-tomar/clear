@@ -53,7 +53,7 @@ export default function Cta({ contentName, heading, subtitle, redesign, pLite, u
 
                     <div className="btn-wrapper w-full">
                         <div className="btn-wrap inline-block mr-[1.5rem]">
-                            <Link className="btn pink" href="#">{content.link}</Link>
+                            <Link className="btn pink white-bordered" href="#">{content.link}</Link>
                         </div>
                         {content.outcomelink ? <div className="btn-wrap inline-block secondBtn mt-[2rem]">
                             <Link className="tertiary-btn" href="#">{content.outcomelink}</Link>

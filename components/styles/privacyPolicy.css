@@ -1,0 +1,29 @@
+.privacy-policy-content {
+	padding-top: 5.5rem;
+	max-width: 104rem;
+}
+.privacy-policy-content h1 {
+	margin-bottom: 5rem;
+}
+.privacy-policy-content p:not(:last-child) {
+	margin-bottom: 3rem;
+}
+.privacy-policy-content h5 {
+	margin-bottom: 3rem;
+}
+.privacy-policy-content h6 {
+	margin-bottom: 1rem;
+}
+.privacy-policy-content ul {
+	list-style: disc;
+	margin: 3.5rem 0;
+}
+.privacy-policy-content li {
+	margin-bottom: 0.6rem;
+}
+.privacy-policy-content li::marker {
+	font-size: 1.5rem;
+}
+.privacy-policy-content .intro {
+	margin-bottom: 10rem;
+}

@@ -1,99 +1,58 @@
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import React from 'react';
 import { NextSeo } from 'next-seo';
+import { GET_PAGE_DATA } from '../graphql/queries';
+import SectionRenderer from '../sections/SectionRenderer';
 import Layout from '../components/layout';
-import HomepageHero from '../components/HeroBanner';
-import ImageSlider from '../components/ImageSlider';
-import ContentGrid from '../components/ContentGrid';
-import ColTwoSlider from '../components/colTwoSlider';
-import LogoSlider from '../components/LogoSlider';
-import ColTwoImageSlider from '../components/ColTwoImageSlider';
-import FooterCta from '../components/Footercta';
-import TabSlider from '../components/TabSlider';
+import Custom404 from './404';
+import Head from 'next/head';
 
-export default function Home() {
-    const clientSliderData = [
-        {
-            imageSrc: '/hex.jpg',
-            heading: 'Aenean aliquet malesuada quam et placerat. Suspendiss pellentes. Interdum et <span class="text-pink"> malesuada </span> fames ac ante ipsum primis in. Lorem ipsum dolor sit amet consectetur. Ut consectetur proin mattis et id quam cras gravida. Ipsum ante purus.',
-            logo: '/Vocera_Logo_White.svg',
-            author: 'Jane Doe,',
-            designation: 'CEO',
-            btnText: 'View Case Study',
-            btnUrl: '/'
-        },
-        {
-            heading: 'Aenean aliquet malesuada quam et placerat. Suspendiss pellentes. Interdum et <span class="text-pink"> malesuada </span> fames ac ante ipsum primis in. Lorem ipsum dolor sit amet consectetur. Ut consectetur proin mattis et id quam cras gravida. Ipsum ante purus.',
-            prefix: '$',
-            count: '20',
-            denotation: 'M',
-            subText: 'Lorem ipsum dolor.',
-            subDescription: 'Lorem ipsum dolor sit amet consectetur amet pretium amet in mus quis',
-            logo: '/Vocera_Logo_White.svg',
-            author: 'Jane Doe,',
-            designation: 'CEO',
-            btnText: 'View Case Study',
-            btnUrl: '/'
-        },
-        {
-            heading: 'Aenean aliquet malesuada quam et placerat. Suspendiss pellentes. Interdum et <span class="text-pink"> malesuada </span> fames ac ante ipsum primis in. Lorem ipsum dolor sit amet consectetur. Ut consectetur proin mattis et id quam cras gravida. Ipsum ante purus.',
-            logo: '/Vocera_Logo_White.svg',
-            author: 'Jane Doe,',
-            designation: 'CEO',
-            btnText: 'View Case Study',
-            btnUrl: '/'
-        }
-    ];
-    const insightSliderData = [
-        {
-            imageSrc: '/insight_card.png',
-            heading: 'Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy',
-            subText: '',
-            url: '/',
-            linkText: '',
-            categories: ['Article', 'Digital Strategy',],
-            medium: 'By Steve Ohanians on June 29, 2023',
-            hiddenlink: 'Read more',
-            hiddenurl: '/',
-            redirect: true,
-        },
-        {
-            imageSrc: '/insight_card.png',
-            heading: 'Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy',
-            subText: '',
-            url: '/',
-            linkText: '',
-            categories: ['Article', 'Digital Strategy',],
-            medium: 'By Steve Ohanians on June 29, 2023',
-            hiddenlink: 'Read more',
-            hiddenurl: '/',
-            redirect: true,
-        },
-        {
-            imageSrc: '/insight_card.png',
-            heading: 'Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy',
-            subText: '',
-            url: '/',
-            linkText: '',
-            categories: '',
-            medium: 'By Steve Ohanians on June 29, 2023',
-            hiddenlink: 'Read more',
-            hiddenurl: '/',
-            redirect: true,
-        }
-    ];
-    return (
-        <Layout>
-            <NextSeo
-                title="ClearDigital"
-                description="ClearDigital "
-            />
-            <HomepageHero />
-            <ImageSlider />
-            <ContentGrid introName={'home'} cards="home" />
-            <TabSlider />
-            <ColTwoSlider data={clientSliderData} pb={'none'} />
-            <LogoSlider contentname={'data'} />
-            <ColTwoImageSlider data={insightSliderData} bgColor="bg-gray" contentName="home" />
-            <FooterCta />
-        </Layout>
-    )
+const apolloClient = new ApolloClient({
+  uri: 'https://dev-cleardigital.pantheonsite.io/wp/graphql',
+  cache: new InMemoryCache(),
+});
+
+export async function getServerSideProps({ params, req }) {
+  const uriPath = params?.uri?.join('/') || '/';
+  
+  try {
+    const { data } = await apolloClient.query({
+      query: GET_PAGE_DATA,
+      variables: { uri: uriPath },
+      fetchPolicy: 'network-only',
+    });
+    if (!data || !data.pageBy) {
+      return { notFound: true };
+    }
+   
+    const seoProps = {};
+
+    return { props: { pageData: data, seoProps } };
+    
+  } catch (error) {
+    console.error("GraphQL Error:", error);
+    return { props: { error: error.message } };
+  }
+}
+
+export default function PageComponent({ pageData, seoProps, error }) {
+  if (error) return <p className='pt-[100px] text-center'>Error: something went wrong please wait or try again</p>;
+  if (!pageData || !pageData.pageBy) return <Custom404 />;
+
+  const sections = pageData.pageBy.pageBuilder?.sections || [];
+
+  return (
+    <Layout>
+      <NextSeo {...seoProps} />
+      <Head>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Clear Digital is a web design agency" />
+        <meta name="twitter:description" content="Clear Digital is a web design agency" />
+      </Head>
+      
+      {sections.map((section, index) => (
+        <SectionRenderer key={index} type={section.__typename} data={section} />
+      ))}
+    </Layout>
+  );
 }

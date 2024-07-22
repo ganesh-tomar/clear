@@ -38,6 +38,9 @@ const Brandedblade = ({ contentName }) => {
                 img: '/Clear-Summit.png',
             }
         ],
+        careers: [ {
+            img: '/section/BrandedBalde/collaboration-collage-n.png',
+        }],
     }
     const content = contentData[contentName] || [];
     

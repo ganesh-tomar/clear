@@ -30,39 +30,33 @@ function Sticky() {
             url: "resources",
         },
     ];
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [isSticky, setIsSticky] = useState(false);
-    const [headerHeight, setheaderHeight] = useState(0);
-    const [stick, setstick] = useState(0);
+
     const [visibleSections, setVisibleSections] = useState([]);
-    const [winWidth, isWinWidth] = useState(0);
+    const [winWidth, setWinWidth] = useState(0);
     const [scrollValue, setScrollValue] = useState(0);
 
     const handleScroll = () => {
-        const stickyHeight = document.querySelector("#stickyNav .stickyOuter")?.offsetHeight;;
+        const stickyHeight = document.querySelector("#stickyNav .stickyOuter")?.offsetHeight;
         const headerHeight = document.querySelector("header")?.offsetHeight;
         const element = document.querySelector('.footer-clear-digital');
         const footer = element.getBoundingClientRect();
         setScrollValue(headerHeight);
-        // console.log(headerHeight + stickyHeight);
-        // Calculate the distance between the top of the screen and the top of the element
-        var distanceFromTop = footer.top;
-
-        console.log('Distance from top:', distanceFromTop);
+        const distanceFromTop = footer.top;
         if (stickyHeight && headerHeight) {
-            var totalHeight = stickyHeight + headerHeight;
+            const totalHeight = stickyHeight + headerHeight;
             if (distanceFromTop < totalHeight) {
                 setScrollValue(-100);
             } else {
                 setScrollValue(headerHeight);
             }
         }
-
     };
+
     const Stickytop = {
         top: `${scrollValue - 2}px`,
         borderTop: `1px solid black`
     };
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
 
@@ -76,8 +70,8 @@ function Sticky() {
         if (parentListItem) {
             const parentList = parentListItem.parentNode;
             const hasOpenSiblings = parentList.querySelectorAll(':scope > li a');
-            for (let i = 0; i < hasOpenSiblings.length; i++) {
-                const sibling = hasOpenSiblings[i];
+            for (let i of hasOpenSiblings) {
+                const sibling = i;
                 if (sibling !== parentListItem) {
                     sibling.classList.remove(StickyStyle.activated);
                 }
@@ -86,30 +80,23 @@ function Sticky() {
         event.target.classList.add(StickyStyle.activated);
     };
 
-    const handleStickyClick = (e, id, borderActive, sectionId, offset) => {
-
+    const handleStickyClick = (e, id) => {
         const x = document.querySelectorAll("section");
+        const yOffset = window.scrollY;
         e.preventDefault();
-        const headrHeight = document.querySelector("header")?.offsetHeight || 0;
         const stickyHeight =
             document.getElementById("stickyNav")?.offsetHeight || 0;
 
         x.forEach((item) => {
             const attr = item.getAttribute("id");
             const scrollPosition =
-                window.pageYOffset ||
+                yOffset ||
                 document.documentElement.scrollTop ||
                 document.body.scrollTop ||
                 0;
             if (attr === id) {
                 const topp = item.getBoundingClientRect().top;
-                // console.log(topp);
                 const d = scrollPosition + topp - 104 - stickyHeight;
-                if (topp < 0) {
-                    // d = d - headrHeight;
-                    d - headrHeight;
-                }
-
                 window.scrollTo({
                     top: d,
                     behavior: "smooth",
@@ -123,12 +110,9 @@ function Sticky() {
             .filter(entry => entry.isIntersecting || entry.intersectionRatio > 0)
             .map(entry => entry.target.id);
 
-        const windowHeight = window.innerHeight;
-
         const filteredSections = visibleSections.filter(sectionId => {
             const sectionElement = document.getElementById(sectionId);
 
-            // Check if the element is found before accessing its properties
             if (sectionElement) {
                 const sectionBottom = sectionElement.getBoundingClientRect().bottom;
 
@@ -140,15 +124,6 @@ function Sticky() {
 
         setVisibleSections(filteredSections);
     };
-
-
-    // const handleIntersection = (entries) => {
-    //     const visibleSections = entries
-    //         .filter((entry) => entry.isIntersecting)
-    //         .map((entry) => entry.target.id);
-
-    //     setVisibleSections(visibleSections);
-    // };
 
     useEffect(() => {
         const observer = new IntersectionObserver(handleIntersection, {
@@ -169,7 +144,7 @@ function Sticky() {
 
     useEffect(() => {
         const handleResize = () => {
-            isWinWidth(window.innerWidth);
+            setWinWidth(window.innerWidth);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
@@ -186,13 +161,13 @@ function Sticky() {
                     style={Stickytop}
                     id={"stickyNav"}
                 >
-                    <div className={`${isSticky ? StickyStyle.sticky : ''} w-full stickyOuter border-b border-darkGray  z-[10] bg-white`}>
+                    <div className={`w-full stickyOuter border-b border-darkGray  z-[10] bg-white`}>
                         <div className="container h-full">
                             <ul className="flex relative sm:justify-between h-full">
                                 {stickyData.map((data, index) => {
                                     return (
                                         <li
-                                            key={index}
+                                            key={data.id}
                                             datatype={data.id}
                                             className="mr-[5.5rem] h-full flex items-start sm:px-1 xl-up:text-[1.6rem] font-bold  relative tablet-mid:pr-[1rem]"
                                             onClick={toggleSubMenu}

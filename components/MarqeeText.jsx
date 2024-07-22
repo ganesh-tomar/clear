@@ -10,7 +10,6 @@ const ScrollComponent = () => {
     const handleScroll = () => {
         const rect = sectionRef.current.getBoundingClientRect();
         const isSectionVisible = rect.top <= window.innerHeight + 200 && rect.bottom >= 0;
-        // console.log(window.scrollY );
         if (isSectionVisible) {
             setScrollPosition(window.innerHeight - rect.top);
         }
@@ -94,10 +93,7 @@ const ScrollComponent = () => {
             ))}
         </div>
     )
-    return <>
-        <Marquee />
-    </>
-        ;
+    return <Marquee />
 };
 
 export default ScrollComponent;

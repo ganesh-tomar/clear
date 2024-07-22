@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider from 'react-slick';
-import FeaturedLogos from './FeaturedLogos';
 import style from '../components/styles/colTwoImageSlider.module.css'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -22,10 +21,10 @@ const ImageTextCarousel = ({
     hiddenurl,
     redirect,
     onClick,
+    insights
 }) => {
     const [isTouchDevice, setIsTouchDevice] = useState(false);
     const [winWidth, isWinWidth] = useState(0);
-    // console.log(isTouchDevice);
 
     useEffect(() => {
         const handleResize = () => {
@@ -53,14 +52,13 @@ const ImageTextCarousel = ({
     if (isTouchDevice && winWidth <= 1024) {
         var body = document.querySelector('body');
         body.classList.add('touchDevice');
-        // console.log(winWidth);
     }
 
     return (
         <div
             className={`${imageSrc ? '' : 'bg-[#E5E4E7]'} ${style.card
-                } insightCard relative flex-col flex flex-wrap ${categories?.length == 0 ? 'justify-end' : 'justify-between'
-                } 30.9rem xl-up:min-h-[54rem] laptop:min-h-[53rem] tablet:min-h-[49.3rem] phablet:min-h-[49.3rem] sm:min-h-[38rem] md-up:mr-[3rem]`}
+                } ${insights === false ? '' : style.insight}  insightCard relative flex-col flex  ${categories?.length == 0 ? 'justify-end' : ''
+                } xl-up:min-h-[54rem] xl-up:max-h-[54rem] laptop:min-h-[53rem] laptop:max-h-[53rem] tablet:min-h-[49.3rem] tablet:max-h-[49.3rem] phablet:min-h-[49.3rem]  phablet:max-h-[49.3rem] sm:min-h-[38rem] sm:max-h-[38rem] md-up:mr-[3rem]`}
             id="card"
         >
             {redirect === true ? (
@@ -71,7 +69,7 @@ const ImageTextCarousel = ({
                 ''
             )}
             {count ? (
-                <div className="card_heading  w-full p-[5rem] md:py-[3rem] md:px-[2rem]">
+                <div className="card_heading  w-full laptop:pb-[2rem] p-[5rem] md:py-[3rem] md:px-[2rem]">
                     <h2 className="medium-light tiltCross inline-block relative sm:!text-[90px]">
                         {pre}
                         {count}
@@ -95,7 +93,7 @@ const ImageTextCarousel = ({
                 ''
             )}
             {categories?.length > 0 ? (
-                <div className={`p-[5rem] md:pt-[3rem] md:px-[2rem] md:pb-0`}>
+                <div className={`${style.tab} p-[5rem] ipad:p-[4rem] md:!pt-[3rem] md:!px-[2rem] md:!pb-0`}>
                     {categories.map((category, index) => (
                         <span
                             key={index}
@@ -111,9 +109,9 @@ const ImageTextCarousel = ({
 
             <div
                 className={`${imageSrc
-                    ? `insightCardBlackOverlay ${style.blackOverlay} laptop:p-[4rem]`
+                    ? `insightCardBlackOverlay ${style.blackOverlay} absolute bottom-0`
                     : ''
-                    } p-[5rem] w-full md:py-[3rem] md:px-[2rem]`}
+                    } p-[5rem] w-full md:!py-[3rem] md:!px-[2rem]`}
             >
                 {heading ? (
                     <h4
@@ -131,7 +129,7 @@ const ImageTextCarousel = ({
                 >
                     <p
                         className={`${medium
-                            ? 'medium text-white mb-[4.4rem] sm:mb-[2rem] laptop:mb-[2.2rem]'
+                            ? 'medium text-white mb-[2rem] sm:mb-0'
                             : ''
                             }`}
                     >
@@ -179,25 +177,18 @@ const ColTwoImageSlider = ({
 
     function handleclick() {
         let card = document.querySelector(`.colTwoImageSlider__right`);
-        // console.log(card);
-
         card.addEventListener('click', function (event) {
             var mouseX = event.clientX; // Mouse X position relative to the viewport
             var elementOffsetLeft = this.getBoundingClientRect().left; // Offset left of the element
             var elementOffsetRight = this.getBoundingClientRect().right;
             var mouseOffsetLeft = mouseX - elementOffsetLeft;
             var mouseOffsetRight = elementOffsetRight - mouseX;
-            // setleftOffset(mouseOffsetLeft);
-            // setrightOffset(mouseOffsetRight);
-            // console.log('Mouse Offset right:', mouseOffsetRight);
 
             if (mouseOffsetLeft < 151 && currentSlide > 0) {
                 setCurrentSlide(currentSlide - 1);
-                console.log('in');
             }
             if (mouseOffsetRight < 151 && currentSlide < totalSlides - 1) {
                 setCurrentSlide(currentSlide + 1);
-                console.log('out');
             }
         });
     }
@@ -272,6 +263,13 @@ const ColTwoImageSlider = ({
 
     const responsiveSettings = [
         {
+            breakpoint: 991,
+            settings: {
+                slidesToShow: 1.5,
+                centerMode: false,
+            },
+        },
+        {
             breakpoint: 767,
             settings: {
                 slidesToShow: 1,
@@ -299,10 +297,10 @@ const ColTwoImageSlider = ({
 
         if (xDiff > 0) {
             handleDotSwipe('left'); // Change to 'left' for next slide
-            handlecardSwipe('left');
+            // handlecardSwipe('left');
         } else {
             handleDotSwipe('right'); // Change to 'right' for previous slide
-            handlecardSwipe('right');
+            // handlecardSwipe('right');
         }
 
         xDown = null;
@@ -314,7 +312,7 @@ const ColTwoImageSlider = ({
 
     return (
         <div
-            className="colTwoImageSlider__right w-full relative mt-[15rem]"
+            className="colTwoImageSlider__right w-full relative mt-[15rem] lg:mt-[10rem]"
             onClick={handleclick}
         >
             <h3 className='mb-[3rem]'>Top Insights</h3>
@@ -341,7 +339,7 @@ const ColTwoImageSlider = ({
 const CustomPrevArrow = ({ onClick, currentSlide }) => (
     <button
         aria-label="first link"
-        data-cursor-expand
+        data-cursor-expand="true"
         data-cursor-icon="arrow-left"
         className={`btn__left group absolute top-0 left-[0] sm:hidden h-full w-5 xl-up:w-24 laptop:w-[70px] tablet:w-[12rem] md:w-[2rem] md:left-[-1.5rem] z-10 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
             }`}
@@ -352,7 +350,7 @@ const CustomPrevArrow = ({ onClick, currentSlide }) => (
 const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
     <button
         aria-label="first link"
-        data-cursor-expand
+        data-cursor-expand="true"
         data-cursor-icon="arrow-right"
         className={`btn__right group absolute top-0 right-0 sm:hidden h-full w-[35%] z-10  ${Math.ceil(currentSlide) === totalSlides - 1
             ? 'opacity-0 pointer-events-none'
@@ -363,7 +361,7 @@ const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
 );
 
 
-const InsightBanner = () => {
+const InsightBanner = ({ slider }) => {
     const insightSliderData = [
         {
             imageSrc: '/insight_card.png',
@@ -378,7 +376,7 @@ const InsightBanner = () => {
             redirect: true,
         },
         {
-            imageSrc: '/insight_card.png',
+            imageSrc: "/insight_card_b.png",
             heading: 'Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy',
             subText: '',
             url: '/',
@@ -390,7 +388,7 @@ const InsightBanner = () => {
             redirect: true,
         },
         {
-            imageSrc: '/insight_card.png',
+            imageSrc: "/insight_card_c.png",
             heading: 'Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy',
             subText: '',
             url: '/',
@@ -427,16 +425,16 @@ const InsightBanner = () => {
         }
     ];
     return (
-        <section className={`insightBanner grid__parallax dark height__full flex items-center cursor-pointer`}>
+        <section className={`insightBanner grid__parallax dark  flex items-center cursor-pointe overflow-visible`}>
             <div className="container">
                 <div className="contentWrap relative z-[6] pt-[10.4rem] max-w-[112rem]">
                     <span className='circularCommentBox'></span>
                     <span className='rectangularCommentBox'></span>
                     <span className='pointingDownwardArrow'></span>
-                    <h1 className='mb-[3.1rem]'>Clear Insights</h1>
-                    <h4 className='medium-light'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h4>
+                    <h1 className='mb-[3.1rem]'>Clear Digital in the News</h1>
+                    <h4 className='medium-light'>Stay up to date with the latest news, announcements, and happenings at Clear Digital.</h4>
                 </div>
-                <ColTwoImageSlider data={insightSliderData} />
+                {slider === true ? <ColTwoImageSlider data={insightSliderData} /> : ''}
             </div>
         </section>
     );

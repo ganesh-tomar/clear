@@ -12,8 +12,9 @@ export default function TechOverview() {
             <div className="container">
                 <div className="w-colTwoWrapper relative flex z-[1] pt-[0.6rem] lg:flex-wrap lg:w-full">
                     <div className="w-1/2 group-hover:text-white lg:w-full">
-                        <div className="wrap flex flex-col justify-between h-full pb-[4.5rem] tablet:pb-[10rem] md:pb-[7rem] lg-up:pr-[10rem] ">
-                            <h3><Link href="#" >Technology</Link></h3>
+                        <div className="wrap relative flex flex-col justify-between h-full mb-[4.5rem] tablet:mb-[10rem] md:mb-[7rem] lg-up:mr-[10rem] ">
+                            <Link className='redirect' href="#" >.</Link>
+                            <h3>Technology</h3>
                             <div className="desc lg:mt-[4rem]">
                                 <h4 className='lite'>Lorem ipsum dolor sit amet consectetur.</h4>
                                 <p className='mt-[7rem] lg:mt-[4rem]'>Select clients: Intel, Cohesity</p>
@@ -22,11 +23,11 @@ export default function TechOverview() {
                     </div>
                     <div className="w-1/2 lg:w-full">
                         <ul className={`pl-0`}>
-                            <li className={`${style.link} pb-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white !text-[2rem]'>Artificial Intelligence</Link></li>
-                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white !text-[2rem]'>Cybersecurity</Link></li>
-                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white !text-[2rem]'>Cloud</Link></li>
-                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white !text-[2rem]'>SaaS</Link></li>
-                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white !text-[2rem]'>Services</Link></li>
+                            <li className={`${style.link} pb-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white '>Artificial Intelligence</Link></li>
+                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white '>Cybersecurity</Link></li>
+                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white '>Cloud</Link></li>
+                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white '>SaaS</Link></li>
+                            <li className={`${style.link} py-[4.9rem]`}><Link href="#" className='tertiary-btn black group-hover:text-white '>Services</Link></li>
                         </ul>
                     </div>
                 </div>

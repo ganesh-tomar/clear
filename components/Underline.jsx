@@ -25,11 +25,18 @@ function handleIntersection(entries, observer) {
 
 export default function IntersectionObserverComponent() {
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5,rootMargin: "-10%" });
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5, rootMargin: "-10%" });
 
     const underlineContainers = document.querySelectorAll('.underline-container');
+    const underlineContainer = document.querySelectorAll('u');
 
     underlineContainers.forEach((element) => {
+      if (isInViewport(element)) {
+        element.classList.add('showUnderline');
+      }
+      observer.observe(element);
+    });
+    underlineContainer.forEach((element) => {
       if (isInViewport(element)) {
         element.classList.add('showUnderline');
       }

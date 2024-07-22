@@ -46,11 +46,8 @@ function Sticky() {
         const element = document.querySelector('.footer-clear-digital');
         const footer = element.getBoundingClientRect();
         setScrollValue(headerHeight);
-        // console.log(headerHeight + stickyHeight);
         // Calculate the distance between the top of the screen and the top of the element
         var distanceFromTop = footer.top;
-
-        console.log('Distance from top:', distanceFromTop);
         if (stickyHeight && headerHeight) {
             var totalHeight = stickyHeight + headerHeight;
             if (distanceFromTop < totalHeight) {
@@ -105,10 +102,8 @@ function Sticky() {
                 0;
             if (attr === id) {
                 const topp = item.getBoundingClientRect().top;
-                // console.log(topp);
                 const d = scrollPosition + topp - 104 - stickyHeight;
                 if (topp < 0) {
-                    // d = d - headrHeight;
                     d - headrHeight;
                 }
 

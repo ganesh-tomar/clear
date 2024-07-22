@@ -1,0 +1,15 @@
+{
+    "breadcrumbs": [
+      { "text": "Work", "link": "/work" },
+      { "sp": "Outcomes" }
+    ],
+    "subtitle": "",
+    "PreNormalText": "Headline About", 
+    "HighLightedText": "Outcomes",
+    "normalText": "",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    "backgroundImage": "/banners/building.png",
+    "black_overlay": true,
+    "underLineClass":"whiteThin"
+  }
+  

@@ -52,9 +52,9 @@ const LinkWrapper = () => {
                 <div className="intro mb-[5rem]">
                     <h3>Platform Expertise</h3>
                 </div>
-                <div className="wrapper w-colThreeWrapper flex flex-wrap">
+                <div className="wrapper w-colThreeWrapper ml-[-2.5rem] sm:ml-0 sm:w-full flex flex-wrap">
                     {linkitem.map((category, categoryIndex) => (
-                        <div className="col-four w-[25%] lg:w-[33.33%] md:!w-[50%] sm:!w-[100%] lg:mb-[2rem]" key={categoryIndex}>
+                        <div className="col-four w-[calc(25%-5rem)] mx-[2.5rem] lg:w-[calc(50%-5rem)] sm:mx-0  sm:!w-[100%]  sm:!mb-0" key={categoryIndex}>
                             <ul className="p-0 flex flex-wrap">
                                 {category.data.map((item, itemIndex) => (
                                     <li className='w-full mb-[2.6rem]' key={itemIndex}>{item.link}</li>

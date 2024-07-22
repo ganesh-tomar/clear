@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider from 'react-slick';
-import FeaturedLogos from './FeaturedLogos';
+// import FeaturedLogos from './FeaturedLogos';
+import FeaturedinLogos from './FeaturedinLogos';
 import style from '../components/styles/colTwoImageSlider.module.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { redirect } from 'next/dist/server/api-utils';
 
 const ImageTextCarousel = ({
 	imageSrc,
@@ -23,10 +23,10 @@ const ImageTextCarousel = ({
 	hiddenurl,
 	redirect,
 	onClick,
+	insights,
 }) => {
 	const [isTouchDevice, setIsTouchDevice] = useState(false);
 	const [winWidth, isWinWidth] = useState(0);
-	// console.log(isTouchDevice);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -54,14 +54,13 @@ const ImageTextCarousel = ({
 	if (isTouchDevice && winWidth <= 1024) {
 		var body = document.querySelector('body');
 		body.classList.add('touchDevice');
-		// console.log(winWidth);
 	}
 
 	return (
 		<div
 			className={`${imageSrc ? '' : 'bg-[#E5E4E7]'} ${style.card
-				} insightCard relative flex-col flex flex-wrap ${categories?.length == 0 ? 'justify-end' : 'justify-between'
-				} xl-up:min-h-[54rem] laptop:min-h-[53rem] tablet:min-h-[49.3rem] phablet:min-h-[49.3rem] sm:min-h-[38rem] md-up:mr-[3rem]`}
+				} ${insights === false ? '' : style.insight}  insightCard relative flex-col flex  ${categories?.length == 0 ? 'justify-end' : ''
+				} xl-up:min-h-[54rem] xl-up:max-h-[54rem] laptop:min-h-[53rem] laptop:max-h-[53rem] tablet:min-h-[49.3rem] tablet:max-h-[49.3rem] phablet:min-h-[49.3rem]  phablet:max-h-[49.3rem] sm:min-h-[38rem] sm:max-h-[38rem] md-up:mr-[3rem]`}
 			id="card"
 		>
 			{redirect === true ? (
@@ -72,7 +71,7 @@ const ImageTextCarousel = ({
 				''
 			)}
 			{count ? (
-				<div className="card_heading  w-full p-[5rem] md:py-[3rem] md:px-[2rem]">
+				<div className="card_heading  w-full laptop:pb-[2rem] p-[5rem] md:py-[3rem] md:px-[2rem]">
 					<h2 className="medium-light tiltCross inline-block relative sm:!text-[90px]">
 						{pre}
 						{count}
@@ -96,7 +95,7 @@ const ImageTextCarousel = ({
 				''
 			)}
 			{categories?.length > 0 ? (
-				<div className={`p-[5rem] md:pt-[3rem] md:px-[2rem] md:pb-0`}>
+				<div className={`${style.tab} p-[5rem] ipad:p-[4rem] md:!pt-[3rem] md:!px-[2rem] md:!pb-0`}>
 					{categories.map((category, index) => (
 						<span
 							key={index}
@@ -112,9 +111,9 @@ const ImageTextCarousel = ({
 
 			<div
 				className={`${imageSrc
-					? `insightCardBlackOverlay ${style.blackOverlay} laptop:p-[4rem]`
+					? `insightCardBlackOverlay ${style.blackOverlay} absolute bottom-0`
 					: ''
-					} p-[5rem] w-full md:py-[3rem] md:px-[2rem]`}
+					} p-[5rem] w-full md:!py-[3rem] md:!px-[2rem]`}
 			>
 				{heading ? (
 					<h4
@@ -132,7 +131,7 @@ const ImageTextCarousel = ({
 				>
 					<p
 						className={`${medium
-							? 'medium text-white mb-[4.4rem] sm:mb-[2rem] laptop:mb-[2.2rem]'
+							? 'medium text-white mb-[2rem] sm:mb-0'
 							: ''
 							}`}
 					>
@@ -176,6 +175,8 @@ const ColTwoImageSlider = ({
 	featuredLogos,
 	contentName,
 	pt,
+	whitecard,
+	insights
 }) => {
 	const contentdata = {
 		home: [
@@ -199,6 +200,17 @@ const ColTwoImageSlider = ({
 				underlineClass: 'blackMedium bps',
 			},
 		],
+		partnerDetail: [
+			{
+				subtitle: '',
+				pre: '',
+				Highlighttextt: 'Drupal',
+				normaltxt: '  Insights Lorem Ipsum Dolor',
+				para: 'Torem ipsum dolor sit amet, consectetur adipiscing at elit. Nunc vulputate libero dolore aliqua et.',
+				underlineClass: 'blackMedium bps',
+				btn: 'View all Insights',
+			},
+		],
 	};
 	const contentData = contentdata[contentName] || [];
 
@@ -208,8 +220,6 @@ const ColTwoImageSlider = ({
 
 	function handleclick() {
 		let card = document.querySelector(`.colTwoImageSlider__right`);
-		// console.log(card);
-
 		card.addEventListener('click', function (event) {
 			var mouseX = event.clientX; // Mouse X position relative to the viewport
 			var elementOffsetLeft = this.getBoundingClientRect().left; // Offset left of the element
@@ -219,18 +229,16 @@ const ColTwoImageSlider = ({
 
 			if (mouseOffsetLeft < 151 && currentSlide > 0) {
 				setCurrentSlide(currentSlide - 1);
-				console.log('in');
 			}
 			if (mouseOffsetRight < 151 && currentSlide < totalSlides - 1) {
 				setCurrentSlide(currentSlide + 1);
-				console.log('out');
 			}
 		});
 	}
 
 	useEffect(() => {
 		handleclick();
-	}, []);
+	});
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -283,7 +291,7 @@ const ColTwoImageSlider = ({
 		),
 		customPaging: function (i) {
 			return (
-				<button className="custom-dot" onClick={() => setCurrentSlide(i)} />
+				<button className="custom-dot" onClick={() => setCurrentSlide(i)} >.</button>
 			);
 		},
 		afterChange: (index) => {
@@ -354,7 +362,7 @@ const ColTwoImageSlider = ({
 									<p className="subtitle mb-[2rem]">{item.subtitle}</p>
 								)}
 
-								<h3 className="whitespace-normal">
+								<h3 className="whitespace-normal pr-[6rem] lg:pr-0">
 									{item.pre}{' '}
 									<span
 										className={`underline-container ${item.underlineClass ? item.underlineClass : ''
@@ -388,7 +396,7 @@ const ColTwoImageSlider = ({
 							<Slider ref={sliderRef} {...settings}>
 								{data.map((slide, index) => (
 									<div key={index}>
-										<ImageTextCarousel {...slide} />
+										<ImageTextCarousel {...slide} insights={insights} />
 									</div>
 								))}
 							</Slider>
@@ -404,7 +412,7 @@ const ColTwoImageSlider = ({
 						</div>
 					</div>
 				</div>
-				{featuredLogos === false ? '' : <FeaturedLogos />}
+				{featuredLogos === false ? '' : <FeaturedinLogos />}
 			</div>
 		</section>
 	);
@@ -413,7 +421,7 @@ const ColTwoImageSlider = ({
 const CustomPrevArrow = ({ onClick, currentSlide }) => (
 	<button
 		aria-label="first link"
-		data-cursor-expand
+		data-cursor-expand="true"
 		data-cursor-icon="arrow-left"
 		className={`btn__left group absolute top-0 left-[-20px] sm:hidden h-full w-5 xl-up:w-24 laptop:w-[70px] tablet:w-[12rem] md:w-[2rem] md:left-[-1.5rem] z-10 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
 			}`}
@@ -424,7 +432,7 @@ const CustomPrevArrow = ({ onClick, currentSlide }) => (
 const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
 	<button
 		aria-label="first link"
-		data-cursor-expand
+		data-cursor-expand="true"
 		data-cursor-icon="arrow-right"
 		className={`btn__right group absolute top-0 right-0 sm:hidden h-full w-[35%] z-10  ${Math.ceil(currentSlide) === totalSlides - 1
 			? 'opacity-0 pointer-events-none'

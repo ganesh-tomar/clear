@@ -10,13 +10,11 @@ const ImageSlider = () => {
 
     useEffect(() => {
         var slides = document.querySelectorAll('.imageSlider .item').length;
-        // console.log(slides);
         setAllSlides(slides);
     }, []);
 
     useEffect(() => {
         var totalSlides = Math.ceil(allSlides);
-        // console.log(totalSlides);
     }, [allSlides]);
 
     // function handleClick() {
@@ -127,7 +125,7 @@ const ImageSlider = () => {
                         </div>
                         <div className="imageSlider__text absolute left-0 xl-up:bottom-[15rem] bottom-[7rem]">
                             <div className="logo h-[4rem] max-w-[19.5rem] w-full mt-[2rem] md-up:mt-[3rem] mb-[1.5rem] sm:max-w-[10rem]">
-                                <Image src={'/logo-leadspace.webp'} width={800} height={1090} className="w-full h-full sm:max-w-[15.4rem] object-contain" alt="" />
+                                <Image src={'/logo-leadspace.webp'} width={800} height={1090} className="w-full h-full sm:max-w-[15.4rem] object-contain object-left" alt="" />
                             </div>
                             <h3 className="text-white leading-[1.1] pr-[1rem]">53% <span className="overwrite-text">increase <span className="font-normal"> MORE WOW!</span></span> on engagement metrics.</h3>
                             <Link href={'/'} className="tertiary-btn mt-[3rem] md:mt-[2rem] text-white" target="_self">

@@ -46,11 +46,10 @@ const ContentGriddetail = ({ props, introname, contentName, techLogo, pb, min, c
 		careers: [
 			{
 				eyeBrowText: 'Our values',
-				heading: 'Curabitur malesuada est tempor',
-				highLightedText: ' ullamcorper',
-				normaltext: ' maximus ',
+				heading: 'The way we do things',
+				highLightedText: 'rocks',
 				underlineClass: 'black',
-				subText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',
+				subText: 'Our approach to work has some edge and a whole lot of heart. It’s about always wanting to be better, to do great work for our clients, and build real, meaningful relationships. Our values aren’t complicated or fussy. They’re just who we are and how we show up.',
 			}
 
 		]
@@ -182,7 +181,7 @@ const ContentGriddetail = ({ props, introname, contentName, techLogo, pb, min, c
 										/>
 									</div> : ''}
 
-									<h2 className='tiltCross medium-light mb-[1rem] relative inline-block'>{wrap.headpre}{wrap.headmain}{wrap.headpost}</h2>
+									<h2 className='tiltCross large mb-[1rem] sm:!text-[90px] relative inline-block'>{wrap.headpre}{wrap.headmain}{wrap.headpost}</h2>
 									<h4 className='relative font-medium mb-[1rem]'>{wrap.pre} <span className='text-pink'>{wrap.highLightedText}</span> {wrap.post}  </h4>
 									<p>{wrap.para}</p>
 								</div>

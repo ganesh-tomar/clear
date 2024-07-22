@@ -5,6 +5,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import style from "../components/styles/timeline.module.css"
+import { reverse } from "lodash";
 // import HongoStyle from "/style/hongo.module.scss";
 
 const data = [
@@ -12,31 +13,198 @@ const data = [
         id: 1,
         img: '/valod.png',
         nuraric: '1999',
-        heading: 'When it all',
-        prenormaltxt: 'began',
-        para: 'Lorem ipsum dolor sit amet consectetur. Velit quam sagittis enim pellentesque mattis id lorem tempor. Dignissim id ut ac eu nisl imperdiet congue id pharetra. Aliquam mauris sed condimentum senectus eget purus dictum in. ',
+        heading: 'It all starts',
+        prenormaltxt: 'here',
+        para: 'Steve Ohanians and Valod Amirkhanian launch the agency from Valod’s bedroom while they’re both in college.',
         firework: true,
         arrow: true,
     },
     {
         id: 2,
-        img: '/ steve_large.png',
-        nuraric: '2002',
-        heading: 'Lorem',
-        Highlighttext: 'ipsum ',
-        normaltxt: 'dolor sit amet consectetur',
-        para: 'Lorem ipsum dolor sit amet consectetur. Velit quam sagittis enim pellentesque mattis id lorem tempor. Dignissim id ut ac eu nisl imperdiet congue id pharetra. Aliquam mauris sed condimentum senectus eget purus dictum in. ',
+        img: '/section/Timeline/steve.webp',
+        nuraric: '2000',
+        heading: 'Client list hits double digits',
+        para: 'Less than one year in and we’re already building up an impressive list of early innovators and web pioneers.',
         reverse: true,
         bulb: true,
     },
     {
         id: 3,
+        img: '/section/Timeline/first-office.webp',
+        nuraric: '2001',
+        heading: 'First office opens',
+        para: 'To accommodate our growing business, we open our first physical office at 940 Saratoga Ave., San Jose, CA.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 4,
+        img: '/section/Timeline/steve.webp',
+        nuraric: '2001',
+        heading: 'Our B2B debut',
+        para: 'We make our first foray into the B2B tech space, working with ViVOtech, Lightbit Technologies, and MosChip Semiconductor.',
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 5,
         img: '/danny.png',
-        nuraric: '2005',
-        heading: 'Massa tristique molestie',
-        circle: 'dolor',
-        normaltxt: ' ultrices leo',
-        para: 'Lorem ipsum dolor sit amet consectetur. Velit quam sagittis enim pellentesque mattis id lorem tempor. Dignissim id ut ac eu nisl imperdiet congue id pharetra. Aliquam mauris sed condimentum senectus eget purus dictum in. ',
+        nuraric: '2001',
+        heading: 'Our first hire!',
+        para: 'As our client list (and our business) continues to grow, we start to build out our team with our first new hire.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 6,
+        img: '/section/Timeline/steve.webp',
+        nuraric: '2004',
+        heading: 'Our first conference room',
+        para: 'In support of our collaborative approach, we move to 777 N First, San Jose—our first office with a conference room.',
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 7,
+        img: '/danny.png',
+        nuraric: '2007',
+        heading: 'Client list tops 100',
+        para: 'We’re excited to expand our client list into triple digits, serving B2B tech leaders and top brands across key verticals.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 8,
+        img: '/section/Timeline/steve.webp',
+        nuraric: '2008',
+        heading: 'Our headcount hits 15!',
+        para: 'We expand our team of passionate creatives, developers, and project managers to keep up with our growing client base.',
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 9,
+        img: '/section/Timeline/award.webp',
+        nuraric: '2010',
+        heading: 'We win our first Addy statue',
+        para: 'We’re honored to have our work recognized by our peers with our very first American Advertising Federation (ADDY) award.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 10,
+        img: '/section/Timeline/cheers.webp',
+        nuraric: '2014',
+        heading: 'Cheers to 15 years!',
+        para: "So much to celebrate—over 100 awards, 900,000 web pages, 4B pixels and counting. That's why we’re partying like it’s 1999.",
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 11,
+        img: '/section/Timeline/san-jose-film.webp',
+        nuraric: '2014',
+        heading: 'Partnering for art',
+        para: 'We are honored when the San Jose International Short Film Festival invites us to design their poster.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 12,
+        img: '/section/Timeline/pc-with-dog.webp',
+        nuraric: '2016',
+        heading: 'Expanding our reach with remote work',
+        para: 'To keep up with demand and expand our talent pool, we hire our first remote worker—ahead of the curve, as usual.',
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 13,
+        img: '/section/Timeline/meeting-room.webp',
+        nuraric: '2017',
+        heading: 'Move to our current digs',
+        para: 'In keeping with our Silicon Valley spirit, we move to 1570 The Alameda, Suite 330—in the heart of San Jose.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 14,
+        img: '/section/Timeline/intern.webp',
+        nuraric: '2018',
+        heading: 'Bring in the interns',
+        para: 'We begin mentoring young designers, developers, and project managers with four-month paid internship opportunities.',
+        arrowfine: true,
+        reverse: true,
+        super: true,
+    },
+    {
+        id: 15,
+        img: '/section/Timeline/club-launch.webp',
+        nuraric: '2018',
+        heading: 'Book club launch',
+        para: 'Storytelling is at the heart of what we do—so we’re sharing the joy of reading through the Clear Digital Book Club.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 16,
+        img: '/section/Timeline/summit.webp',
+        nuraric: '2021',
+        heading: 'First-ever Forward Summit',
+        para: 'Bringing together partners and team members from around the world to uncover new ideas, address challenges, and build relationships.',
+        arrowfine: true,
+        super: true,
+        reverse: true,
+    },
+    {
+        id: 17,
+        img: '/section/Timeline/inc-5000-logo.webp',
+        nuraric: '2021',
+        heading: 'We make the Inc. 5000 list',
+        para: 'Clear Digital ranks on the Inc. 5000 list of the fastest-growing private companies for 2021.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 18,
+        img: '/section/Timeline/myrious-logo.webp',
+        nuraric: '2022',
+        heading: 'Founding Partner at Myrious Group',
+        para: 'We proudly partner with other agencies to help brands unlock their potential through the power of orchestration.',
+        arrowfine: true,
+        super: true,
+        reverse: true,
+    },
+    {
+        id: 19,
+        img: '/section/Timeline/clear-digital-logo.webp',
+        nuraric: '2023',
+        heading: 'Rebrand to Clear Digital',
+        para: 'Looking to the future while acknowledging our growth, innovation, and evolution to date, we’re proud to rebrand as Clear Digital.',
+        arrowfine: true,
+        super: true,
+    },
+    {
+        id: 20,
+        img: '/section/Timeline/forward-summit.webp',
+        nuraric: '2023',
+        heading: 'Forward Summit—in person',
+        para: 'Bringing together the best minds in the business, we host our first live summit to talk shop, identify trends, and find solutions.',
+        arrowfine: true,
+        super: true,
+        reverse: true,
+    },
+    {
+        id: 21,
+        img: '/danny.png',
+        nuraric: '2024',
+        heading: 'Clear Digital turns 25!',
+        para: 'We’re looking back at how much we’ve learned, grown, and achieved since we started—and looking forward to the future with excitement. ',
         arrowfine: true,
         super: true,
     },
@@ -131,13 +299,13 @@ export default function ScrollDownColTwo() {
     return (
         <>
             <section
-                className={`timeline grid__parallax dark pb-[30rem]`}
+                className={`timeline grid__parallax dark pb-[30rem] `}
             >
                 <div className={`container`}>
                     <div
-                        className={`relative w-full  z-10 `}
+                        className={`relative w-full lg:pl-[10rem] xs:pl-[5rem]  z-10 `}
                     >
-                        <div className={`absolute top-0 left-[50%] translate-x-[-50%] w-[10rem] h-full lg:left-auto tablet:right-[0] phablet:right-0 phone:right-[3rem] xs:right-[-1.5rem] xs:w-[7rem] lg:-translate-x-0`}>
+                        <div className={`absolute top-0 left-[50%] translate-x-[-50%] w-[10rem] h-full tablet:right-[0] phablet:right-0 xs:w-[7rem] lg:left-[0] tablet:left-[5rem] phablet:left-[5rem] xs:left-[1rem] sm:translate-x-unset`}>
                             <div className="relative w-full h-full">
                                 <div className="scroll_line_one absolute top-0 left-[50%] translate-x-[-50%] w-[1px] h-[calc(100%+15rem)] bg-gray-300 lg:left-auto tablet:right-[calc(6rem+3px)] phablet:right-[calc(6rem+3px)] phone:right-0 xs:right-[calc(3rem+3px)] lg:-translate-x-0 bg-black"></div>
                                 <div
@@ -216,7 +384,7 @@ export default function ScrollDownColTwo() {
                         ></div> */}
 
                         {data.map((item, index) => (
-                            <div className={`row relative w-full flex flex-wrap items-center ${index === data.length - 1 ? "" : "mb-[15rem] md:mb-[10rem]"} ${item.reverse === true ? "flex-row-reverse lg:justify-end" : ""}`} key={index}>
+                            <div className={`row relative w-full flex flex-wrap items-center ${index === data.length - 1 ? "" : "mb-[15rem] md:mb-[10rem]"} ${item.reverse === true ? "flex-row-reverse lg:justify-start" : "lg:justify-end"}`} key={index}>
                                 {/* <div
                                     className="circle absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[2.4rem] h-[2.4rem] transition-all duration-100 rounded-[50%] bg-black lg:left-auto tablet:right-[calc(6rem-9px)] phablet:right-[calc(6rem-9px)] phone:right-[calc(5rem-9px)] xs:right-[calc(3rem-9px)] lg:translate-x-0 "
                                     style={{ backgroundColor: circleColor }}
@@ -245,10 +413,10 @@ export default function ScrollDownColTwo() {
                                     {item.arrow ? <div className="img-wrap absolute left-[5rem] bottom-[-11rem] w-[12rem] h-[10rem] md:w-[9rem] md:h-[8rem] md:left-auto md:right-0 md:bottom-[-8rem] md:rotate-[305deg]">
                                         <Image src="/arrow-black.svg" alt="arrow-black" width={1000} height={1000} className="w-full h-full object-contain" />
                                     </div> : ''}
-                                    {item.arrowfine ? <div className="img-wrap absolute left-[23.2rem] top-[-6rem] w-[12rem] h-[6.4rem] lg:left-[30%] lg:rotate-[10deg] tablet:top-[-1rem] phablet:top-[-1rem] sm:hidden">
+                                    {item.arrowfine ? <div className="img-wrap absolute left-[23.2rem] top-[-6rem] w-[12rem] h-[6.4rem] lg:left-[30%] lg:rotate-[10deg] lg:top-[-1rem] sm:w-[4rem] sm:h-[2.4rem] sm:top-0">
                                         <Image src="/arrow_strate.svg" alt="arrow_strate" width={1000} height={1000} className="w-full h-full object-cover" />
                                     </div> : ''}
-                                    {item.super ? <div className="img-wrap absolute right-[21rem] top-[-7.8rem] w-[14.2rem] h-[3.2rem] tablet:left-[60%] phablet:left-[60%] lg:right-auto tablet:top-[-1rem] phablet:top-[-1rem] sm:top-0 sm:left-[45%]">
+                                    {item.super ? <div className="img-wrap absolute right-[21rem] top-[-7.8rem] w-[14.2rem] h-[3.2rem] tablet:left-[60%] phablet:left-[60%] lg:right-auto lg:top-[-1rem] sm:top-[-1rem] sm:w-[11.2rem] sm:left-[50%]">
                                         <Image src="/super.svg" alt="super" width={1000} height={1000} className="w-full h-full object-contain" />
                                     </div> : ''}
                                     <div

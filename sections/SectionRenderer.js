@@ -1,0 +1,104 @@
+import HeroBanner from '../components/HeroBanner.jsx';
+import ImageWithSlider from '../components/integrated-components/ImageWithSlider.jsx';
+import IntroWithContent from '../components/integrated-components/IntroWithContent.jsx';
+import TabsWithSlider from '../components/TabsWithSlider.jsx';
+import TestimonialSlider from '../components/TestimonialSlider.jsx';
+import LogoWithSlider from '../components/LogoWithSlider.jsx';
+import CtaWithText from '../components/CtaWithText.jsx';
+import ColTwoWithSlider from '../components/integrated-components/ColTwoWithSlider.jsx';
+import AccordionWithImage from '../components/AccordionWithImage.jsx';
+import BannerSecondLevel2 from '../components/integrated-components/BannerSecondlevel2.jsx';
+import StickyNav from '../components/integrated-components/sticky.jsx';
+import ColumnGrid from '../components/integrated-components/Grids.jsx';
+import LogoWithText from '../components/LogoWithText.jsx';
+import IntroBlock from '../components/integrated-components/Intro.jsx';
+import ImageBlock from '../components/integrated-components/ImageBlock.jsx';
+import MarqueeText from '../components/ScrollTxt.jsx';
+import PageBlock from '../components/PageBlock.jsx';
+import PaginationBlock from '../components/PaginationBlock.jsx';
+import ViewComponent from '../components/integrated-components/views/ViewComponent.jsx';
+import BannerThirdLevel2 from '../components/integrated-components/BannerThirdLevel2.jsx';
+import WideScreenImg from '../components/integrated-components/Widescreenimg.jsx';
+import ImageWithContent from '../components/integrated-components/Imagewithcontent.jsx';
+import LogoGrid from '../components/integrated-components/LogoGrid.jsx';
+import GridImage from '../components/integrated-components/GridImage.jsx';
+import IconWithTitle from '../components/integrated-components/IconWithTitle.jsx';
+import ContentGrid from '../components/integrated-components/ContentGrid.jsx';
+import FaqAccordion from '../components/integrated-components/FaqAccordion.jsx';
+import ContentWithLogos from '../components/integrated-components/ContentWithLogos.jsx';
+import IntroWithCardSlider from '../components/integrated-components/IntroWithCardSlider.jsx';
+import ScrollWithText from '../components/integrated-components/ScrollWithText.jsx';
+
+const SectionRenderer = ({ type, data }) => {
+	switch (type) {
+		case 'Page_Pagebuilder_Sections_HeroBanner':
+			return <HeroBanner {...data} />;
+		case 'Page_Pagebuilder_Sections_ImageWithSlider':
+			return <ImageWithSlider {...data} />;
+		case 'Page_Pagebuilder_Sections_IntroWithContent':
+			return <IntroWithContent {...data} />;
+		case 'Page_Pagebuilder_Sections_TabsWithSlider':
+			return <TabsWithSlider {...data} />;
+		case 'Page_Pagebuilder_Sections_TestimonialSlider':
+			return <TestimonialSlider {...data} />;
+		case 'Page_Pagebuilder_Sections_LogoSlider':
+			return <LogoWithSlider {...data} />;
+		case 'Page_Pagebuilder_Sections_ColTwoWithSlider':
+			return <ColTwoWithSlider {...data} />;
+		case 'Page_Pagebuilder_Sections_Cta':
+			return <CtaWithText {...data} />;
+		case 'Page_Pagebuilder_Sections_AccordionWithImage':
+			return <AccordionWithImage {...data} />;
+		case 'Page_Pagebuilder_Sections_BannerSecond':
+			return <BannerSecondLevel2 {...data} />;
+		case 'Page_Pagebuilder_Sections_StickyNav':
+			return <StickyNav {...data} />;
+		case 'Page_Pagebuilder_Sections_ColumnGrid':
+			return <ColumnGrid {...data} />;
+		case 'Page_Pagebuilder_Sections_AccordionWithImage':
+			return <AccordionWithImage {...data} />;
+		case 'Page_Pagebuilder_Sections_LogoWithText':
+			return <LogoWithText {...data} />;
+		case 'Page_Pagebuilder_Sections_IntroBlock':
+			return <IntroBlock {...data} />;
+		case 'Page_Pagebuilder_Sections_ImageBlock':
+			return <ImageBlock {...data} />;
+		case 'Page_Pagebuilder_Sections_MarqueeText':
+			return <MarqueeText />;
+		case 'Page_Pagebuilder_Sections_PageBlock':
+			return <PageBlock {...data} />;
+		case 'Page_Pagebuilder_Sections_PaginationBlock':
+			return <PaginationBlock {...data} />;
+		case 'Page_Pagebuilder_Sections_View':
+			return <ViewComponent {...data} />;
+		case 'Page_Pagebuilder_Sections_BannerThird':
+			 return <BannerThirdLevel2 {...data} />;
+		case 'Page_Pagebuilder_Sections_ImageWithContent':
+			 return <ImageWithContent {...data} />;
+	    case 'Page_Pagebuilder_Sections_WideScreenImg':
+			 return <WideScreenImg {...data} />;
+		case 'Page_Pagebuilder_Sections_Image':
+			 return <LogoGrid {...data} />;
+		case 'Page_Pagebuilder_Sections_ImageGrid':
+			 return <GridImage {...data} />;
+		case 'Page_Pagebuilder_Sections_IconWithTitle':
+			 return <IconWithTitle {...data} />;
+		case 'Page_Pagebuilder_Sections_ContentBar':
+			 return <ContentGrid {...data} />;	
+		case 'Page_Pagebuilder_Sections_Faq':
+			 return <FaqAccordion {...data} />;	
+		case 'Page_Pagebuilder_Sections_ContentWithLogos':
+			 return <ContentWithLogos {...data} />;
+	    case 'Page_Pagebuilder_Sections_IntroWithCardSlider':
+			 return <IntroWithCardSlider {...data} />;	
+		case 'Page_Pagebuilder_Sections_ScrollWithText':
+			 return <ScrollWithText data = {data}/>;	
+			 	 			 	
+		// Add more cases if needed for other section types
+		default:
+			return null;
+	}
+};
+
+export default SectionRenderer;
+

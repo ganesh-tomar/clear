@@ -1,0 +1,19 @@
+{
+    "breadcrumbs": [
+      { "text": "Approach", "link": "/work" },
+      { "sp": "Driving B2B Results" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Driving B2B ", 
+      "HighLightedText": "results",
+      "postText": "",
+      "normalText": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "ctaLink":"#",
+      "ctaText":"Optional resource",
+      "backgroundImage": "/clear_banner.png",
+      "black_overlay": true,
+      "logoslider":true,
+      "underLineClass": "whiteThin bps"
+    }
+    

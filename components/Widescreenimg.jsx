@@ -28,16 +28,20 @@ const ScrollComponent = () => {
   }, []);
   const content = [
     {
-      imgpath: '/Clear_Summit.png',
+      imgpath: '/section/WideScreenImg/hand-wave-up.png',
       width: 'max-w-[57rem]  w-[40%]'
     },
     {
-      imgpath: '/Z91.png',
+      imgpath: '/section/WideScreenImg/have-fun.png',
       width: ' max-w-[33.2rem] w-[23%]'
     },
     {
-      imgpath: '/Z91_27.png',
+      imgpath: '/section/WideScreenImg/team-member-smile.png',
       width: 'max-w-[54.5rem] w-[40%]'
+    },
+    {
+      imgpath: '/section/WideScreenImg/team-member-smile-2.png',
+      width: ' max-w-[33.2rem] w-[23%]'
     },
   ];
 

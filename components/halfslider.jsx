@@ -136,7 +136,7 @@ const Halfslider = () => {
 const CustomPrevArrow = ({ onClick, currentSlide }) => (
     <button
         aria-label="first link"
-        data-cursor-expand
+        data-cursor-expand="true"
         data-cursor-icon="arrow-left"
         className={`btn__left group absolute top-0 left-0 h-full w-5 md-up:w-[27rem]  xl-up:w-24 laptop:w-12 tablet:w-[70px] md:w-[3.2rem] md:left-[-1.5rem] z-10 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
             }`}
@@ -147,7 +147,7 @@ const CustomPrevArrow = ({ onClick, currentSlide }) => (
 const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
     <button
         aria-label="first link"
-        data-cursor-expand
+        data-cursor-expand="true"
         data-cursor-icon="arrow-right"
         className={`btn__right group absolute top-0 right-0 h-full w-5 md-up:w-[27rem] xl-up:w-24 laptop:w-12 tablet:w-[70px] md:w-[3.2rem] md:right-[-1.5rem] z-10 ${currentSlide === totalSlides - 1.16
             ? 'opacity-0 pointer-events-none'

@@ -43,13 +43,13 @@ const QuoteCarousel = ({
 							<div
 								className={`${styles.cross_icon} counter relative inline-block sm:mb-[1rem]`}
 							>
-								<h2 className="medium-light inline font-light sm:!text-[90px] text-white count">
+								<h2 className="large inline font-light sm:!text-[90px] text-white count">
 									{prefix}
 								</h2>
-								<h2 className="medium-light font-light inline sm:!text-[90px] text-white count">
+								<h2 className="large font-light inline sm:!text-[90px] text-white count">
 									{count}
 								</h2>
-								<h2 className="medium-light inline font-light sm:!text-[90px] text-white h1">
+								<h2 className="large inline font-light sm:!text-[90px] text-white h1">
 									{denotation}
 								</h2>
 							</div>
@@ -232,7 +232,7 @@ const ColTwoSlider = ({ data, bgColor, parallax, txt, pb, md, employeeQuote }) =
 const CustomPrevArrow = ({ onClick, currentSlide }) => (
 	<button
 		aria-label="first link"
-		data-cursor-expand
+		data-cursor-expand="true"
 		data-cursor-icon="arrow-left"
 		className={`btn__left group absolute top-0 left-[-70px] h-full w-5 xl-up:w-24 laptop:w-[12rem] tablet:w-[15rem] md:w-[12rem] md:left-[-1.5rem] z-10 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
 			}`}
@@ -243,7 +243,7 @@ const CustomPrevArrow = ({ onClick, currentSlide }) => (
 const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
 	<button
 		aria-label="first link"
-		data-cursor-expand
+		data-cursor-expand="true"
 		data-cursor-icon="arrow-right"
 		className={`btn__right group absolute top-0 right-[-70px] h-full w-5 xl-up:w-24 laptop:w-[12rem] tablet:w-[15rem] md:w-[12rem] md:right-[-1.5rem] z-10  ${currentSlide === totalSlides - 1
 			? 'opacity-0 pointer-events-none'

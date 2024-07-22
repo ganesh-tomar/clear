@@ -1,0 +1,11 @@
+{
+  "subtitle": "Our services",
+  "PreNormalText": "A",
+  "HighLightedText": "solution", 
+  "underlineClass":"whiteThin",
+  "normalText":  "for every challenge.",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  "backgroundImage": "/banners/sevice_overview_banner.png",
+  "black_overlay": true,
+  "zoom":false
+}

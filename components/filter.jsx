@@ -20,6 +20,7 @@ const Filter = () => {
 	const [checkSubTechVal, setCheckSubTechVal] = useState([]);
 	const [winWidth, isWinWidth] = useState(0);
 	const [filteredData, setFilteredData] = useState(allClients);
+	
 
 	//subcategory list
 	const [techSublist, setTechSublist] = useState();
@@ -170,9 +171,7 @@ const Filter = () => {
 
 	//toggle list
 	function listToggleHandler(e, index) {
-		// if (e.target.classList.contains('category-item')) {
 		setListOpen(listOpen == index ? 33 : index);
-		// }
 	}
 	const toggleMenu = () => {
 		setMenuOpen(!isMenuOpen);
@@ -187,14 +186,11 @@ const Filter = () => {
 			window.removeEventListener("resize", handleResize);
 		};
 	});
-
-	//    const content = contentdata[contentName] || []; onClick={() => ServiceFacetHandler(item)} onChange={() => handleServiceCheckboxChange(index)}
 	var services = [];
 	const listicon =
 		"after:content-[''] after:absolute after:top-[3rem] after:right-[2rem] after:w-[3rem] after:h-[3rem] after:bg-[url('/angle-icon.svg')] after:bg-contain after:bg-no-repeat after:transition-all";
 	return (
 		<section className="filter bg-black client-filter">
-			{/* {console.log(checkedServicesVal)} */}
 			<div className="container">
 				<div className="wrapper w-full flex flex-wrap">
 					{winWidth > 991 ? '' : <h3 className=''>All Clients</h3>}
@@ -205,7 +201,7 @@ const Filter = () => {
 							: 'after:rotate-[180deg]'
 							} relative font-bold mb-[1.7rem] lg-up:pointer-events-none lg:!cursor-pointer lg:after:content-[''] lg:after:absolute lg:after:top-[-1/2] lg:translate-y-[-1/2] lg:after:right-[2rem] lg:after:w-[3rem] lg:after:h-[3rem] lg:after:bg-[url('/angle-icon.svg')] lg:after:bg-contain lg:after:bg-no-repeat lg:after:transition-all lg:py-[3rem] lg:mb-0`}
 							onClick={toggleMenu}
-							data-cursor-expand
+							data-cursor-expand="true"
 						>Filter all clients</p>
 						<div className={`${isMenuOpen
 							? 'max-h-[112rem]'
@@ -222,7 +218,7 @@ const Filter = () => {
 										className="text-pink inline-block lg:!cursor-pointer text-[16px] xxl-up:text-[1.6rem] font-bold"
 										href=""
 										onClick={(e) => clearAllClickHandler(e)}
-										data-cursor-expand
+										data-cursor-expand="true"
 									>
 										Clear all
 									</span>
@@ -233,7 +229,7 @@ const Filter = () => {
 									<li
 										key={index} dataval={item.category}
 										className={`relative category-item flex flex-wrap lg:!cursor-pointer w-full justify-between items-center  text-white px-[3.5rem] border-t-[0.1rem] border-[#989898]`}
-										data-cursor-expand
+										data-cursor-expand="true"
 									>
 										{item.category == 'technology' ? <span className='lg:!cursor-pointer drop absolute top-[2rem] right-[1.5rem] w-[5rem] h-[5rem]  z-[10]' onClick={(e) => listToggleHandler(e, index)}></span> : ''}
 
@@ -313,7 +309,7 @@ const Filter = () => {
 														key={i}
 														className="relative px-[1.5rem] mb-[1.5rem] pr-[4.2rem] text-[16px] xxl-up:text-[1.6rem] font-bold inline-block mr-[1rem] py-[1.3rem] rounded-[3rem] bg-white text-black"
 														onClick={() => tagsClickHandler(elem, 'subCategory')}
-														data-cursor-expand
+														data-cursor-expand="true"
 													>
 														{elem}
 														<span className="absolute flex items-center top-[50%] translate-y-[-50%] right-[1rem] w-[2.4rem] h-[2.4rem]">
@@ -328,7 +324,7 @@ const Filter = () => {
 														key={i}
 														className="relative px-[1.5rem] mb-[1.5rem] pr-[4.2rem] inline-block text-[16px] xxl-up:text-[1.6rem] font-bold mr-[1rem] py-[1.3rem] rounded-[3rem] bg-white text-black"
 														onClick={() => tagsClickHandler(elem, 'category')}
-														data-cursor-expand
+														data-cursor-expand="true"
 													>
 														{elem}
 														<span className="absolute flex items-center top-[50%] translate-y-[-50%] right-[1rem] w-[2.4rem] h-[2.4rem]">
@@ -343,7 +339,7 @@ const Filter = () => {
 												className="text-pink inline-block lg:!cursor-pointer text-[16px] xxl-up:text-[1.6rem] font-bold"
 												href=""
 												onClick={(e) => clearAllClickHandler(e)}
-												data-cursor-expand
+												data-cursor-expand="true"
 											>
 												Clear all
 											</span>

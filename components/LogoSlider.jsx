@@ -5,7 +5,7 @@ import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
-import style from '../components/styles/logoSlider.module.css'
+import style from '../components/styles/logoSlider.module.css';
 
 const logos = {
 	data: [
@@ -44,7 +44,7 @@ const logos = {
 	],
 	datawhite: [
 		{
-			image: '/cisco_black.svg',
+			image: '/cisco-black.svg',
 			alt: 'Cisco',
 		},
 		{
@@ -65,11 +65,7 @@ const logos = {
 		},
 		{
 			heading: 'You’re in good company',
-			image: '/cisco_black.svg',
-			alt: 'Cisco',
-		},
-		{
-			image: '/cisco_black.svg',
+			image: '/cisco-black.svg',
 			alt: 'Cisco',
 		},
 		{
@@ -79,18 +75,6 @@ const logos = {
 		{
 			image: '/stanford_black.svg',
 			alt: 'Stanford',
-		},
-		{
-			image: '/tenable_black.svg',
-			alt: 'Tenable',
-		},
-		{
-			image: '/vmware_black.svg',
-			alt: 'VMware',
-		},
-		{
-			image: '/cisco_black.svg',
-			alt: 'Cisco',
 		},
 	],
 	fourcard: [
@@ -108,6 +92,24 @@ const logos = {
 		},
 		{
 			image: '/Vocera_Logo_White-1 2.png',
+			alt: 'Tenable',
+		},
+	],
+	award: [
+		{
+			image: '/ava_4x.png',
+			alt: 'Cisco',
+		},
+		{
+			image: '/splash_4x.png',
+			alt: 'McAfee',
+		},
+		{
+			image: '/aaf_4x.png',
+			alt: 'Stanford',
+		},
+		{
+			image: '/MarCom_4x.png',
 			alt: 'Tenable',
 		},
 	],
@@ -186,33 +188,21 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 	}, []);
 
 	const content = logos[contentname] || [];
-	// useEffect(() => {
-	//     setTimeout(() => {
-	//         let changeingwrap = document.querySelector('.changeingwrap');
-	//          if(changeingwrap){
-	//           changeingwrap.style.opacity='1';
-	//           changeingwrap.style.height='auto';
 
-	//          }
-	//       },300)
-	// }, [])
 	const [winWidth, isWinWidth] = useState(0);
 	useEffect(() => {
-		// isWinWidth(window.innerWidth);
 		const handleResize = () => {
 			isWinWidth(window.innerWidth);
 		};
 		window.addEventListener('resize', handleResize);
-		// Initial call to set window size
+
 		handleResize();
-		// Clean up event listener on component unmount
+
 		return () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	});
 
-	// if ( content.length < 5 && isMobile) {
-	// console.log(isMobile);
 	return (
 		<>
 			{content.length > 4 ? (
@@ -230,7 +220,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 							<ul className={`absolute flex ${style.ul1}`}>
 								{content.map((item, index) => {
 									return (
-										<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+										<li
+											className="h-[8.4rem] max-w-[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+											key={index}
+										>
 											<Image
 												src={item.image}
 												alt={item.alt}
@@ -245,7 +238,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 							<ul className={`absolute flex ${style.ul2}`}>
 								{content.map((item, index) => {
 									return (
-										<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+										<li
+											className="h-[8.4rem] max-w-[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+											key={index}
+										>
 											<Image
 												src={item.image}
 												alt={item.alt}
@@ -261,8 +257,9 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 					</div>
 				) : (
 					<section
-						className={`${bgcolor ? bgcolor : 'bg-black'} ${pt === 'none' ? '!pt-[0]' : ''
-							} logoSlider bg-black overflow-hidden padding-top-sm sm:pt-[2rem] sm:pb-[5rem]`}
+						className={`${bgcolor ? bgcolor : 'bg-black'} ${
+							pt === 'none' ? '!pt-[0]' : ''
+						} logoSlider bg-black overflow-hidden padding-top-sm sm:pt-[2rem] sm:pb-[5rem]`}
 					>
 						{showGradient === false ? (
 							''
@@ -273,11 +270,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 							</>
 						)}
 
-
 						{content.map((item, index) => {
 							return item.heading ? (
-								<div className="container">
-									<h4 key={index} className="!text-black mb-[3rem]">
+								<div key={index} className="container">
+									<h4 className="!text-black mb-[3rem]">
 										{item.heading}
 									</h4>
 								</div>
@@ -290,7 +286,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 							<ul className={`absolute flex ${style.ul1}`}>
 								{content.map((item, index) => {
 									return (
-										<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+										<li
+											className="h-[8.4rem] max-w-[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+											key={index}
+										>
 											<Image
 												src={item.image}
 												alt={item.alt}
@@ -305,7 +304,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 							<ul className={`absolute flex ${style.ul2}`}>
 								{content.map((item, index) => {
 									return (
-										<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+										<li
+											className="h-[8.4rem] max-w-[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+											key={index}
+										>
 											<Image
 												src={item.image}
 												alt={item.alt}
@@ -321,7 +323,7 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 					</section>
 				)
 			) : content.length > 2 && winWidth < 596 ? (
-				<div className="w-full flex flex-col logoSlider z-[3] overflow-hidden padding-top-sm no-padding-bottom">
+				<div className={`${contentname === 'award' ? 'mt-[5rem] mb-0' : ''} w-full flex flex-col logoSlider mb-[5rem] z-[3] overflow-hidden padding-top-sm no-padding-bottom`}  >
 					{showGradient === false ? (
 						''
 					) : (
@@ -334,7 +336,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 						<ul className={`absolute flex ${style.ul1}`}>
 							{content.map((item, index) => {
 								return (
-									<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+									<li
+										className="h-[8.4rem] mx-[2.5rem]  max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[25%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+										key={index}
+									>
 										<Image
 											src={item.image}
 											alt={item.alt}
@@ -349,7 +354,10 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 						<ul className={`absolute flex ${style.ul2}`}>
 							{content.map((item, index) => {
 								return (
-									<li className="h-[8.4rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]" key={index}>
+									<li
+										className="h-[8.4rem] mx-[2.5rem] max-w[19.3rem] w-[100%] inline-block laptop:max-w-[20%] laptop:w-[21rem] tablet:max-w-[20%] tablet:w-[18rem] phablet:max-w-[25%] phablet:w-[18rem] sm:max-w-[50%] sm:w-[15rem]"
+										key={index}
+									>
 										<Image
 											src={item.image}
 											alt={item.alt}
@@ -364,7 +372,13 @@ const LogoSlider = ({ asChild, contentname, showGradient, bgcolor, pt }) => {
 					</div>
 				</div>
 			) : (
-				<div className="flex flex-wrap ml-[-7.5rem] phablet:ml-[-5rem] lg:ml-[-6.5rem] changeingwrap">
+				<div
+					className={`${
+						contentname === 'award'
+							? 'ml-[-2.5rem] mt-[5rem] mb-0'
+							: 'ml-[-7.5rem] phablet:ml-[-5rem] lg:ml-[-6.5rem] '
+					} flex flex-wrap mb-[8rem] changeingwrap`}
+				>
 					{content.map((item, index) => (
 						<div
 							className="h-[8.4rem] max-w-[19.3rem] w-[calc(25%-5rem)] mx-[2.5rem] logo-wrap"

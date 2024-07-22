@@ -8,6 +8,11 @@
 		padding: 40px 0;
 	}
 }
+.tabLinkDoodle {
+	width: 0;
+	transition: width 0.3s ease-in;
+	overflow: hidden;
+}
 .tabLink::after {
 	content: '';
 	position: absolute;
@@ -20,21 +25,11 @@
 	transition: all 0.3s ease-in-out;
 	opacity: 0;
 }
-.tabLink::before {
-	content: '';
-	position: absolute;
-	width: 13rem;
-	height: 2.8rem;
-	top: 6%;
-	left: 0;
-	background-image: url('/foundation_text.svg');
-	background-repeat: no-repeat;
-	background-size: contain;
-	transition: all 0.3s ease-in-out;
-	opacity: 0;
-}
 .tabLink.active::before {
 	opacity: 1;
+}
+.tabLink.active .tabLinkDoodle {
+	width: 100%;
 }
 .tabLink.active {
 	color: #000;
@@ -44,23 +39,49 @@
 	right: -7%;
 	opacity: 1;
 }
-
+@media only screen and (max-width: 1400px) {
+	.tabLink.active::after {
+		right: -8%;
+		height: 4.7rem;
+		width: 6rem;
+	}
+}
 .tabSlider {
 	overflow: unset;
 }
-.contentLink {
+.tabContent {
+	display: none;
+}
+.tabContent ul {
+	padding-left: 0;
+}
+.contentLink,
+.tabContent li {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 	padding-top: 5rem;
 	padding-bottom: 4.9rem;
 }
+.contentLink,
+.tabContent li a {
+	position: relative;
+	text-decoration: none;
+	color: var(--white);
+	font-size: clamp(16px, 1.3vw, 20px);
+	font-weight: 700;
+	line-height: 1;
+	padding-right: 3.5rem;
+}
+
 @media only screen and (min-width: 1601px) {
-	.contentLink {
+	.contentLink,
+	.tabContent li {
 		padding: 40px 0;
 	}
 }
 @media only screen and (max-width: 1200px) and (min-width: 992px) {
 	.tabLink {
-		font-size: 18px;
+		font-size: 24px;
+		font-weight: 400;
 	}
 }
 
@@ -68,7 +89,8 @@
 	.tabLink {
 		padding: 3rem 0;
 	}
-	.contentLink {
+	.contentLink,
+	.tabContent li {
 		padding-top: 3rem;
 		padding-bottom: 2.9rem;
 	}
@@ -129,8 +151,11 @@
 	border-color: transparent;
 }
 .activeContent {
-	transform: translateX(0);
-	z-index: 2;
+	display: block;
+}
+/* .activeContent + .tabContent {
+	transform: translateX(100%) !important;
+	z-index: -1;
 }
 .prevContent {
 	transform: translateX(-100%);
@@ -139,4 +164,18 @@
 .priorContent {
 	transform: translateX(-100%);
 	z-index: -1;
+} */
+
+.pinkCover {
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		to right,
+		#000 0%,
+		#000 50%,
+		#fa198c 50%,
+		#fa198c 100%
+	);
 }

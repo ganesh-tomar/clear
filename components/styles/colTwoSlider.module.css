@@ -1,3 +1,28 @@
+.quotationMarkBox {
+	content: '';
+	position: absolute;
+	left: -7.5rem;
+	top: -2rem;
+	width: 7.5rem;
+	height: 6.1rem;
+	transform: rotate(2.864deg);
+	overflow: hidden;
+	/* background-image: url('/Quotations.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center; */
+}
+.quotationMark {
+	position: relative;
+	width: 7.5rem;
+	height: 6.1rem;
+	display: block;
+	/* transform: rotate(2.864deg); */
+	background-image: url('/Quotations.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 .quotation::before {
 	content: '';
 	position: absolute;
@@ -11,8 +36,23 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
-.quotation.blackQuote::before{
+.quotation.blackQuote::before {
 	background-image: url('/quations_black.png');
+}
+.quotation p {
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+@media only screen and (min-width: 1201px) {
+	.quotation p {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.quotation p {
+		font-size: 24px;
+	}
 }
 .cross_icon:after {
 	content: '';
@@ -28,9 +68,9 @@
 }
 
 @media (max-width: 991px) {
-	.sliderRight:before {
+	.quotationMarkBox {
 		top: -3rem;
-		left: 0.1rem;
+		left: 0;
 	}
 }
 

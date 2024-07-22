@@ -1,0 +1,19 @@
+{
+    "breadcrumbs": [
+      { "text": "About", "link": "/" },
+      { "sp": "Awards" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Awards & ", 
+      "HighLightedText": "Recognition",
+      "postText": "",
+      "normalText": "",
+      "description": "While getting results for our clients is the best reward, we are always honored to be recognized by our peers.",
+      "ctaLink": "",
+      "ctaText": "",
+      "backgroundImage": "/speaker.png",
+      "black_overlay": true,
+      "logoslider":true,
+      "underLineClass": "whiteThin"
+    }
+    

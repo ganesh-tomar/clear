@@ -1,0 +1,24 @@
+{
+    "breadcrumbs": [
+      { "text": "About", "link": "/work" },
+      { "sp": " Our Team" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Storytellers. Creators. ", 
+      "HighLightedText": "Thinkers.",
+      "HighLightedTextColorClass": "text-black",
+      "postText": "",
+      "normalText": "Makers.  ",
+      "underLineColor":"black",
+      "underLineSize":"medium",
+      "description": "Meet the team behind our award-winning digital brand experience and website work. We’re passionate about what we do and deeply connected — to our clients, and each other.",
+      "ctaLink":"",
+      "ctaText":"",
+      "backgroundImage": "",
+      "black_overlay": false,
+      "logoslider":true,
+      "blacklogo":false,
+      "heart":true,
+      "underLineClass": "blackThin"
+    }
+    

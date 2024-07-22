@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import LogoSlider from './LogoSlider';
 
 const Intro = ({
 	eyeBrowText,
@@ -20,8 +21,8 @@ const Intro = ({
 	btnText,
 	btnUrl,
 	pt,
+	Logo,
 }) => {
-	// console.log(btnUrl, btnText);
 
 	return (
 		<div className="intro">
@@ -75,7 +76,7 @@ const Intro = ({
 								{normaltext}
 							</h2>
 							<p
-								className={` relative mt-[5rem] lg:mt-[3rem] subtitle !leading-[1.5] ${arrow === true ? 'curved_arrow' : ''
+								className={` relative mt-[5rem] lg:mt-[3rem]  subtitle !leading-[1.5] ${arrow === true ? 'curved_arrow' : ''
 									}`}
 							>
 								{' '}
@@ -94,7 +95,9 @@ const Intro = ({
 						</>
 					)}
 				</div>
-				<div className="intro__cta"></div>
+				{
+					Logo === true ? <LogoSlider contentname={'award'} asChild={true} showGradient={false} /> : ''
+				}
 			</div>
 		</div>
 	);

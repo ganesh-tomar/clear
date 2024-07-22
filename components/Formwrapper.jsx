@@ -15,7 +15,7 @@ const FormWrapper = () => {
 
 	const handletoggle = () => {
 		const otherdropdown = document.querySelector('.select-wrap.active');
-		if(otherdropdown){
+		if (otherdropdown) {
 			otherdropdown.classList.remove('active');
 		}
 		setistoggle(!istoggle);
@@ -116,11 +116,11 @@ const FormWrapper = () => {
 						</ul>
 					</div>
 					<div className="form-wrap w-[calc(50%-2.5rem)] lg:w-full mx-[2rem] lg:mx-0">
-						<form className="bg-black p-[8rem] sm:p-[4rem]">
-							<h4 className="text-white font-medium mb-[3rem]">
+						<form className="bg-black p-[8rem] lg:py-[4.5rem] lg:px-[4rem] sm:p-[4rem]">
+							<h5 className="text-white font-medium mb-[3rem]">
 								Access the Whitepaper
-							</h4>
-							<p className="text-white mb-[2.8rem]">
+							</h5>
+							<p className="text-white mb-[2.8rem] ">
 								Fill out this form and we will provide you instant access to the
 								report.
 							</p>
@@ -128,7 +128,7 @@ const FormWrapper = () => {
 								<div className="area w-colTwohalfwidth mr-[3rem] sm:w-[100%] sm:mr-[0]">
 									<label
 										htmlFor=""
-										className="text-[1.4rem] text-white font-normal mb-[0.8rem] block"
+										className="text-[1.4rem] laptop:text-[14px] lg:text-[14px] text-white font-normal mb-[0.8rem] block"
 									>
 										First name*
 									</label>
@@ -140,7 +140,7 @@ const FormWrapper = () => {
 								<div className="area w-colTwohalfwidth sm:mt-[2.8rem] sm:w-[100%]">
 									<label
 										htmlFor=""
-										className="text-[1.4rem] text-white font-normal mb-[0.8rem] block"
+										className="text-[1.4rem] laptop:text-[14px] lg:text-[14px] text-white font-normal mb-[0.8rem] block"
 									>
 										Last name*
 									</label>
@@ -153,7 +153,7 @@ const FormWrapper = () => {
 							<div className="area w-[100%] mb-[2.8rem]">
 								<label
 									htmlFor=""
-									className="text-[1.4rem] text-white font-normal mb-[0.8rem] block"
+									className="text-[1.4rem] laptop:text-[14px] lg:text-[14px] text-white font-normal mb-[0.8rem] block"
 								>
 									Business email*
 								</label>
@@ -167,20 +167,20 @@ const FormWrapper = () => {
 							>
 								<label
 									htmlFor=""
-									className="text-[1.4rem] text-white font-normal mb-[0.8rem] block"
+									className="text-[1.4rem] laptop:text-[14px] lg:text-[14px] text-white font-normal mb-[0.8rem] block"
 								>
 									What expertise areas are most relevant to you?*
 								</label>
 								<div className="input-wrap" >
-								<input
-									type="text"
-									className={` bg-black select w-full h-[7rem]  border-2 p-[2rem] sm:p-[1rem] border-solid border-white text-white laptop:h-[60px] lg:h-[50px]  relative`}
-									value=""
-									readOnly
-									onClick={handletoggle}	
-								/>
+									<input
+										type="text"
+										className={` bg-black select w-full h-[7rem]  border-2 p-[2rem] sm:p-[1rem] border-solid border-white text-white laptop:h-[60px] lg:h-[50px]  relative`}
+										value=""
+										readOnly
+										onClick={handletoggle}
+									/>
 								</div>
-								
+
 								<div className="hidden-content absolute top-[100%]  z-[6] left-0 w-0 h-0 opacity-0 bg-[#FFF] py-[3rem] pb-[2.5rem] sm:py-[2rem] sm:pb-[1.5rem] ">
 									<p className="small !text-black px-[3rem] mb-[0.5rem] sm:px-[2rem]">
 										Select all that apply
@@ -216,21 +216,20 @@ const FormWrapper = () => {
 							>
 								<label
 									htmlFor=""
-									className="text-[1.4rem] text-white font-normal mb-[0.8rem] block"
+									className="text-[1.4rem] laptop:text-[14px] lg:text-[14px] text-white font-normal mb-[0.8rem] block"
 								>
 									How did you hear about us?*
 								</label>
 								<div className="input-wrap w-full h-full" onClick={handletoggledown}>
-								<input
-									type="text"
-									value=""
-									readOnly
-									className={`${
-										toggle ? 'active' : ''
-									} bg-black w-full h-[7rem] p-[2rem] sm:p-[1rem] border-2 border-solid border-white text-white laptop:h-[60px] lg:h-[50px]  relative`}	
-								/>
+									<input
+										type="text"
+										value=""
+										readOnly
+										className={`${toggle ? 'active' : ''
+											} bg-black w-full h-[7rem] p-[2rem] sm:p-[1rem] border-2 border-solid border-white text-white laptop:h-[60px] lg:h-[50px]  relative`}
+									/>
 								</div>
-							
+
 								<div className="hidden-content absolute top-[100%] z-[6] left-0 w-0 h-0 opacity-0 bg-[#FFF] pt-[3rem] pb-[2.5rem]  sm:py-[2rem] sm:pb-[1.5rem]">
 									<p className="small !text-black mb-[0.5rem] px-[3rem] sm:px-[2rem]">
 										Select all that apply
@@ -260,14 +259,14 @@ const FormWrapper = () => {
 									/>
 								</div>
 							</div>
-							
-							<div className="area w-[100%] mb-[1rem]  flex flex-wrap relative z-[9]">
+
+							<div className="area w-[100%] mb-[3rem]  flex flex-wrap relative z-[9]">
 								<div className={`check-wrapper w-full`}>
-									<div class="lg:!cursor-pointer categoty-wrap z-[5] !text-[1.6rem] font-normal text-white w-full capitalize flex items-center">
+									<div class="lg:!cursor-pointer categoty-wrap z-[5] !text-[1.6rem] font-normal text-white w-full capitalize flex ">
 										<div
 											class={`check-box-wrap large mr-[2.1rem]`}
 											onClick={(e) => giveConsent(e)}
-											data-cursor-expand 
+											data-cursor-expand="true"
 										>
 											<input
 												class={`checkbox-default`}
@@ -279,7 +278,7 @@ const FormWrapper = () => {
 												.
 											</label>
 										</div>
-										<p className="text-[1.6rem] font-normal">
+										<p className="!text-[1.6rem] medium  font-normal">
 											By submitting this form, I confirm that I have read and
 											agree to the Privacy Statement.
 										</p>

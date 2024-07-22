@@ -1,0 +1,20 @@
+{
+  "breadcrumbs": [
+    { "text": "Work", "link": "/work" },
+    { "sp": "Clients" }
+  ],
+    "subtitle": "",
+    "PreNormalText": "", 
+    "HighLightedText": "Great",
+    "HighLightedTextColorClass": "text-pink",
+    "postText": "clients. Many industries.",
+    "normalText": "",
+    "description": "",
+    "buttonLink": "",
+    "buttonText": "",
+    "backgroundImage": "",
+    "black_overlay": true,
+    "logoslider":true,
+    "underLineClass":"whiteThin"
+  }
+  

@@ -3,9 +3,11 @@ import Image from "next/image";
 import style from '../components/styles/accordionWithMedia.module.css'
 
 
+
 const AccordionItem = ({ id, heading, paragraph, isOpen, toggleAccordion }) => {
     return (
         <div
+            data-cursor-expand="true"
             className={`${style.accordionItem} text-white wrap relative w-full pt-[3rem] pb-[2.8rem] border-b-[1px] cursor-pointer ${isOpen ? "open" : ""
                 }`}
             onClick={() => toggleAccordion(id)}
@@ -62,19 +64,21 @@ const accordionData = [
 export default function ClearDigitalAccordion() {
     const [openItem, setOpenItem] = useState(accordionData[0].id);
     const [bladeHeight, setBladeHeight] = useState(0);
+    const [winWidth, isWinWidth] = useState(0);
 
     const toggleAccordion = (itemId) => {
         setOpenItem(openItem === itemId ? null : itemId);
     };
-    // useEffect(() => {
-    //     if (window.innerWidth > 991) {
-    //         const section = document.querySelector('.accordionWithMedia .accordion');
-    //         const sectionHeight = section?.offsetHeight;
-    //         console.log(section);
-    //         // console.log(sectionHeight);
-    //         section.style.minHeight = `${(sectionHeight / 10) + 15}rem`;
-    //     }
-    // }, []);
+    useEffect(() => {
+        const handleResize = () => {
+            isWinWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
 
     return (
         <>
@@ -84,10 +88,21 @@ export default function ClearDigitalAccordion() {
                 <div className={`container`}>
                     <div className="accordion_wrapper relative w-full flex flex-wrap">
                         <div className="col_two w-1/2 lg:w-full">
-                            <div className="accordion_wrap relative w-full lg-up:max-w-[60rem] lg:mb-[5rem]">
+                            <div className="accordion_wrap relative w-full lg-up:max-w-[60rem]">
                                 <h3 className="text-white mb-[2.1rem] lg:mb-10">
                                     A Full Suite of Brand Strategy Solutions
                                 </h3>
+                                {winWidth > 991 ? '' : <div className="col_two w-1/2 lg:w-full lg:mb-[2.5rem]">
+                                    <div className="image_wrap relative w-full max-w-[67rem] h-full max-h-[64rem] mx-auto">
+                                        <Image
+                                            src="/strategy-services-landing-page.8126c15 1.svg"
+                                            width={900}
+                                            height={1000}
+                                            alt="img"
+                                            className=" w-full h-full object-cover "
+                                        />
+                                    </div>
+                                </div>}
                                 <div className={`accordion relative w-full lg-up:min-h-[75rem]`}>
                                     {accordionData.map((accordionItem) => (
                                         <AccordionItem
@@ -102,7 +117,7 @@ export default function ClearDigitalAccordion() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col_two w-1/2 lg:w-full">
+                        {winWidth > 991 ? <div className="col_two w-1/2 lg:w-full">
                             <div className="image_wrap relative w-full max-w-[67rem] h-full max-h-[64rem] mx-auto">
                                 <Image
                                     src="/strategy-services-landing-page.8126c15 1.svg"
@@ -112,7 +127,8 @@ export default function ClearDigitalAccordion() {
                                     className=" w-full h-full object-cover "
                                 />
                             </div>
-                        </div>
+                        </div> : ''}
+
                     </div>
                 </div>
             </section>

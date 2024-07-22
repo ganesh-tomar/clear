@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import serviceDetail from '../data/banners/service-detail.json';
 import serviceOverview from '../data/banners/service-overview.json';
+import approach from '../data/banners/approach.json';
 import work from '../data/banners/work.json';
 import Image from 'next/image';
 
@@ -16,6 +17,8 @@ export default function BannerSecond({ content }) {
 				return serviceOverview;
 			case 'work':
 				return work;
+			case 'approach':
+				return approach;
 			// Add more cases for additional content names
 			default:
 				return serviceDetail; // Default to a specific content if the name is not recognized
@@ -30,31 +33,27 @@ export default function BannerSecond({ content }) {
 		description,
 		buttonLink,
 		buttonText,
+		buttonClass,
 		backgroundImage,
 		black_overlay,
 		vector,
-		underlineClass,
-		zoom, 
+		underLineClass,
+		zoom
 	} = getContent(content);
-
-	const bgImage = {
-		backgroundImage: `url(${backgroundImage})`,
-	};
+	
 	return (
 		<section
-			className={`${
-				black_overlay ? ' dark__overlay ' : ''
-			} overflow-hidden bg-black Banner-second height__full grid__parallax flex items-center`}
-		>
+			className={`${black_overlay ? ' dark__overlay ' : ''
+				} overflow-hidden bg-black Banner-second height__full grid__parallax flex items-center`}>
 			{vector && (
 				<div
-					className={`bg-img !z-0 ${
-						vector === true
-							? '!top-auto !w-[140rem] !h-[100.7rem] !left-[19.8rem] tablet:!w-[90rem] tablet:!h-[65rem] tablet:!left-[2.8rem] phablet:!w-[90rem] phablet:!h-[65rem] phablet:!left-[2.8rem] sm:!w-[42rem] sm:!h-[30rem] sm:!left-[2.8rem] bottom-[-5px]'
-							: ''
-					}`}
+					className={`bg-img !z-0 ${vector === true
+						? 'vectorImage !top-auto !w-[140rem] !h-[103rem] !left-[19.8rem] tablet:!w-[90rem] tablet:!h-[65rem] tablet:!left-[2.8rem] phablet:!w-[90rem] phablet:!h-[65rem] phablet:!left-[2.8rem] sm:!w-[42rem] sm:!h-[30rem] sm:!left-[2.8rem] bottom-[-5px]'
+						: ''
+						}`}
 				>
 					<Image
+						className='object-left-top'
 						src={backgroundImage}
 						width={1600}
 						height={1090}
@@ -81,10 +80,8 @@ export default function BannerSecond({ content }) {
 					<h1 className="text-white lg:pr-[30px]">
 						{PreNormalText ? PreNormalText : ''}{' '}
 						{HighLightedText ? (
-							<span className={`${underlineClass ? underlineClass : ''} underline-container inline-block relative`}>
+							<span className={`${underLineClass ? underLineClass : ''} underline-container inline-block relative`}>
 								{' '}
-								{/* Adjust the font size here */}
-							
 								{HighLightedText}
 							</span>
 						) : (
@@ -97,7 +94,7 @@ export default function BannerSecond({ content }) {
 					)}
 					{buttonLink && buttonText && (
 						<div className="btn-wrap mt-[2.6rem]">
-							<Link href={buttonLink} className="tertiary-btn text-white font-bold">
+							<Link href={buttonLink} className={`${buttonClass ? buttonClass : 'tertiary-btn'}`}>
 								{buttonText}
 							</Link>
 						</div>

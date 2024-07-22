@@ -367,9 +367,9 @@ const Filterbar = ({ contentName }) => {
                     <div className="heading mr-[20px] md:w-full my-[1.5rem] sm:mt-0 sm:mb-[2rem]">
                         <p className={`${style.btnFont}`}>Filter by:</p>
                     </div>
-                    <div data-cursor-expand onClick={() => listHandler(1)} className={`${style.category} ${open == 1 ? style.show : ''} filterMenu mr-[2rem] pl-[2rem] py-[1rem] pr-[5.5rem] relative bg-gray sm:w-full sm:mr-0 my-[1.5rem] sm:mt-0 sm:mb-[2rem]`}>
+                    <div data-cursor-expand="true" onClick={() => listHandler(1)} className={`${style.category} ${open == 1 ? style.show : ''} filterMenu mr-[2rem] pl-[2rem] py-[1rem] pr-[5.5rem] relative bg-gray sm:w-full sm:mr-0 my-[1.5rem] sm:mt-0 sm:mb-[2rem]`}>
                         <h6 className={`${style.btnFont}`}>Services</h6>
-                        <span className={`${style.arrow} items-center justify-center inline-flex w-[2.4rem] h-[2.4rem] right-[2rem] top-1/2 -translate-y-1/2 absolute`}>
+                        <span className={`${style.arrow} mt-0 items-center justify-center inline-flex w-[2.4rem] h-[2.4rem] right-[2rem] top-1/2 -translate-y-1/2 absolute`}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="chevron-down">
                                     <path id="Vector" d="M6 9L12 15L18 9" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -393,9 +393,9 @@ const Filterbar = ({ contentName }) => {
                             </ul>
                         </div>
                     </div>
-                    <div data-cursor-expand onClick={() => listHandler(2)} className={`${style.category} ${open == 2 ? style.show : ''} filterMenu mr-[2rem] pl-[2rem] py-[1rem] pr-[5.5rem] relative bg-gray sm:w-full sm:mr-0 my-[1.5rem] sm:my-0`}>
+                    <div data-cursor-expand="true" onClick={() => listHandler(2)} className={`${style.category} ${open == 2 ? style.show : ''} filterMenu mr-[2rem] pl-[2rem] py-[1rem] pr-[5.5rem] relative bg-gray sm:w-full sm:mr-0 my-[1.5rem] sm:my-0`}>
                         <h6 className={`${style.btnFont}`}>Industries</h6>
-                        <span className={`${style.arrow} items-center justify-center inline-flex w-[2.4rem] h-[2.4rem] right-[2rem] top-1/2 -translate-y-1/2 absolute`}>
+                        <span className={`${style.arrow} mt-0 items-center justify-center inline-flex w-[2.4rem] h-[2.4rem] right-[2rem] top-1/2 -translate-y-1/2 absolute`}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="chevron-down">
                                     <path id="Vector" d="M6 9L12 15L18 9" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -433,7 +433,7 @@ const Filterbar = ({ contentName }) => {
                             {Array.isArray(newService) && newService.length > 0 && newService.map((value, index) => (
                                 <li
                                     key={index}
-                                    data-cursor-expand
+                                    data-cursor-expand="true"
                                     onClick={() => selectedFacetHandler(value, index, 'removeService')}
                                     value={value}
                                     className="relative my-[1.5rem] group sm:mb-0 sm:mt-[1rem] duration-200 mr-[1rem] inline-block py-[1.3rem] px-[1.5rem] pr-[4.2rem] rounded-[3rem] bg-black text-white"
@@ -449,7 +449,7 @@ const Filterbar = ({ contentName }) => {
                             {Array.isArray(newIndusry) && newIndusry.length > 0 && newIndusry.map((value, index) => (
                                 <li
                                     key={index}
-                                    data-cursor-expand
+                                    data-cursor-expand="true"
                                     onClick={() => selectedFacetHandler(value, index, 'removeIndustry')}
                                     value={value}
                                     className="relative my-[1.5rem] group sm:mb-0 sm:mt-[1rem] duration-200 mr-[1rem] inline-block py-[1.3rem] px-[1.5rem] pr-[4.2rem] rounded-[3rem] bg-black text-white"
@@ -464,7 +464,7 @@ const Filterbar = ({ contentName }) => {
                             ))}
 
                             <li
-                                data-cursor-expand
+                                data-cursor-expand="true"
                                 onClick={() => clearAll()}
                                 className="inline-block p-[1rem] sm:w-full sm:pl-0"
                             >
@@ -554,7 +554,7 @@ const Filterbar = ({ contentName }) => {
                             ) {
                                 return (
                                     <li
-                                        data-cursor-expand
+                                        data-cursor-expand="true"
                                         key={i + 1}
                                         onClick={() => handlePageChange(i + 1)}
                                         className={`text-black text-[2rem] py-[1rem] px-[1.7rem] sm:px-[1.5rem] sm:py-[0.5rem] sm:text-[1rem] font-[700] flex items-center justify-center leading-[24px] mx-[1rem] transition-all duration-300 hover:text-pink ${isCurrent
@@ -613,7 +613,7 @@ const Filterbar = ({ contentName }) => {
                             ) {
                                 return (
                                     <li
-                                        data-cursor-expand
+                                        data-cursor-expand="true"
                                         key={i + 1}
                                         onClick={() => handlePageChange(i + 1)}
                                         className={`text-black text-[2rem] py-[1rem] px-[1.7rem] sm:px-[1.5rem] sm:py-[0.5rem] sm:text-[1rem] font-[700] flex items-center justify-center leading-[24px] mx-[1rem] transition-all duration-200 hover:text-pink ${isCurrent ? 'active text-white hover:text-white bg-black font-bold' : 'bg-gray'

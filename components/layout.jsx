@@ -1,56 +1,140 @@
-import styles from './layout.module.css';
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap';
+import ScrollSmoother from 'gsap/dist/ScrollSmoother';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Header from './header/header';
 import Footer from './footer/footer';
-import Undeline from './Underline'
+import Undeline from './Underline';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import { Poppins, Permanent_Marker } from 'next/font/google';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700', '900', '600'] })
-const permanentMarker = Permanent_Marker({ subsets: ['latin'], weight: ['400'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700', '900', '600'] });
+const permanentMarker = Permanent_Marker({ subsets: ['latin'], weight: ['400'] });
 
-export default function Layout({ children, footerMenu, preview, theme }) {
-	const navItems = [
-		{
-			linkText: '🏠 Home',
-			href: '/',
-		},
-		{
-			linkText: '📰 Posts',
-			href: '/posts',
-		},
-		{
-			linkText: '📑 Pages',
-			href: '/pages',
-		},
-		{
-			linkText: '⚛️ Examples',
-			href: '/examples',
-		},
-	];
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+export default function Layout({ children, footerMenu, preview, theme, isDark }) {
+  const router = useRouter();
+  const smootherRef = useRef(null);
 
-	const footerMenuItems = footerMenu?.map(({ path, label }) => ({
-		linkText: label,
-		href: path,
-		parent: null,
-	}));
+  const initializeScrollSmoother = () => {
+    if (ScrollTrigger) {
+      smootherRef.current = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true,
+        smoothTouch: 0.3,
+      });
+      ScrollTrigger.normalizeScroll({
+        allowNestedScroll: true,
+        lockAxis: false,
+        momentum: self => Math.min(3, self.velocityY / 1000), // dynamically control the duration of the momentum when flick-scrolling
+        type: "touch,wheel,pointer", // now the page will be drag-scrollable on desktop because "pointer" is in the list
+      });
+      window.smoother = smootherRef.current;
+    }
+  };
 
-	return (
-		<div className={`${styles.layout} flex flex-col`}>
-			<Undeline/>
-			<style jsx global>{`
-				* {
-				font-family: ${poppins.style.fontFamily};
-				}
-				.overwrite-text > span {
-					font-family: ${permanentMarker.style.fontFamily};
-				}
-			`}</style>
-			<Header navItems={navItems} theme={theme}/>
-			<main className="mb-auto">{children}</main>
-			<Footer footerMenuItems={footerMenuItems}>
-				<span className="my-0 mx-auto">
-					© {new Date().getFullYear()}{' '}Sift All Right Reserved
-				</span>
-			</Footer>
-		</div>
-	);
+  useGSAP(() => {
+    if (typeof window !== 'undefined') {
+      initializeScrollSmoother();
+    }
+    const handleRouteChange = () => {
+      ScrollSmoother.get() && ScrollSmoother.get().kill();
+      initializeScrollSmoother();
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+      ScrollSmoother.get() && ScrollSmoother.get().kill();
+    };
+  }, [])
+
+
+  useGSAP(() => {
+    gsap.utils.toArray("[data-module-parallax]").forEach((section) => {
+      gsap.utils
+        .toArray(section.querySelectorAll("[data-parallax]"))
+        .forEach((parallax) => {
+          const depth = parallax.dataset.speed;
+          const movement = -(parallax.offsetHeight * depth);
+
+          gsap.fromTo(
+            parallax,
+            {
+              y: -movement
+            },
+            {
+              y: movement,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                scrub: true,
+                markers: true
+              }
+            }
+          );
+        });
+    });
+  })
+
+  const navItems = [
+    {
+      linkText: '🏠 Home',
+      href: '/',
+    },
+    {
+      linkText: '📰 Posts',
+      href: '/posts',
+    },
+    {
+      linkText: '📑 Pages',
+      href: '/pages',
+    },
+    {
+      linkText: '⚛️ Examples',
+      href: '/examples',
+    },
+  ];
+
+  const footerMenuItems = footerMenu?.map(({ path, label }) => ({
+    linkText: label,
+    href: path,
+    parent: null,
+  }));
+
+  return (
+    <ParallaxProvider>
+      <div id='smooth-wrapper'>
+        <Header navItems={navItems} theme={theme} isDark={isDark} />
+        <div id='smooth-content'>
+          <Undeline />
+          <style jsx global>{`
+          * {
+            font-family: ${poppins.style.fontFamily};
+          }
+          .overwrite-text > span {
+            font-family: ${permanentMarker.style.fontFamily};
+          }
+          .font-permanent-marker {
+            font-family: ${permanentMarker.style.fontFamily};
+          }
+          .blackHeader header .navOuter ul li p {
+            color: #000 !important;
+          }
+        `}</style>
+          <main className={`mb-auto`}>{children}</main>
+          <Footer footerMenuItems={footerMenuItems}>
+            <span className="my-0 mx-auto">
+              © {new Date().getFullYear()} Clear Digital Inc All Right Reserved
+            </span>
+          </Footer>
+        </div>
+      </div>
+    </ParallaxProvider>
+  );
 }

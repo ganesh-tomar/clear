@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, newState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './header.module.css';
@@ -48,7 +48,9 @@ const Header = (isDark) => {
 				{
 					industries: {
 						col1: {
-							subCategoryType: 'Industries',
+							// subCategoryType: 'Industries',
+							label: 'Industries',
+							url: '/work/industries',
 							subLinks: [
 								{
 									label: 'Technology',
@@ -381,6 +383,7 @@ const Header = (isDark) => {
 	const [navWidth, setNavWidth] = useState('');
 	const [isHoverEnabled, setIsHoverEnabled] = useState(false);
 	const [winWidth, setwinWidth] = useState(0);
+	const [menuHover, setMenuHover] = useState(false);
 	const [isSubMenuOpen, setIsSubMenuOpen] = useState(
 		Array(navData.length).fill(false),
 	);
@@ -388,6 +391,8 @@ const Header = (isDark) => {
 		navData.map(() => ({ isStopped: true })),
 	);
 	const router = useRouter();
+	const headerRef = useRef(null);
+	const [subMenuHeight, setSubMenuHeight] = useState('');
 
 
 	useEffect(() => {
@@ -488,11 +493,27 @@ const Header = (isDark) => {
 		}
 	};
 
+	const subMenuRefs = useRef([]);
 	const handleMouseEnter = (index) => {
 		const newAnimationState = [...animationState];
 		newAnimationState[index].isStopped = false;
 		setAnimationState(newAnimationState);
+		setMenuHover(true);
+		const activeSubMenuRef = subMenuRefs.current[index];
+		if (activeSubMenuRef && headerRef.current) {
+			const activeSubMenuHeight = activeSubMenuRef.scrollHeight;
+			const headerHeight = headerRef.current.clientHeight;
+			console.log('Header Height:', headerHeight);
+			console.log('Active Submenu Height:', activeSubMenuHeight);
+			const totalHeight = headerHeight + activeSubMenuHeight;
+			console.log('Total Height:', totalHeight);
+			setSubMenuHeight(totalHeight);
+		}
 	};
+	const handleMouseLeave = () => {
+		setMenuHover(false)
+	}
+
 
 	let descriptionWidth = {
 		width: `calc(100% - ${navWidth}px)`,
@@ -500,7 +521,10 @@ const Header = (isDark) => {
 
 	return (
 		<header
-			className={`${styles.header} ${isDark.isDark === true ? styles.blackHeader : ''} group fixed w-full top-0 left-0 z-50 transition-[top]  ${scrolled ? styles.showCover : ''} ${isMenuOpen ? styles.showCover : ''}`}>
+			ref={headerRef}
+			className={`${styles.header} ${isDark.isDark ? styles.blackHeader : ''} ${menuHover ? `before:!top-0 after:!hidden` : ''} group fixed w-full top-0 left-0 z-50 transition-[top] ${scrolled ? styles.showCover : ''} ${isMenuOpen ? styles.showCover : ''}`}
+			style={menuHover ? { '--submenu-height': `${subMenuHeight}px` } : { '--submenu-height': '0px' }}
+		>
 			<div className="container">
 				<div className={`wrapper flex justify-between lg:items-center`}>
 					<div
@@ -611,6 +635,7 @@ const Header = (isDark) => {
 											onMouseEnter={() =>
 												isHoverEnabled && handleMouseEnter(index)
 											}
+											onMouseLeave={() => handleMouseLeave()}
 										>
 											<div className="lg:relative">
 												<p
@@ -636,7 +661,8 @@ const Header = (isDark) => {
 													></span>
 												</span>
 											</div>
-											<ul className={`sub__menu bg-white  lg-up:absolute lg-up:left-0 lg-up:top-[100%] w-full transition-max-height duration-500 lg:duration-500 ease overflow-hidden ${isSubMenuOpen[index] ? 'max-h-[1000vh] h-auto' : 'max-h-0'}`}>
+											<ul ref={el => subMenuRefs.current[index] = el}
+												className={`sub__menu lg-up:absolute lg-up:left-0 lg-up:top-[100%] w-full transition-max-height duration-500 lg:duration-500 ease overflow-hidden ${isSubMenuOpen[index] ? 'max-h-[1000vh] h-auto' : 'max-h-0'}`}>
 												{item.dropLabel === 'Work' ?
 													<li className="container lg:p-[0!important]">
 														<div
@@ -694,9 +720,13 @@ const Header = (isDark) => {
 																				{subMenuItem?.industries && (
 																					<div className={`w-[75%] ${styles.industryDivider}`}>
 																						<div className="w-full">
-																							<p className="lg-up:!text-[20px] lg:text-[16px] largedesktop-up:text-[2rem] font-bold">
-																								{subMenuItem?.industries?.col1.subCategoryType}
-																							</p>
+																						<ul className='p-0'>
+																								<li className="lg-up:!text-[20px] lg:text-[16px] largedesktop-up:text-[2rem] font-bold">{subMenuItem?.industries?.col1.subCategoryType}
+																								<Link data-circle-expand href={subMenuItem?.industries?.col1.url} className={`${styles.subMenuLink} lg-up:!text-[20px] lg:text-[16px] largedesktop-up:text-[2rem] font-bold}`}>
+																												{subMenuItem?.industries?.col1.label}
+																											</Link>
+																											</li>
+																							</ul>
 																						</div>
 																						<div className="w-full lg-up:flex gap-x-[1rem] lg-up:mt-[2.4rem]">
 																							<div className="lg:w-full">
@@ -778,8 +808,8 @@ const Header = (isDark) => {
 																						{subMenuItem?.industries && (
 																							<ul className={``}>
 																								<li className={`w-full pr-[2rem] pt-[1.3rem] pb-[2.2rem] font-bold text-[16px]`}>
-																									<Link data-circle-expand href='' className="">
-																										{subMenuItem?.industries?.col1.subCategoryType}
+																								<Link data-circle-expand href={subMenuItem?.industries?.col1.url} className="">
+																									{subMenuItem?.industries?.col1.label}
 																									</Link>
 																								</li>
 																								{subMenuItem?.industries?.col1.subLinks.map((item, itemIndex) => (

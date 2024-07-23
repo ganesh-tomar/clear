@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from "react";
-import styles from './header/header.module.css';
 
 const HomepageHero = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);

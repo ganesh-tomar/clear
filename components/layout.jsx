@@ -55,32 +55,6 @@ export default function Layout({ children, footerMenu, preview, theme, isDark })
   }, [])
 
 
-  useGSAP(() => {
-    gsap.utils.toArray("[data-module-parallax]").forEach((section) => {
-      gsap.utils
-        .toArray(section.querySelectorAll("[data-parallax]"))
-        .forEach((parallax) => {
-          const depth = parallax.dataset.speed;
-          const movement = -(parallax.offsetHeight * depth);
-
-          gsap.fromTo(
-            parallax,
-            {
-              y: -movement
-            },
-            {
-              y: movement,
-              ease: "none",
-              scrollTrigger: {
-                trigger: section,
-                scrub: true,
-                markers: true
-              }
-            }
-          );
-        });
-    });
-  })
 
   const navItems = [
     {

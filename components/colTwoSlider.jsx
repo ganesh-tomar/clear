@@ -1,256 +1,246 @@
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Slider from 'react-slick';
-import React, { useState, useEffect, useRef } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './styles/colTwoSlider.module.css';
+import { useGSAP } from '@gsap/react'
 
-const QuoteCarousel = ({
-	imageSrc,
-	heading,
-	author,
-	designation,
-	url,
-	linkText,
-	prefix,
-	count,
-	denotation,
-	subText,
-	subDescription,
-	logo,
-	blackQuote,
-	btnText,
-	btnClass,
-	btnUrl
-}) => {
+gsap.registerPlugin(ScrollTrigger);
 
-	return (
-		<div className="colTwoSlider__item">
-			<div className="colTwoSlider__item--inner flex justify-between gap-x-[6rem] lg:flex-wrap">
-				{imageSrc || count ? (
-					<div className="colTwoSlider__left w-full sm-up:grow-0 sm-up:shrink-0 lg-up:flex-[40.5%]  sm-up:my-0">
-						{imageSrc && (
-							<Image
-								src={imageSrc}
-								alt=""
-								width={608}
-								height={523}
-								className="max-w-[60.8rem] w-full h-auto"
-							/>
-						)}
-						{count && (
-							<div
-								className={`${styles.cross_icon} counter relative inline-block sm:mb-[1rem]`}
-							>
-								<h2 className="large inline font-light sm:!text-[90px] text-white count">
-									{prefix}
-								</h2>
-								<h2 className="large font-light inline sm:!text-[90px] text-white count">
-									{count}
-								</h2>
-								<h2 className="large inline font-light sm:!text-[90px] text-white h1">
-									{denotation}
-								</h2>
-							</div>
-						)}
-						{subText && (
-							<h4 className="mb-[0.3rem] leading-[1.5] font-medium">
-								{subText}
-							</h4>
-						)}
-						{subDescription && (
-							<p className="max-w-[40rem] leading-[1.5] font-normal">
-								{subDescription}
-							</p>
-						)}
-					</div>
-				) : null}
-				<div
-					className={`${styles.quotation} ${blackQuote === true ? styles.blackQuote : ''} colTwoSlider__right ${styles.sliderRight} lg:pt-[4rem] lg:mt-[7rem] relative ml-[8.8rem] pr-[0.1rem] lg:pr-0 lg:ml-0`}
-				>
-					{heading && (
-						// <h3 className='sm:tracking-[-0.06em]'>{heading}</h3>
-						<h4
-							className={` medium-light sm:tracking-[-0.035em]`}
-							dangerouslySetInnerHTML={{ __html: heading }}
-						/>
-					)}
-					{author && (
-						<>
-							<span className="inline-block text-[1.6rem] laptop:text-[16px] font-bold xl-up:text-[1.6rem] text-pink mt-[2.5rem] md:mt-[2rem]">
-								{author}
-							</span>
-							&nbsp;
-							<span className={`inline-block text-[1.6rem] laptop:text-[16px] designation font-bold xl-up:text-[1.6rem] text-pink mt-[2.5rem] md:mt-[2rem] sm:!mt-[10px]`}>
-								{designation}
-							</span>
-						</>
-					)}
-					{logo && (
-						<div className="colTwoSlider__logo mt-[1.7rem]">
-							<Image src={logo} alt="img" width={156} height={24} />
-						</div>
-					)}
-					{url && (
-						<div className="mt-[3.5rem] relative z-20">
-							<Link
-								href={url}
-								className={`tertiary-btn black`}
-								target="_self"
-							>
-								{linkText}
-							</Link>
-						</div>
-					)}
-					{btnText && (
-						<div className="mt-[3rem] relative z-20">
-							<Link
-								href={btnUrl}
-								className={`btn  ${btnClass ? `${btnClass}` : 'whiteBtn'}`}
-							>
-								{btnText}
-							</Link>
-						</div>
-					)}
-				</div>
-			</div>
-		</div>
-	);
-};
-
-const ColTwoSlider = ({ data, bgColor, parallax, txt, pb, md, employeeQuote }) => {
-
+const ColTwoSlider = (data) => {
+	const [sectionHeight, setsectionHeight] = useState('')
+	const [sectionContentHeight, setSectionContentHeight] = useState('')
+	const [windowWidth, setSindowWidth] = useState(0)
 	const [currentSlide, setCurrentSlide] = useState(0);
-	const totalSlides = data.length;
-	const sliderRef = useRef(null);
+	const slideRefs = useRef([]);
+	const totalSlides = Math.ceil(data.data.length);
+
+	useGSAP(() => {
+		animateInitialSlide();
+	});
+
+	const animateInitialSlide = () => {
+		const currentLeft = slideRefs.current[currentSlide];
+		const currentRight = slideRefs.current[currentSlide + data.data.length];
+
+		gsap.set(currentLeft, { x: '0%' });
+		gsap.set(currentRight, { x: '0%' });
+
+		for (let i = 0; i < data.data.length; i++) {
+			if (i !== currentSlide) {
+				const leftSlide = slideRefs.current[i];
+				const rightSlide = slideRefs.current[i + data.data.length];
+				gsap.set(leftSlide, { x: '100%' });
+				gsap.set(rightSlide, { x: '-100%' });
+			}
+		}
+	};
+
+	const handlePrevSlide = () => {
+		if (currentSlide > 0) {
+			animateSlide(currentSlide - 1, 'left');
+		}
+	};
+
+	const handleNextSlide = () => {
+		if (currentSlide < data.data.length - 1) {
+			animateSlide(currentSlide + 1, 'right');
+		}
+	};
+
+	const animateSlide = (index, direction) => {
+		const currentLeft = slideRefs.current[currentSlide];
+		const nextLeft = slideRefs.current[index];
+		const currentRight = slideRefs.current[currentSlide + data.data.length];
+		const nextRight = slideRefs.current[index + data.data.length];
+
+		// Select the quotationMark element
+		const quotationMark = document.querySelector(`.${styles.quotationMark}`);
+
+		const tl = gsap.timeline();
+
+		if (direction === 'right') {
+			tl.to(currentLeft, { x: '101%', duration: 0.6, ease: 'power3.out' })
+				.to(currentRight, { x: '101%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextLeft, { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight, { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6');
+
+			// Sequence animations for right part elements with adjusted delays
+			tl.fromTo(nextRight.querySelector('.heading'), { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.author'), { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.designation'), { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.logo'), { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.slideBtn'), { x: '-101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.8');
+
+			// Animate the quotation mark
+			tl.fromTo(quotationMark, { x: '-100%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6');
+
+		} else if (direction === 'left') {
+			tl.to(currentLeft, { x: '-101%', duration: 0.6, ease: 'power3.out' })
+				.to(currentRight, { x: '-101%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextLeft, { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight, { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6');
+
+			// Sequence animations for right part elements with adjusted delays
+			tl.fromTo(nextRight.querySelector('.heading'), { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.author'), { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.designation'), { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.logo'), { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6')
+				.fromTo(nextRight.querySelector('.slideBtn'), { x: '101%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.8');
+
+			// Animate the quotation mark
+			tl.fromTo(quotationMark, { x: '100%' }, { x: '0%', duration: 0.6, ease: 'power3.out' }, '-=0.6');
+		}
+
+		setCurrentSlide(index);
+	};
 
 	useEffect(() => {
-		if (sliderRef.current) {
-			sliderRef.current.slickGoTo(currentSlide);
-		}
-	}, [currentSlide]);
+		const handleResize = () => {
+			setSindowWidth(window.innerWidth)
+			const colTwoSliderActiveContent = document.querySelector('.colTwoSlider .colTwoSlider_content.slideActive').getBoundingClientRect().height
+			if (window.innerWidth > 991) {
+				setsectionHeight(colTwoSliderActiveContent);
+			} else {
+				setSectionContentHeight(colTwoSliderActiveContent);
+			}
+		};
 
-	const handleDotSwipe = (direction) => {
-		if (direction === 'left' && currentSlide > 0) {
-			setCurrentSlide(currentSlide - 1);
-		} else if (direction === 'right' && currentSlide < totalSlides - 1) {
-			setCurrentSlide(currentSlide + 1);
-		}
+		window.addEventListener("resize", handleResize);
+		handleResize();
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	});
+
+	const ColTwoSliderSectionHeight = {
+		minHeight: `${sectionHeight}px`
 	};
-
-	const settings = {
-		dots: true,
-		infinite: false,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: employeeQuote === true ? false : true,
-		appendDots: (dots) => (
-			<div>
-				<ul
-					className="custom-dots"
-					onTouchStart={(e) => handleTouchStart(e)}
-					onTouchMove={(e) => handleTouchMove(e)}
-					onTouchEnd={(e) => handleTouchEnd(e)}
-				>
-					{dots}
-				</ul>
-			</div>
-		),
-		customPaging: function (i) {
-			return (
-				<button className="custom-dot" onClick={() => setCurrentSlide(i)} />
-			);
-		},
-		afterChange: (index) => {
-			setCurrentSlide(index);
-		},
-		prevArrow: <CustomPrevArrow currentSlide={currentSlide} />,
-		nextArrow: (
-			<CustomNextArrow currentSlide={currentSlide} totalSlides={totalSlides} />
-		),
+	const ColTwoSliderContentHeight = {
+		minHeight: `${sectionContentHeight + 40}px`
 	};
-
-	const progressBarWidth = `${((currentSlide + 1) / totalSlides) * 100}%`;
-
-	// Swipe handling logic
-	let xDown = null;
-
-	const handleTouchStart = (e) => {
-		xDown = e.touches[0].clientX;
-	};
-
-	const handleTouchMove = (e) => {
-		if (!xDown) {
-			return;
-		}
-
-		const xUp = e.touches[0].clientX;
-		const xDiff = xDown - xUp;
-
-		if (xDiff > 0) {
-			handleDotSwipe('left');
-		} else {
-			handleDotSwipe('right');
-		}
-
-		xDown = null;
-	};
-
-	const handleTouchEnd = () => {
-		xDown = null;
-	};
+	// let sectionPadding = '';
+	// data.data.padding.map(item => {
+	// 	sectionPadding += ' ' + item;
+	// });
 
 	return (
 		<section
-			className={`${bgColor ? bgColor : 'bg-black'
-				} ${parallax ? 'grid__parallax dark' : ''} ${employeeQuote === true ? 'adptHeightNone' : ''} ${txt ? txt : 'text-white'} ${pb === 'none' ? 'pb-0' : ''} ${md === true ? 'padding-md' : ''} colTwoSlider  `}
-			id="case-studies"
+			className={`colTwoSlider grid__parallax dark adptHeightNone bg-black ${data.data.classes} ${data.data.backgroundColor} ${data.data.textColor}`}
+			id={data.data.id}
 		>
 			<div className="container">
+				{totalSlides > 1 && <>
+					<span aria-label="first link"
+						data-cursor-expand="true"
+						data-cursor-icon="arrow-left" className={`ColTwoSlider_prev_button text-[0]  z-[5] absolute inline-block w-[7%] h-full top-0 left-0 ${currentSlide === 0 ? 'hidden' : ''}`} onClick={handlePrevSlide}>Previous
+					</span>
+					<span aria-label="first link"
+						data-cursor-expand="true"
+						data-cursor-icon="arrow-right" className={`ColTwoSlider_next_button text-[0] z-[5]  absolute inline-block w-[7%] h-full top-0 right-0 ${currentSlide === (totalSlides - 1) ? 'hidden' : ''}`} onClick={handleNextSlide}>Next
+					</span>
+				</>
+				}
 				<div className="wrapper">
-					<Slider ref={sliderRef} {...settings}>
-						{data.map((slide, index) => (
-							<div key={index}>
-								<QuoteCarousel {...slide} />
+					<div className="colTwoSlider__item">
+						<div className="colTwoSlider__item--inner flex justify-between gap-x-[6rem] lg:flex-wrap">
+							<div className="colTwoSlider__left relative overflow-hidden w-full sm-up:grow-0 sm-up:shrink-0 sm-up:my-0 min-h-[49rem] lg-up:flex-[41%]">
+								{data.data.map((slide, index) => (
+									<div ref={el => slideRefs.current[index] = el} key={index} className={`absolute w-full`}>
+										{slide.imageSrc && (
+											<Image
+												src={slide.imageSrc}
+												alt={slide?.image?.altText}
+												width={608}
+												height={523}
+												className="max-w-[60.8rem] w-full h-auto"
+											/>
+										)}
+										{slide.type == 'text-with-prefix' && (
+											<div
+												className={`${styles.cross_icon} counter relative inline-block sm:mb-[1rem]`}
+											>
+												<h2 className="large inline font-light sm:!text-[90px] text-white count">
+													{slide.textWithPrefix.prefix}
+												</h2>
+												<h2 className="large font-light inline sm:!text-[90px] text-white count">
+													{slide.textWithPrefix.number}
+												</h2>
+												<h2 className="large inline font-light sm:!text-[90px] text-white h1">
+													{slide.textWithPrefix.denotation}
+												</h2>
+											</div>
+										)}
+										{/* {slide.textWithPrefix.subHeading && (
+											<h4 className="mb-[0.3rem] leading-[1.5] font-medium">
+												{slide.textWithPrefix.subHeading}
+											</h4>
+										)} */}
+										{/* {slide.textWithPrefix.description && (
+											<p className="max-w-[40rem] leading-[1.5] font-normal">
+												{slide.textWithPrefix.description}
+											</p>
+										)} */}
+									</div>
+								))}
 							</div>
-						))}
-					</Slider>
-					<div className="relative hidden">
-						<span className="block bg-white w-full h-[1px] absolute left-0 top-1/2 -translate-y-1/2"></span>
-						<div
-							className="progress-bar h-[1rem] md:h-[1.6rem] mt-[3rem] md-up:mt-[8rem] bg-pink z-10  relative transition-all duration-300"
-							style={{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }}
-						></div>
+							<div className={`colTwoSlider__right relative ${styles.sliderRight} ml-[8.8rem] pr-[0.1rem] lg:w-full lg-up:flex-[55%] lg:pt-[4rem] lg:mt-[7rem] lg:pr-0 lg:ml-0 transition-[min-height]`} style={windowWidth > 991 ? ColTwoSliderSectionHeight : ColTwoSliderContentHeight}>
+								<div className={`${styles.quotationMarkBox}`}>
+									<span className={`${styles.quotationMark} quotationMarkSpan`}></span>
+								</div>
+								<div className='overflow-hidden relative w-full h-full'>
+									{data.data.map((slide, index) => (
+										<div ref={el => slideRefs.current[index + data.data.length] = el} key={index} className={`${currentSlide == index ? 'slideActive' : ''} colTwoSlider_content absolute w-full`}>
+											{slide.heading && (
+												<div className='h4 text-white' dangerouslySetInnerHTML={{ __html: slide.heading }}></div>
+											)}
+											{slide.authorName && (
+												<>
+													<span className="inline-block text-[1.6rem] laptop:text-[16px] font-bold xl-up:text-[1.6rem] text-pink mt-[2.5rem] md:mt-[2rem]">
+														{slide.authorName}
+													</span>
+													&nbsp;
+													<span className={`inline-block text-[1.6rem] laptop:text-[16px] designation font-bold xl-up:text-[1.6rem] text-pink mt-[2.5rem] md:mt-[2rem] sm:!mt-[10px]`}>
+														{slide.designation}
+													</span>
+												</>
+											)}
+											{slide.logo && (slide.logo.mediaItemUrl) && (
+												<div className="colTwoSlider__logo mt-[1.7rem]">
+													<Image src={slide.logo.mediaItemUrl} alt={slide.logo.altText} width={156} height={24} />
+												</div>
+											)}
+											{slide.link && (
+												<div className="mt-[3rem] relative z-20 header-btnwrap white  inline-block w-auto h-auto bg-transparent">
+													<Link
+														href={slide.link.linkUrl}
+														className={`btn  relative lg:text-center sm:w-full lg:!text-[20px] !py-[1rem] w-full  whiteBtn`}
+													>
+														{slide.link.linkText}
+													</Link>
+												</div>
+											)}
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				{totalSlides > 1 &&
+					<div className="progress-bar block mt-[3rem] md-up:mt-[5rem] relative w-full">
+						<span className="block bg-white w-full md-up:max-w-[105%] h-[1px] absolute left-0 top-1/2 -translate-y-1/2"></span>
+						<div
+							className="h-[1rem] md:h-[1.6rem] bg-pink transition-all duration-300 relative z-10"
+							style={{
+								width: `${((currentSlide + 1) / totalSlides) * 100}%`,
+							}}
+						></div>
+					</div>}
 			</div>
 		</section>
 	);
 };
-const CustomPrevArrow = ({ onClick, currentSlide }) => (
-	<button
-		aria-label="first link"
-		data-cursor-expand="true"
-		data-cursor-icon="arrow-left"
-		className={`btn__left group absolute top-0 left-[-70px] h-full w-5 xl-up:w-24 laptop:w-[12rem] tablet:w-[15rem] md:w-[12rem] md:left-[-1.5rem] z-10 ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
-			}`}
-		onClick={currentSlide !== 0 ? onClick : undefined}
-	></button>
-);
-
-const CustomNextArrow = ({ onClick, currentSlide, totalSlides }) => (
-	<button
-		aria-label="first link"
-		data-cursor-expand="true"
-		data-cursor-icon="arrow-right"
-		className={`btn__right group absolute top-0 right-[-70px] h-full w-5 xl-up:w-24 laptop:w-[12rem] tablet:w-[15rem] md:w-[12rem] md:right-[-1.5rem] z-10  ${currentSlide === totalSlides - 1
-			? 'opacity-0 pointer-events-none'
-			: 'opacity-100'
-			}`}
-		onClick={currentSlide !== totalSlides ? onClick : undefined}
-	></button>
-);
 
 export default ColTwoSlider;

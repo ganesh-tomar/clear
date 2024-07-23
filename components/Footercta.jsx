@@ -1,17 +1,53 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-const FooterCta = ({ props, form, miniform, bgImage, subTitle , title}) => {
+gsap.registerPlugin(ScrollTrigger);
+
+const FooterCta = ({ props, form, miniform, bgImage, subTitle, title }) => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    let getRatio = (el) => window.innerHeight / (window.innerHeight + (el.offsetHeight));
+
+    gsap.utils.toArray("section").forEach((section, i) => {
+      const content = section.querySelector(".footerCta .fixedContent");
+      if (content) {
+        gsap.fromTo(
+          content,
+          {
+            y: () =>
+              i ? -window.innerHeight * getRatio(content) : 0,
+          },
+          {
+            y: () =>
+              window.innerHeight * (1 - getRatio(content)),
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: () => (i ? "top bottom" : "top top"),
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true, // to make it responsive
+            },
+          }
+        );
+      }
+    });
+  });
+
   return (
     <section className={`footerCta grid__parallax height__full-nav ${form === true ? 'padding-small' : ''} `}>
-      <div className="bg-img dark__overlay">
+      <div className="bg-img dark__overlay !h-[117%] relative fixedContent">
         <Image
           src={bgImage ? bgImage : '/Imagecta.png'}
           alt="image"
           height={2000}
           width={2000}
-          className="w-full h-full object-cover"
+          className="w-full h-full botttom-0 object-cover absolute left-0 object-center"
         />
       </div>
       <div className="container">
@@ -57,54 +93,54 @@ const FooterCta = ({ props, form, miniform, bgImage, subTitle , title}) => {
             </div>
           </div>
         ) :
-        miniform === true ? (
-          <div className="wrapper w-full laptop:w-[calc(100%+3rem)] relative flex flex-wrap items-center">
-            <div className="textwrapper max-w-[69rem] lg:max-w-[100%]  w-colTwohalfwidth  lg:w-[100%] lg:mb-[30px]">
-              {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6>: <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
-              
-              <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Clear updates</h2>
-              <p className="text-[white] medium-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div>
+          miniform === true ? (
+            <div className="wrapper w-full laptop:w-[calc(100%+3rem)] relative flex flex-wrap items-center">
+              <div className="textwrapper max-w-[69rem] lg:max-w-[100%]  w-colTwohalfwidth  lg:w-[100%] lg:mb-[30px]">
+                {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6> : <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
 
-            <div className="formwrapper max-w-[69rem] w-colTwohalfwidth py-[5rem] px-[6rem] laptop:max-w-[100%] lg:max-w-[100%] lg-up:ml-[3rem] lg:w-[100%] lg:px-[4rem] lg:py-[4.5rem] bg-[black]">
-              <p className='mb-[3rem] max-w-[45rem] text-[white] xm:max-w-full'>Lorem ipsum dolor sit amet consectetur. Erat imperdiet maecenas massa.</p>
-              <form action="">
-                <div className="row w-full flex flex-wrap">
-                  <div className="area w-[100%] mb-[3rem]">
-                    <label htmlFor="" className='text-[14px] xxl-up:text-[1.4rem] text-white font-normal mb-[10px] block'>Business email</label>
-                    <input type="email" className='bg-black p-[2rem] sm:p-[1rem] w-full h-[7rem] border-2 border-solid border-white text-white laptop:h-[60px] lg:h-[50px]'	data-cursor-expand />
+                <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Clear updates</h2>
+                <p className="text-[white] medium-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+              </div>
+
+              <div className="formwrapper max-w-[69rem] w-colTwohalfwidth py-[5rem] px-[6rem] laptop:max-w-[100%] lg:max-w-[100%] lg-up:ml-[3rem] lg:w-[100%] lg:px-[4rem] lg:py-[4.5rem] bg-[black]">
+                <p className='mb-[3rem] max-w-[45rem] text-[white] xm:max-w-full'>Lorem ipsum dolor sit amet consectetur. Erat imperdiet maecenas massa.</p>
+                <form action="">
+                  <div className="row w-full flex flex-wrap">
+                    <div className="area w-[100%] mb-[3rem]">
+                      <label htmlFor="" className='text-[14px] xxl-up:text-[1.4rem] text-white font-normal mb-[10px] block'>Business email</label>
+                      <input type="email" className='bg-black p-[2rem] sm:p-[1rem] w-full h-[7rem] border-2 border-solid border-white text-white laptop:h-[60px] lg:h-[50px]' data-cursor-expand />
+                    </div>
+                    <div className="btn-wrap w-full">
+                      <button type='submit' className='btn pink white-bordered'>Submit</button>
+                    </div>
                   </div>
-                  <div className="btn-wrap w-full">
-                    <button type='submit' className='btn pink white-bordered'>Submit</button>
+                </form>
+              </div>
+            </div>
+          ) :
+            props === 'links' ? (
+              <div className="">
+                {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6> : <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
+                <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Let&#39;s talk.</h2>
+                <div className="btn-wrapper w-full">
+                  <div className='btn-wrap inline-block mr-[1.5rem]'>
+                    <Link className={`btn pink white-bordered`} href="#">Contact us</Link>
+                  </div>
+                  <div className="btn-wrap inline-block secondBtn mt-[2rem]">
+                    <Link className={`tertiary-btn`} href="#">Open Positions</Link>
                   </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        ) :
-          props === 'links' ? (
-            <div className="">
-              {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6>: <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
-              <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Let&#39;s talk.</h2>
-              <div className="btn-wrapper w-full">
-                <div className='btn-wrap inline-block mr-[1.5rem]'>
+
+              </div>
+            ) : (
+              <div className="">
+                {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6> : <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
+                <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Let&#39;s talk.</h2>
+                <div>
                   <Link className={`btn pink white-bordered`} href="#">Contact us</Link>
                 </div>
-                <div className="btn-wrap inline-block secondBtn mt-[2rem]">
-                  <Link className={`tertiary-btn`} href="#">Open Positions</Link>
-                </div>
               </div>
-
-            </div>
-          ) : (
-            <div className="">
-              {subTitle ? <h6 className='text-white  mb-[20px] subtitle font-normal'>{subTitle}</h6>:  <h6 className='text-white  mb-[20px] subtitle font-normal'>Lorem ipsum dolor sit amet</h6>}
-              <h2 className='h1 text-white mb-[30px] font-weight-[700]'>Let&#39;s talk.</h2>
-              <div>
-                <Link className={`btn pink white-bordered`} href="#">Contact us</Link>
-              </div>
-            </div>
-          )}
+            )}
 
 
 

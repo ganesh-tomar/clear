@@ -2,6 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import Slider from 'react-slick';
 import React, { useRef, useState, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useGSAP } from '@gsap/react'
 
 const ImageSlider = () => {
     const sliderRef = useRef(null);
@@ -13,65 +16,41 @@ const ImageSlider = () => {
         setAllSlides(slides);
     }, []);
 
+    useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        let getRatio = (el) => window.innerHeight / (window.innerHeight + el.offsetHeight);
+
+        gsap.utils.toArray("section").forEach((section, i) => {
+            const content = section.querySelector(".imageSlider .fixedContent");
+            if (content) {
+                gsap.fromTo(
+                    content,
+                    {
+                        y: () =>
+                            i ? -window.innerHeight * getRatio(content) : 0,
+                    },
+                    {
+                        y: () =>
+                            window.innerHeight * (1 - getRatio(content)),
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: () => (i ? "top bottom" : "top top"),
+                            end: "bottom top",
+                            scrub: true,
+                            invalidateOnRefresh: true, // to make it responsive
+                        },
+                    }
+                );
+            }
+        });
+    });
+
+
     useEffect(() => {
         var totalSlides = Math.ceil(allSlides);
     }, [allSlides]);
-
-    // function handleClick() {
-    //     let card = document.querySelector(`.imageSlider`);
-    //     if (card) {
-    //         card.addEventListener('click', function (event) {
-    //             var mouseX = event.clientX; // Mouse X position relative to the viewport
-    //             var elementOffsetLeft = this.getBoundingClientRect().left; // Offset left of the element
-    //             var elementOffsetRight = this.getBoundingClientRect().right;
-    //             var mouseOffsetLeft = mouseX - elementOffsetLeft;
-    //             var mouseOffsetRight = elementOffsetRight - mouseX;
-
-    //             if (mouseOffsetLeft < 151 && currentSlide > 0) {
-    //                 setCurrentSlide(currentSlide - 1);
-    //                 console.log('in');
-    //                 sliderRef.current.slickGoTo(currentSlide - 1);
-    //             }
-
-    //             if (mouseOffsetRight < 151 && currentSlide < (allSlides - 1)) {
-    //                 console.log(allSlides - 1);
-    //                 setCurrentSlide(currentSlide + 1);
-    //                 console.log('out');
-    //                 sliderRef.current.slickGoTo(currentSlide + 1);
-    //             }
-    //         });
-    //     }
-
-    //     // Clean up event listener
-    //     return () => {
-    //         if (card) {
-    //             card.removeEventListener('click', handleClick);
-    //         }
-    //     };
-    // }
-
-    // useEffect(() => {
-    //     handleClick();
-    // }, [currentSlide]); 
-
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         if (sliderRef.current) {
-    //             sliderRef.current.slickGoTo(currentSlide);
-    //         }
-    //     };
-
-    //     window.addEventListener('resize', handleResize);
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     };
-    // }, [currentSlide]);
-
-    // useEffect(() => {
-    //     if (sliderRef.current) {
-    //         sliderRef.current.slickGoTo(currentSlide);
-    //     }
-    // }, [currentSlide]);
 
     const settings = {
         dots: false,
@@ -103,7 +82,7 @@ const ImageSlider = () => {
 
     return (
         <section className='imageSlider no-padding'>
-            <div className='wrapper'>
+            <div className='wrapper fixedContent'>
                 <Slider ref={sliderRef} {...settings}>
                     <div className='item blade-height relative'>
                         <div className='blade-height'>

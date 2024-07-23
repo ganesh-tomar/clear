@@ -33,6 +33,18 @@
 	transition: top 0.3s ease-in-out;
 	border-bottom: 1px solid #e5e4e7;
 }
+.header::before {
+	content: '';
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: -1;
+	height: var(--submenu-height, 0px);
+	transition: height 0.7s ease, top 0.7s ease;
+	border-bottom: 1px solid #e5e4e7;
+}
 .header:hover:after {
 	top: 0;
 }
@@ -130,8 +142,15 @@
 @media only screen and (min-width: 992px) {
 	.menu:hover > ul {
 		max-height: 100vh;
-		height: auto;
+		/* height: auto; */
+		opacity: 1;
 		z-index: 7;
+	}
+	.menu > ul {
+		/* max-height: 100vh; */
+		/* height: auto; */
+		opacity: 0;
+		z-index: 1;
 	}
 }
 @media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {

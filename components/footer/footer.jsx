@@ -274,7 +274,7 @@ c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899
 										Fortune 500 B2B Homepage Rankings Report
 									</h4>
 									<p className="mb-[3.2rem] mt-[2rem] sm:mt-[1rem] sm:mb-[2rem]">
-										Discover key strategies from top B2B tech companies' homepages in our latest Fortune 500 analysis.
+										Discover key strategies from top B2B tech companies&apos; homepages in our latest Fortune 500 analysis.
 									</p>
 									<div className="btnWrap mt-5">
 										<Link

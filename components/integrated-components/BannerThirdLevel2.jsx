@@ -144,6 +144,7 @@ export default function BannerThirdLevel2(data) {
 						doodles.map((doodleClass, index) => {
 							return (
 								<div
+								 key={index}
 									className={`${doodleClass == 'adobe'
 										? '!max-w-[22.5rem] lg:!top-[-5rem] max-h-[35rem] '
 										: 'max-w-[35rem] lg:max-w-[32rem] max-h-[35rem]  lg:max-h-[32rem]'

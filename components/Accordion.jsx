@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
-  // useEffect(() => {
-  //   setActiveIndex(0)
-  // }, [])
 
   const toggleAccordion = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));

@@ -1,0 +1,14 @@
+{
+	"subtitle": "",
+	"PreNormalText": "Digital Experiences.",
+	"HighLightedText": "Real World",
+	"normalText": "Results.",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	"backgroundImage": "/banners/approach.png",
+	"buttonLink": "#",
+	"buttonText": "Let's get started",
+	"buttonClass": "pink btn white-bordered",
+	"underLineClass": "whiteThin",
+	"black_overlay": true,
+	"zoom": false
+}

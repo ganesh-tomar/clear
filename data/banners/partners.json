@@ -1,0 +1,15 @@
+{
+    "breadcrumbs": [
+      { "text": "About", "link": "/work" },
+      { "sp": "Partners" }
+    ],
+    "subtitle": "",
+    "PreNormalText": "Partners in Digital Transformation", 
+    "HighLightedText": "",
+    "normalText": "",
+    "description": "We partner with leading technology platforms to add value and deliver results.",
+    "backgroundImage": "/banners/collaboration.png",
+    "black_overlay": true,
+    "underLineClass":"whiteThin"
+  }
+  

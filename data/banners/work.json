@@ -1,0 +1,11 @@
+  {
+    "PreNormalText": "Our work is our", 
+    "HighLightedText": "passion.",
+    "underlineClass":"whiteThin",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    "buttonLink": "#",
+    "buttonText": "Let's get started",
+    "backgroundImage": "/banners/work_banner.jpeg",
+    "black_overlay": true
+  }
+  

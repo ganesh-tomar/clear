@@ -1,0 +1,19 @@
+{
+    "breadcrumbs": [
+      { "text": "Approach", "link": "/work" },
+      { "sp": "Design & Dev Excellence" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Design & dev ", 
+      "HighLightedText": "excellence",
+      "postText": "",
+      "normalText": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "ctaLink": "#",
+      "ctaText": "Optional resource",
+      "backgroundImage": "/dev.png",
+      "black_overlay": true,
+      "logoslider":true,
+      "underLineClass": "whiteThin"
+    }
+    

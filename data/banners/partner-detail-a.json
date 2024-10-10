@@ -1,0 +1,25 @@
+{
+	"breadcrumbs": [
+		{ "text": "About", "link": "/" },
+		{ "text": "Partners", "link": "/" },
+		{ "sp": "Drupal" }
+	],
+	"subtitle": "",
+	"PreNormalText": "Drupal",
+	"HighLightedText": "",
+	"postText": "",
+	"normalText": "",
+	"descriptionLarge": true,
+	"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	"ctaLink": "#",
+	"ctaText": "Optional resource",
+	"backgroundImage": "",
+	"black_overlay": true,
+	"logoslider": true,
+	"underLineClass": "whiteThin",
+	"doodles": [
+		{ "name": "sitemap", "path": "/doodles/sitemap.svg" , "class": "sitemapDoodle"},
+		{ "name": "arrow", "path": "/doodles/arrow_curve_white.svg" , "class": "arrowCurveDoodle"},
+		{ "name": "brackets", "path": "/doodles/brackets.svg" , "class": "bracketsDoodle"}
+	]
+}

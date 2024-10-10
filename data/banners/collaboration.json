@@ -1,0 +1,20 @@
+{
+    "breadcrumbs": [
+      { "text": "Approach", "link": "/" },
+      { "sp": "Collaboration Focus" }
+    ],
+      "subtitle": "",
+      "HighLightedText": "Collaboration",
+      "postText": "focus",
+      "normalText": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "buttonLink": "",
+      "ctaLink":"#",
+      "ctaText":"Watch video",
+      "buttonText": "",
+      "backgroundImage": "/banners/collaboration.png",
+      "black_overlay": true,
+      "logoslider":true,
+      "underLineClass": "whiteThin"
+    }
+    

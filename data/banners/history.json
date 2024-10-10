@@ -1,0 +1,11 @@
+{
+	"breadcrumbs": [{ "text": "About", "link": "/work" }, { "sp": "History" }],
+	"subtitle": "Our History",
+	"PreNormalText": "Born from , ",
+	"HighLightedText": "passion",
+	"normalText": "built with pride",
+	"description": "From our humble beginnings in 1999, Clear Digital has built a legacy of web design and digital brand experience excellence—long before the term “digital agency” was coined.",
+	"backgroundImage": "/banners/history_banner.png",
+	"black_overlay": true,
+	"underLineClass": "whiteThin bps"
+}

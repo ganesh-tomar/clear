@@ -1,0 +1,22 @@
+{
+    "breadcrumbs": [
+      { "text": "About", "link": "/work" },
+      { "sp": "Careers" }
+    ],
+      "subtitle": "",
+      "PreNormalText": "Join a team with", 
+      "HighLightedText": "heart",
+      "HighLightedTextColorClass": "text-pink",
+      "postText": "and drive",
+      "normalText": "",
+      "underLineColor":"black",
+      "underLineSize":"medium",
+      "ctaLink":"#",
+      "ctaText":"See Open Positions",
+      "backgroundImage": "",
+      "black_overlay": false,
+      "logoslider":true,
+      "blacklogo":true,
+      "underLineClass": "blackThin"
+    }
+    

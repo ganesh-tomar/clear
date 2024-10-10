@@ -1,0 +1,23 @@
+{
+  "breadcrumbs": [
+    { "text": "Work" , "link": "/work" },
+    { "text": "Case Studies ", "link": "/case-studies-overview"},
+    { "sp": "Cohesity" }
+  ],
+    "subtitle": "",
+    "PreNormalText": "Cohesity: Data management realigned and ", 
+    "HighLightedText": "redefined",
+    "HighLightedTextColorClass": "text-pink",
+    "normalText": "",
+    "description": "With its breakthrough approach, Cohesity has changed the enterprise-scale data management conversation. From its start-up roots, the company has matured and expanded its reach, and found itself in need of a brand refresh to better capture its modern, market-leading solutions. With a long-standing relationship with Clear Digital, the company knew who to come to for help updating its logo, refining the brand look and feel, and humanizing its digital presence.",
+    "buttonLink": "#",
+    "buttonText": false,
+    "backgroundImage": "",
+    "black_overlay": true,
+    "area": true,
+    "linktxt": true,
+    "underLineClass":"whiteThin"
+  }
+
+  
+  

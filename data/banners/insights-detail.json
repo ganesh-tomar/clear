@@ -1,0 +1,25 @@
+{
+    "breadcrumbs": [
+      { "text": "Insights", "link": "/Insights" },
+      { "sp": "Article" }
+    ],
+    "tabcontent": [
+        { "tabcontent": "Article" },
+        { "tabcontent": "Digital Strategy" }
+      ],
+    "subtitle": "",
+    "PreNormalText": "Ensure Your Brand’s Direction by Auditing These 5 Key Areas of Your B2B Digital Strategy", 
+    "HighLightedText": "",
+    "normalText": "",
+    "description": "",
+    "buttonLink": "#",
+    "buttonText": "",
+    "tabs": true,
+
+    "backgroundImage": "/banners/boat.png",
+    "underLineClass":"",
+    "smallbanner": true,
+    "black_overlay": true
+ 
+  }
+  

@@ -1,0 +1,539 @@
+[
+   
+    {
+        "id": "3",
+        "category": "technology",
+        "subCategory": "cyber security",
+        "clientImage": "/filter-images/honeywell.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "4",
+        "category": "technology",
+        "subCategory": "cyber security",
+        "clientImage": "/filter-images/cisco-white.svg"
+    },
+    {
+        "id": "5",
+        "category": "technology",
+        "subCategory": "big data",
+        "clientImage": "/filter-images/facebook.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "6",
+        "category": "technology",
+        "subCategory": "big data",
+        "clientImage": "/filter-images/thales.svg"
+    },
+    {
+        "id": "7",
+        "category": "technology",
+        "subCategory": "ML/AI",
+        "clientImage": "/filter-images/vmware.svg"
+    },
+
+    {
+        "id": "9",
+        "category": "technology",
+        "subCategory": "ML/AI",
+        "clientImage": "/filter-images/ctrix_white.svg",
+        "ctaLink": "/"
+    },
+
+
+    {
+        "id": "13",
+        "category": "technology",
+        "subCategory": "cloud/dev ops",
+        "clientImage": "/filter-images/riverbed.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "14",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/cisco-white.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "15",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/facebook.svg"
+    },
+    {
+        "id": "16",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/google.svg"
+    },
+    {
+        "id": "17",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/samsung.svg"
+    },
+    {
+        "id": "18",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/intel-white.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "19",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/honeywell.svg"
+    },
+    {
+        "id": "20",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/cisco-white.svg",
+        "ctaLink": "/"
+    },
+    {
+        "id": "21",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/filter-images/facebook.svg"
+    },
+    {
+        "id": "22",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "23",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "24",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "25",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "26",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "27",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "28",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/honeywell.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "29",
+        "category": "healthcare",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "30",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "31",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "32",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "33",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "34",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "35",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "36",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "37",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "38",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "39",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "40",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "41",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "42",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "43",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "44",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "45",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "46",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "47",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "48",
+        "category": "technology",
+        "subCategory": "cloud/dev ops",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "49",
+        "category": "technology",
+        "subCategory": "services",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "50",
+        "category": "technology",
+        "subCategory": "services",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "51",
+        "category": "technology",
+        "subCategory": "services",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "52",
+        "category": "technology",
+        "subCategory": "other",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "53",
+        "category": "technology",
+        "subCategory": "other",
+        "clientImage": "/intel.png"
+    },
+    
+    {
+        "id": "55",
+        "category": "technology",
+        "subCategory": "saas",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "56",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "57",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "58",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "59",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "60",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "61",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "62",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "63",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "64",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "65",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "66",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/intel.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "67",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "68",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "69",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "70",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "71",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "72",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/samsung.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "73",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "74",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/honeywell.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "75",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "76",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "77",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "78",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/samsung.png"
+    },
+    {
+        "id": "79",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "80",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/honeywell.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "81",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "82",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/samsung.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "83",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "84",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/honeywell.png"
+    },
+    {
+        "id": "85",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "86",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "87",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    },
+    {
+        "id": "88",
+        "category": "insurance",
+        "subCategory": "",
+        "clientImage": "/samsung.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "89",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/intel.png"
+    },
+    {
+        "id": "90",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/honeywell.png",
+        "ctaLink": "/"
+    },
+    {
+        "id": "91",
+        "category": "case studies",
+        "subCategory": "",
+        "clientImage": "/google.png"
+    }
+]

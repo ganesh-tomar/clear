@@ -1,0 +1,244 @@
+[
+	{
+		"id": "4",
+		"category": "case studies",
+		"subCategory": "",
+		"clientImage": "/filter-images/cisco-white.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "42",
+		"category": "technology",
+		"subCategory": "saas",
+		"clientImage": "/filter-images/ctrix_white.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "43",
+		"category": "technology",
+		"subCategory": "saas",
+		"clientImage": "/filter-images/Egnyte-Grey-Logo.svg"
+	},
+	{
+		"id": "44",
+		"category": "technology",
+		"subCategory": "saas",
+		"clientImage": "/filter-images/splunk.svg"
+	},
+	{
+		"id": "39",
+		"category": "technology",
+		"subCategory": "cyber security",
+		"clientImage": "/filter-images/thales.svg"
+	},
+	{
+		"id": "40",
+		"category": "technology",
+		"subCategory": "cyber security",
+		"clientImage": "/filter-images/mcafee.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "41",
+		"category": "technology",
+		"subCategory": "cyber security",
+		"clientImage": "/filter-images/veritas.svg"
+	},
+
+	{
+		"id": "3",
+		"category": "technology",
+		"subCategory": "big data",
+		"clientImage": "/filter-images/google.svg"
+	},
+	
+	{
+		"id": "35",
+		"category": "technology",
+		"subCategory": "ML/AI",
+		"clientImage": "/filter-images/vmware.svg"
+	},
+	{
+		"id": "36",
+		"category": "technology",
+		"subCategory": "ML/AI",
+		"clientImage": "/filter-images/H20_Logo_White.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "38",
+		"category": "technology",
+		"subCategory": "ML/AI",
+		"clientImage": "/filter-images/Globality-Grey-Logo.svg"
+	},
+	{
+		"id": "37",
+		"category": "technology",
+		"subCategory": "ML/AI",
+		"clientImage": "/filter-images/Tealbook-White-Logo.svg",
+		"ctaLink": "/"
+	},
+	
+	{
+		"id": "25",
+		"category": "technology",
+		"subCategory": "big data",
+		"clientImage": "/filter-images/intel-white.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "6",
+		"category": "technology",
+		"subCategory": "networking",
+		"clientImage": "/filter-images/24-7ai-white.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "7",
+		"category": "technology",
+		"subCategory": "cloud/dev ops",
+		"clientImage": "/filter-images/riverbed.svg",
+		"ctaLink": "/"
+	},
+
+	{
+		"id": "8",
+		"category": "technology",
+		"subCategory": "networking",
+		"clientImage": "/filter-images/cohesity.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "9",
+		"category": "technology",
+		"subCategory": "networking",
+		"clientImage": "/filter-images/hoover.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "28",
+		"category": "technology",
+		"subCategory": "services",
+		"clientImage": "/filter-images/wework.svg"
+	},
+	{
+		"id": "29",
+		"category": "technology",
+		"subCategory": "services",
+		"clientImage": "/filter-images/infosys.svg"
+	},
+	{
+		"id": "30",
+		"category": "technology",
+		"subCategory": "services",
+		"clientImage": "/filter-images/rms.svg"
+	},
+	{
+		"id": "31",
+		"category": "technology",
+		"subCategory": "services",
+		"clientImage": "/filter-images/Rimini_Street_Logo_Grey.svg"
+	},
+	{
+		"id": "19",
+		"category": "technology",
+		"subCategory": "other",
+		"clientImage": "/filter-images/samsung.svg"
+	},
+	{
+		"id": "17",
+		"category": "healthcare",
+		"subCategory": "",
+		"clientImage": "/filter-images/align.svg"
+	},
+	{
+		"id": "18",
+		"category": "healthcare",
+		"subCategory": "",
+		"clientImage": "/filter-images/itero.svg"
+	},
+	{
+		"id": "1",
+		"category": "healthcare",
+		"subCategory": "",
+		"clientImage": "/filter-images/Vocera_Logo_White-1.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "2",
+		"category": "healthcare",
+		"subCategory": "",
+		"clientImage": "/filter-images/EyeQueue-White-Logo.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "10",
+		"category": "healthcare",
+		"subCategory": "",
+		"clientImage": "/filter-images/Surescripts.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "15",
+		"category": "financial searvices",
+		"subCategory": "",
+		"clientImage": "/filter-images/Model_N_Logo_Grey-1.svg"
+	},
+	{
+		"id": "16",
+		"category": "financial searvices",
+		"subCategory": "",
+		"clientImage": "/filter-images/Financial_Force_Logo_Grey.svg"
+	},
+	{
+        "id": "11",
+        "category": "financial searvices",
+        "subCategory": "",
+        "clientImage": "/filter-images/Sand-Hill-White-Logo.svg",
+        "ctaLink": "/"
+    },
+	{
+        "id": "12",
+		"category": "insurance",
+        "subCategory": "",
+        "clientImage": "/filter-images/Hippo_Logo_Grey.svg"
+    },
+	{
+        "id": "13",
+		"category": "insurance",
+        "subCategory": "",
+        "clientImage": "/filter-images/ABD-Insurance-Grey-Logo.svg"
+    },
+	{
+        "id": "14",
+		"category": "insurance",
+        "subCategory": "",
+        "clientImage": "/filter-images/EIS-Grey-Logo.svg"
+    },
+    {
+        "id": "20",
+        "category": "non profit",
+        "subCategory": "",
+        "clientImage": "/filter-images/SRI_International_Logo_Grey-1.svg"
+    },
+    {
+        "id": "5",
+        "category": "non profit",
+        "subCategory": "",
+        "clientImage": "/filter-images/Hoover_Logo_White.svg",
+		"ctaLink": "/"
+    },
+	{
+		"id": "21",
+		"category": "other",
+		"subCategory": "",
+		"clientImage": "/filter-images/ea-white.svg",
+		"ctaLink": "/"
+	},
+	{
+		"id": "22",
+		"category": "other",
+		"subCategory": "",
+		"clientImage": "/filter-images/shuterfly.svg"
+	}
+]

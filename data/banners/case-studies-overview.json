@@ -1,0 +1,18 @@
+{
+	"breadcrumbs": [
+		{ "text": "Work", "link": "/work" },
+		{ "sp": "Case Studies" }
+	],
+	"subtitle": "",
+	"PreNormalText": "Case in point —",
+	"HighLightedText": "great",
+	"normalText": "results",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	"buttonLink": "#",
+	"buttonText": "Let's get started",
+	"ctaLink": "#",
+	"ctaText": "Read story",
+	"backgroundImage": "/banners/case_overview.png",
+	"underLineClass": "",
+	"black_overlay": true
+}

@@ -1,0 +1,63 @@
+.miniSandhillSlider .infographicSliderWrap .slick-list {
+	overflow: visible;
+}
+.infographicSliderWrap .customDots {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 128px);
+  margin: 0 30px;
+  left: 30px;
+}
+.infographicSliderWrap .customDotButton button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.customDotButton.activeDot button {
+  background-color: #4298b5 !important;
+}
+.infographicSliderWrap .customArrow{
+  position: absolute;
+  top: auto !important;
+  bottom: -40px;
+  width: 34px;
+  height: 34px;
+  background-color: black;
+  border-radius: 50%;
+}
+.infographicSliderWrap .customNext{
+  right: 0;
+}
+.infographicSliderWrap .customPrev{
+  left: 0;
+}
+.infographicSliderWrap .customDots::after{
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e6edef;
+}
+
+.customDotButton .hoverWrap {
+  left: calc(50% - 143px);
+  transform: translateY(143px) scale(0);
+  transition: all 0.4s ease-in-out;
+}
+
+.customDotButton:hover .hoverWrap {
+  transform: translateY(0) scale(1);
+}
+.slide {
+  width: 25%;
+  transition: all 0.5s ease-in-out;
+}
+.activeSlide{
+  transform: translateY(-4.7%);
+	width: 420px !important;
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
+}
+

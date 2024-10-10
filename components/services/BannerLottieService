@@ -1,0 +1,52 @@
+import lottie_1 from '../../public/Lootie/banner-lottie/lottie_1.json';
+import lottie_2 from '../../public/Lootie/banner-lottie/lottie_2.json';
+import lottie_3 from '../../public/Lootie/banner-lottie/lottie_3.json';
+import lottie_4 from '../../public/Lootie/banner-lottie/lottie_4.json';
+import lottie_5 from '../../public/Lootie/banner-lottie/lottie_5.json';
+import lottie_6 from '../../public/Lootie/banner-lottie/lottie_6.json';
+import lottie_7 from '../../public/Lootie/banner-lottie/lottie_7.json';
+import lottie_8 from '../../public/Lootie/banner-lottie/lottie_8.json';
+import lottie_9 from '../../public/Lootie/banner-lottie/lottie_9.json';
+import lottie_10 from '../../public/Lootie/banner-lottie/lottie_10.json';
+import lottie_11 from '../../public/Lootie/banner-lottie/lottie_11.json';
+import lottie_12 from '../../public/Lootie/banner-lottie/lottie_12.json';
+import lottie_13 from '../../public/Lootie/banner-lottie/lottie_13.json';
+import lottie_14 from '../../public/Lootie/banner-lottie/lottie_14.json';
+import lottie_15 from '../../public/Lootie/banner-lottie/lottie_15.json';
+
+export const BannerLottieService = (lottieOption) => {
+    switch (lottieOption) {
+        case 'authoring & publishing':
+            return lottie_1;
+        case 'brand messaging':
+            return lottie_2;
+        case 'brand strategy':
+            return lottie_3;
+        case 'digital marketing & campaigns':
+            return lottie_7;
+        case 'creative & content services':
+            return lottie_4;
+        case 'custom web development':
+            return lottie_5;
+        case 'data & analytics':
+            return lottie_6;
+        case 'dxp & cms platforms':
+            return lottie_8;
+        case 'motion graphics & videos':
+            return lottie_9;
+        case 'systems support':
+            return lottie_10;
+        case 'technology integration':
+            return lottie_11;
+        case 'user research':
+            return lottie_12;
+        case 'ux/ui design':
+            return lottie_13;
+        case 'visual identity':
+            return lottie_14;
+        case 'web experiences':
+            return lottie_15;
+        default:
+            return null;
+    }
+} 

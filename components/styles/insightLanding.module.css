@@ -1,0 +1,43 @@
+.filterLabel {
+	position: relative;
+}
+.filterLabel.active::after {
+	transform: translateY(-50%) rotate(-180deg);
+}
+.closeIcon:hover svg path {
+	stroke: #fa198c;
+}
+.search::-webkit-search-cancel-button {
+	display: none;
+}
+.overlayForm {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 15;
+}
+.overlayFormOuter {
+	position: relative;
+	margin: auto;
+}
+
+.filterLabel::after {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 3.2rem;
+	background-image: url(/chevron-up.svg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: all 0.3s ease-in-out;
+	pointer-events: none;
+}

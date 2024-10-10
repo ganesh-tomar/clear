@@ -1,0 +1,270 @@
+.tabLink {
+	position: relative;
+	border-color: rgba(0, 0, 0, 0.5);
+	color: #989898;
+	transition: all 0.3s ease-in-out;
+}
+
+.tabLink:hover {
+	color: #000;
+	border-color: rgba(0, 0, 0);
+}
+
+@media only screen and (min-width: 1601px) {
+	.tabLink {
+		padding: 40px 0;
+	}
+}
+
+.tabLinkDoodle {
+	width: 0;
+	transition: width 0.5s ease-in;
+	overflow: hidden;
+}
+
+.tabLinkArrow::after {
+	content: '';
+	position: absolute;
+	width: 7rem;
+	height: 3.6rem;
+	right: -13%;
+	top: 50%;
+	transform: translateY(-50%);
+	background: url(/Arrow_r.svg) no-repeat center;
+	background-size: contain;
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+}
+
+.tabLink.active::before {
+	opacity: 1;
+}
+
+.tabLink.active .tabLinkDoodle {
+	width: 100%;
+	transition: width 1s ease-in;
+}
+
+.tabLink.active {
+	color: #000;
+	border-color: rgba(0, 0, 0);
+}
+
+.tabLink.active .tabLinkArrow::after {
+	right: -16%;
+	opacity: 1;
+}
+
+.tabSlider {
+	overflow: unset;
+}
+
+.tabContent {
+	display: none;
+}
+
+.tabContent ul {
+	padding-left: 0;
+}
+
+.contentLink,
+.tabContent li {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	padding-top: 4rem;
+	padding-bottom: 3.9rem;
+}
+
+.contentLink,
+.tabContent li a {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--white);
+	font-size: clamp(16px, 1.3vw, 20px);
+	font-weight: 700;
+	line-height: 1.4;
+	padding-right: 3.5rem;
+}
+
+.contentLink,
+.tabContent li a::after {
+	content: '';
+	display: inline-block;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	right: 0;
+	bottom: -0.4rem;
+	background-image: url('/r_arrow_white.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: right 0.3s ease-in-out;
+}
+
+.contentLink,
+.tabContent li a:hover::after {
+	right: -10px;
+}
+
+@media only screen and (min-width: 1601px) {
+
+	.contentLink,
+	.tabContent li {
+		padding: 40px 0;
+	}
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+
+	.contentLink,
+	.tabContent li a::after {
+		bottom: -0.8rem;
+	}
+
+	.tabLink {
+		font-size: 21px;
+		font-weight: 400;
+		padding-right: 3rem;
+	}
+
+	/* .tabLinkArrow::after {
+		right: -5%;
+	}
+	.tabLink.active .tabLinkArrow::after {
+		right: -8%;
+	} */
+}
+
+@media (max-height: 950px) and (min-height: 640px) and (min-width: 1200px) {
+	.tabLink {
+		padding: 3rem 0;
+	}
+
+	.contentLink,
+	.tabContent li {
+		padding-top: 3rem;
+		padding-bottom: 2.9rem;
+	}
+}
+
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 992px) {
+	.tabLink::after {
+		height: 5.7rem;
+	}
+}
+
+@media only screen and (min-width: 1201px) {
+
+	/* .contentLink,
+	.tabContent li a::after {
+		right: -.5rem;
+	} */
+	.contentLink,
+	.tabContent li a:hover::after {
+		right: -1rem;
+	}
+}
+
+/* @media only screen and (max-width: 1201px) {
+	.contentLink,
+	.tabContent li a::after {
+		bottom: -0.7rem;
+	}
+} */
+/* @media only screen and (min-width: 1801px) {
+	.contentLink,
+	.tabContent li a::after {
+		width: 2rem;
+		height: 2rem;
+		bottom: -0.5rem;
+	}
+} */
+@media only screen and (min-width: 2201px) {
+
+	.contentLink,
+	.tabContent li a::after {
+		bottom: -0.26rem;
+	}
+}
+
+/* @media (max-height: 950px) and (min-height: 801px) and (min-width: 1200px) {
+	.tabContent ul li {
+		padding-top: 3.8rem;
+		padding-bottom: 3.8rem;
+	}
+}
+@media (max-height: 800px) and (min-height: 701px) and (min-width: 1200px) {
+	.tabContent ul li {
+		padding-top: 2.8rem;
+		padding-bottom: 2.8rem;
+	}
+}
+@media (max-height: 700px) and (min-height: 601px) and (min-width: 1200px) {
+	.tabContent ul li {
+		padding-top: 3.4rem;
+		padding-bottom: 3.4rem;
+	}
+}
+@media (max-height: 600px) and (min-width: 1200px) {
+	.tabContent ul li {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+} */
+
+.accordionHeader::after {
+	content: '';
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 50%;
+	right: 0.2rem;
+	transform: translateY(-50%);
+	background-image: url(/plusButton.svg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: all 0.2s ease-in-out;
+}
+
+.accordionHeader.active::after {
+	background-image: url(/minusButton.svg);
+}
+
+.accordionLink {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.listWrap li:last-child {
+	border-color: transparent;
+}
+
+.activeContent {
+	display: block;
+}
+
+/* .activeContent + .tabContent {
+	transform: translateX(100%) !important;
+	z-index: -1;
+}
+.prevContent {
+	transform: translateX(-100%);
+	z-index: -1;
+}
+.priorContent {
+	transform: translateX(-100%);
+	z-index: -1;
+} */
+
+.pinkCover {
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right,
+			#000 0%,
+			#000 50%,
+			#fa198c 50%,
+			#fa198c 100%);
+}

@@ -1,0 +1,20 @@
+.ul2 {
+	transform: translateX(100%);
+	animation: scrollUpWords2 20s linear infinite;
+}
+
+.ul1 {
+	animation: scrollUpWords1 20s linear infinite;
+}
+
+@keyframes scrollUpWords1 {
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes scrollUpWords2 {
+	100% {
+		transform: translateY(0);
+	}
+}

@@ -1,0 +1,25 @@
+.mainSticky ul li a:hover::after {
+	width: 100%;
+}
+.mainSticky ul li a.activated {
+	color: #fa198c;
+}
+.mainSticky ul li a.activated::after {
+	width: 100%;
+}
+.mainSticky {
+	overflow: unset;
+}
+.mainSticky ul li a {
+	font-size: 1.6rem;
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.mainSticky ul li a {
+		font-size: 16px;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.mainSticky ul li a {
+		font-size: 16px;
+	}
+}

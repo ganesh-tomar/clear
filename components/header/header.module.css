@@ -1,0 +1,221 @@
+.borderPink {
+	position: relative;
+}
+.borderPink:after {
+	content: '';
+	position: absolute;
+	bottom: -0.5rem;
+	right: 0;
+	height: 1rem;
+	width: 0;
+	z-index: 1;
+	background-color: #fa198c;
+	direction: ltr;
+	transition: width 0.3s linear;
+}
+.menu:hover .borderPink:after {
+	width: 100%;
+	left: 0;
+	right: auto;
+}
+.clearLogoSvg {
+	position: relative;
+	overflow: visible;
+	width: 11.5rem;
+	height: 4rem;
+}
+.header::after {
+	content: '';
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: -1;
+	transition: top 0.3s ease-in-out;
+	border-bottom: 1px solid #e5e4e7;
+}
+.header::before {
+	content: '';
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: -1;
+	height: var(--submenu-height, 0px);
+	transition: height 0.7s ease, top 0.7s ease;
+	border-bottom: 1px solid #e5e4e7;
+}
+.header:hover:after {
+	top: 0;
+}
+.header.showCover::after {
+	top: 0;
+}
+.header.showCover .logoRect,
+.header.showCover .logoRect2,
+.header.showCover .logoPath {
+	fill: #000;
+}
+.header.showCover .logoPath path {
+	fill: #faebd7;
+}
+.subMenuLink {
+	position: relative;
+}
+.subMenuLink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: -1px;
+	left: 0;
+	border-radius: 10px;
+	background-color: #000;
+	transform-origin: top right;
+	transition: transform 0.3s ease-in-out;
+}
+.subMenuLink:hover::after {
+	transform: scaleX(1);
+	transform-origin: top left;
+}
+.logoWrap {
+	position: relative;
+}
+.header.blackHeader .litext {
+	color: #000 !important;
+}
+.header .litext {
+	font-size: clamp(16px, 1.3vw, 20px);
+}
+.logoWrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.logoBox::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: black;
+	opacity: 0.2;
+	z-index: -2;
+	visibility: hidden;
+}
+.subCategoryContainer:last-child {
+	margin-bottom: 0;
+}
+.industryDivider {
+	position: relative;
+	padding-left: 5rem;
+}
+.industryDivider::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1px;
+	height: 100%;
+	background-color: #e5e4e7;
+	transform: translateY(-50%);
+}
+@media only screen and (max-width: 991px) {
+	.borderPink:after {
+		display: none;
+	}
+	.header .litext {
+		font-size: 24px;
+	}
+	.alignNav {
+		padding-inline: var(--container-spacing);
+	}
+	.logoWrap::after {
+		height: 32%;
+	}
+	.logoWrap {
+		height: auto !important;
+	}
+	.header.wrapCover::before {
+		height: 100vh;
+		transition: height 1s ease-in-out;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.menu:hover > ul {
+		max-height: var(--menuinner-height);
+		opacity: 1;
+		z-index: 7;
+		transition: opacity 0.6s ease-in, max-height 0.6s ease-in,
+			height 0.6s ease-in;
+	}
+	.menu > ul {
+		max-height: 0px;
+		height: auto !important;
+		opacity: 0;
+		z-index: 1;
+		transition: opacity 0.3s ease-out, max-height 0.3s ease-out,
+			height 0.3s ease-out;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.header .litext {
+		font-size: 20px !important;
+	}
+	.clearLogoSvg {
+		width: 13.5rem;
+		height: 5rem;
+	}
+	.topCover {
+		bottom: 104%;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.header .litext {
+		font-size: 20px !important;
+	}
+	.clearLogoSvg {
+		width: 13.5rem;
+		height: 5rem;
+	}
+	.topCover {
+		bottom: 104%;
+	}
+}
+@media only screen and (max-width: 1300px) and (min-width: 992px) {
+	.industryDivider {
+		margin-left: 3rem;
+	}
+	.industryDivider::before {
+		left: -2.3rem;
+	}
+}
+@media only screen and (max-width: 1050px) and (min-width: 992px) and (max-height: 950px) {
+	.menu h3 {
+		font-size: 37px;
+	}
+}
+@media (max-height: 1400px) and (min-height: 1300px) and (max-width: 1200px) and (min-width: 992px) {
+	.menu h3 {
+		font-size: 37px;
+	}
+	.insightsUl {
+		width: 88%;
+	}
+}
+@media (max-height: 950px) and (min-width: 1200px) {
+	.menu:not(:last-child) {
+		padding-right: 4.2rem;
+	}
+	.industryDivider::before {
+		left: -1.5rem;
+	}
+	.description {
+		max-width: 42rem;
+	}
+}

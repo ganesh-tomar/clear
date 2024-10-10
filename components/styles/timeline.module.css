@@ -1,0 +1,14 @@
+.circle {
+	transition: all 0.2s ease-in-out;
+	z-index: 1;
+}
+.circle.active {
+	background-color: #fa198c;
+}
+.line {
+	z-index: 0;
+}
+.pinkLine {
+	background-color: #fa198c;
+	width: 100%;
+}

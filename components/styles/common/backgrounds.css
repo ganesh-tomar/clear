@@ -1,0 +1,22 @@
+/* background Patterns */
+
+.white_square_pattern::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url("/../White Grid.png");
+  background-size: cover;
+}
+.black_square_pattern::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url("/../Black Grid.png");
+  background-size: cover;
+}

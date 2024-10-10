@@ -1,0 +1,65 @@
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1200px) and (min-width: 1025px) {
+	.logo {
+		max-width: 13.5rem;
+		height: 5rem;
+	}
+	.myrious_logo {
+		max-width: 13.5rem;
+	}
+}
+@media (max-height: 950px) and (min-height: 640px) and (max-width: 1024px) and (min-width: 991px) {
+	.myrious_logo {
+		max-width: 13.5rem;
+	}
+	.logo {
+		max-width: 13.5rem;
+		height: 5rem;
+	}
+}
+.footerLink {
+	position: relative;
+	color: #fff;
+}
+.footerLink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: -1px;
+	left: 0;
+	border-radius: 10px;
+	background-color: #fff;
+	transform-origin: top right;
+	transition: transform 0.3s ease-in-out;
+}
+.footerLink:hover::after {
+	transform: scaleX(1);
+	transform-origin: top left;
+}
+.icon {
+	overflow: hidden;
+	z-index: 1;
+	background-color: #989898;
+}
+.icon a {
+	position: relative;
+	z-index: 2;
+}
+.icon::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	z-index: 1;
+	background-color: #fa198c;
+	transition: width 0.3s linear;
+	z-index: 1;
+}
+.icon:hover:after {
+	width: 100%;
+	left: auto;
+	right: 0;
+}

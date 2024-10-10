@@ -1,0 +1,172 @@
+//Serive overview page Lotties
+import lottie_1 from '../../public/Lootie/lottie_1.json';
+import lottie_2 from '../../public/Lootie/lottie_2.json';
+import lottie_3 from '../../public/Lootie/lottie_3.json';
+import lottie_4 from '../../public/Lootie/lottie_4.json';
+import lottie_5 from '../../public/Lootie/lottie_5.json';
+import lottie_6 from '../../public/Lootie/lottie_6.json';
+import lottie_7 from '../../public/Lootie/lottie_7.json';
+import lottie_8 from '../../public/Lootie/lottie_8.json';
+import lottie_9 from '../../public/Lootie/lottie_9.json';
+import lottie_10 from '../../public/Lootie/lottie_10.json';
+import lottie_11 from '../../public/Lootie/lottie_11.json';
+import lottie_12 from '../../public/Lootie/lottie_12.json';
+import lottie_13 from '../../public/Lootie/lottie_13.json';
+import lottie_14 from '../../public/Lootie/lottie_14.json';
+import lottie_15 from '../../public/Lootie/lottie_15.json';
+
+//Service detail pages card Lotties
+import rectangleIcon from '../../public/Lootie/Collaberative_Icon.json';
+import triangleIcon from '../../public/Lootie/Discipline_Icon_Hover_R1.json';
+import circleIcon from '../../public/Lootie/Performance_Icon_Hover_R1.json';
+import TalkBubbleMarker from '../../public/Lootie/Talk-Bubble-Marker.json';
+import YouCircleMarker from '../../public/Lootie/You-Circle-Marker.json';
+import GraphMarker from '../../public/Lootie/Graph-Marker.json';
+import Thunder from '../../public/Lootie/Lightning-Bolt-Marker.json';
+import Strongcircle from '../../public/Lootie/Strong-Circle-Marker.json';
+import CorkscrewMarker from '../../public/Lootie/Corkscrew-Marker.json';
+import ArrowGraphMarker from '../../public/Lootie/Arrow-Graph-Marker.json';
+import ExpertCircle from '../../public/Lootie/Experts-Circle-Marker.json';
+import Gravity from '../../public/Lootie/Gravity-Underline-Marker.json';
+import Warningsign from '../../public/Lootie/Warning-Sign-Marker.json';
+import Rocket from '../../public/Lootie/Clear_HP_Rocket_R1 copy.json';
+
+//Homepage Lotties
+import fadeInRectangleIcon from '../../public/Lootie/Clear_Collaborative_Icon_R1.json';
+import fadeInTriangleIcon from '../../public/Lootie/Clear_Excellence_Icon_R1.json';
+import fadeInCircleIcon from '../../public/Lootie/Clear_Performance_Icon_R1.json';
+
+//Partners Lotties
+import drupal from '../../public/Lootie/Drupal-Marker.json';
+import acquia from '../../public/Lootie/Acquia-Marker.json';
+import adobe from '../../public/Lootie/Adobe_AEM-Marker.json';
+import algolia from '../../public/Lootie/Algolia-Marker.json';
+import frontify from '../../public/Lootie/Fontify-Marker.json';
+import google from '../../public/Lootie/Google-Marker.json';
+import hubspot from '../../public/Lootie/Hubspot-Marker.json';
+import pantheon from '../../public/Lootie/Pantheon-Marker.json';
+import wpengine from '../../public/Lootie/WP_Engine-Marker.json';
+
+//News Lotties
+import talkbubble from '../../public/Lootie/talk-bubble.json';
+
+//Carrers Lotties
+import Blackcircle from '../../public/Lootie/Circle-Black-Marker.json';
+import Heart from '../../public/Lootie/Heart-Marker.json';
+import circleArrow from '../../public/Lootie/Circle-Arrow-Black-Marker.json';
+import underlineMarker from '../../public/Lootie/Underline-Black-Marker-Icon.json';
+
+// Driving B2B Lotties
+import DigitalTransformationCircle from '../../public/Lootie/Digital_Transformation-Icon.json';
+import GrowthIconTriangle from '../../public/Lootie/Growth_Icon.json';
+
+// Design Dev Excellence Lotties
+import ProvenTechPartnershipCircle from '../../public/Lootie/Proven_Tech_Partnership-Icon.json';
+import EffectivenessCircle from '../../public/Lootie/Effectiveness-Icon.json';
+
+export const LottieService = (lottieOption) => {
+	switch (lottieOption) {
+		case 'firstlootie':
+			return lottie_1;
+		case 'brandstrategy':
+			return lottie_2;
+		case 'brandmessaging':
+			return lottie_3;
+		case 'campianmarketing':
+			return lottie_4;
+		case 'performance':
+			return lottie_5;
+		case 'creativeandcontent':
+			return lottie_6;
+		case 'collaborative':
+			return lottie_7;
+		case 'excellence':
+			return lottie_8;
+		case 'motiongraphics':
+			return lottie_9;
+		case 'campaignMarketing':
+			return lottie_10;
+		case 'dxpcms':
+			return lottie_11;
+		case 'technology':
+			return lottie_12;
+		case 'customweb':
+			return lottie_13;
+		case 'authoring':
+			return lottie_14;
+		case 'systemssupport':
+			return lottie_15;
+		case 'rectangleIcon':
+			return rectangleIcon;
+		case 'triangleIcon':
+			return triangleIcon;
+		case 'circleIcon':
+			return circleIcon;
+		case 'fadeInRectangleIcon':
+			return fadeInRectangleIcon;
+		case 'fadeInTriangleIcon':
+			return fadeInTriangleIcon;
+		case 'fadeInCircleIcon':
+			return fadeInCircleIcon;
+		case 'TalkBubbleMarker':
+			return TalkBubbleMarker;
+		case 'YouCircleMarker':
+			return YouCircleMarker;
+		case 'GraphMarker':
+			return GraphMarker;
+		case 'Thunder':
+			return Thunder;
+		case 'Strongcircle':
+			return Strongcircle;
+		case 'CorkscrewMarker':
+			return CorkscrewMarker;
+		case 'ArrowGraphMarker':
+			return ArrowGraphMarker;
+		case 'ExpertCircle':
+			return ExpertCircle;
+		case 'Gravity':
+			return Gravity;
+		case 'Warningsign':
+			return Warningsign;
+		case 'Rocket':
+			return Rocket;
+		case 'drupal':
+			return drupal;
+		case 'acquia':
+			return acquia;
+		case 'adobe':
+			return adobe;
+		case 'algolia':
+			return algolia;
+		case 'frontify':
+			return frontify;
+		case 'google':
+			return google;
+		case 'hubspot':
+			return hubspot;
+		case 'pantheon':
+			return pantheon;
+		case 'wpengine':
+			return wpengine;
+		case 'talkbubble':
+			return talkbubble;
+		case 'Blackcircle':
+			return Blackcircle;
+		case 'Heart':
+			return Heart;
+		case 'circleArrow':
+			return circleArrow;
+		case 'underlineMarker':
+			return underlineMarker;
+		case 'DigitalTransformationCircle':
+			return DigitalTransformationCircle;
+		case 'GrowthIconTriangle':
+			return GrowthIconTriangle;
+		case 'ProvenTechPartnershipCircle':
+			return ProvenTechPartnershipCircle;
+		case 'EffectivenessCircle':
+			return EffectivenessCircle;
+		default:
+			return null;
+	}
+};

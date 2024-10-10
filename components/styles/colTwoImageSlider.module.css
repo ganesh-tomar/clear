@@ -1,0 +1,200 @@
+.star_logo {
+	position: relative;
+}
+
+.card.insight:hover .desc {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow-y: hidden;
+}
+
+.card.insight:hover .blackOverlay::after {
+	height: 250%;
+}
+
+.hiddencontent {
+	transition: all 0.3s ease-in-out;
+}
+
+.card.insight:hover .hiddencontent {
+	height: 11rem;
+	opacity: 1;
+}
+.card.insight:hover .hiddencontent a {
+	transition: right 0.7s ease-in-out;
+}
+.card.insight:hover .hiddencontent a::after {
+	right: -1rem;
+}
+
+.blackOverlay::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: -1;
+	transition: height 0.3s ease-in-out;
+}
+
+.desc {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow-y: hidden;
+}
+.paragraph{
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow-y: hidden;
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 991px) {
+	.star_logo::after {
+		top: -35px;
+		right: -70px;
+	}
+	.card.insight:hover .desc {
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+	}
+}
+@media only screen and (max-width: 1080px) and (min-width: 991px) {
+	.card.insight:hover {
+		justify-content: start;
+	}
+	.tab {
+		padding-bottom: 0;
+		padding-top: 3rem;
+	}
+	.blackOverlay {
+		padding-top: 2rem;
+	}
+}
+@media only screen and (max-width: 1280px) and (min-width: 1025px) {
+	.card.insight:hover .hiddencontent {
+		height : 14rem;
+		opacity: 1;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	.card.insight:hover .hiddencontent {
+		height: 15rem;
+	}
+	.card.insight .desc {
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+	}
+	.card.insight .blackOverlay::after {
+		height: 225%;
+	}
+	.blackOverlay {
+		padding: 4rem;
+	}
+	.hiddencontent {
+		height: 15rem;
+		opacity: 1;
+		margin-top: 2rem;
+	}
+	.paragraph{
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+	}
+}
+@media screen and (max-width: 950px) and (max-height: 450px) {
+	.card.insight {
+		min-height: 43rem !important;
+	}
+}
+
+@media screen and (max-width: 767px) and (max-height: 450px) {
+	.card.insight {
+		min-height: 35rem !important;
+	}
+}
+
+@media screen and (max-width: 596px) {
+	.card.insight {
+		min-height: 38rem;
+	}
+	.card.insight:hover .hiddencontent {
+		height: 8rem;
+	}
+	.desc {
+		-webkit-line-clamp: 8 !important;
+		line-clamp: 8 !important;
+	}
+	.hiddencontent{
+		height: 9rem;
+	}
+}
+@media screen and (max-width: 480px) {
+	.star_logo::after {
+		top: -16px;
+		right: -70px;
+		width: 54px;
+		height: 45px;
+	}
+	.paragraph{
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+	}
+}
+@media screen and (max-width: 950px) and (max-height: 450px) {
+	.card.insight {
+		min-height: 30rem;
+	}
+}
+@media screen and (min-width: 992px) and (min-height: 1200px) {
+	.logosTitle {
+		width: 24%;
+	}
+	.star_logo::after {
+		top: -4.5rem;
+		right: -4rem;
+	}
+}
+@media screen and (min-width: 2560px) {
+	.star_logo::after {
+		right: -10rem;
+	}
+}
+@media (max-height: 1400px) and (min-height: 1200px) and (max-width: 1024px) and (min-width: 992px) {
+	.card.insight .desc {
+		-webkit-line-clamp: 3 !important;
+		line-clamp: 3;
+	}
+	.card.insight .hiddencontent {
+		height: 16rem !important;
+	}
+}
+@media (max-height: 900px) and (min-height: 800px) and (max-width: 1200px) and (min-width: 1025px) {
+	.card.insight:hover .hiddencontent {
+		height: 15rem;
+	}
+}
+@media (max-height: 950px) and (min-width: 1200px) {
+	.logosTitle {
+		width: fit-content;
+	}
+}
+
+.blackOverlay {
+	min-height: 40%;
+}
+@media only screen and (max-width: 1024px) {
+	.blackOverlay {
+		min-height: auto;
+	}
+}

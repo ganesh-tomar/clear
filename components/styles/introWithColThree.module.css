@@ -1,0 +1,6 @@
+.introWithColThree .mainRow {
+  width: calc(100% + 120px);
+}
+.introWithColThree .threeCard {
+  width: calc(33% - 120px);
+}

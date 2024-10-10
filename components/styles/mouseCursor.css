@@ -1,0 +1,46 @@
+:root {
+	--iconX: url('../../public/mousecursor/x.svg');
+	--iconPlay: url('../../public/mousecursor/play.svg');
+	--arrow-right: url('../../public/mousecursor/arrow-right.svg');
+	--arrow-left: url('../../public/mousecursor/arrow-left.svg');
+	--iconPlus: url('../../public/mousecursor/plus.svg');
+	--iconMinus: url('../../public/mousecursor/minus.svg');
+	--large-cursor: url('../../public/mousecursor/large-cursor.svg');
+	--small-cursor: url('../../public/mousecursor/small-cursor.svg');
+}
+
+* {
+	cursor: none !important;
+}
+
+#cursor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 10000;
+	transition: transform 0.2s ease-in-out;
+	background-position: center;
+	background-size: cover;
+}
+
+.cursor.hidden {
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.cursorCircle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border-width: 5px;
+	border-color: #fa198c;
+	background-repeat: no-repeat !important;
+	background-size: cover;
+	transition: all 0.2s ease-in-out;
+}
+
+.cursorCircle.expanded {
+	transform: scale(3);
+	border-width: 2px;
+}
